@@ -5,6 +5,7 @@
     },
     "extends": [
         "eslint:recommended",
+        "plugin:react/recommended",
         "plugin:prettier/recommended"
     ],
     "parser": "babel-eslint",
@@ -17,8 +18,15 @@
         "sourceType": "module"
     },
     "plugins": [
-		"prettier"
+        "react",
+		"prettier",
+		"react-hooks"
     ],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+	},
 	"ignorePatterns": [
 		"build/",
 		"**/*.min.*"
@@ -30,6 +38,8 @@
             "tabWidth": 4,
             "trailingComma": "all",
             "useTabs": true
-		}]
+		}],
+		"react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn"
     }
 }

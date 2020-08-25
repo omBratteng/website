@@ -11,10 +11,23 @@ module.exports = (api) => {
 					useBuiltIns: 'usage',
 					corejs: 3,
 				},
-			]
+			],
+			'@babel/preset-react'
 		],
 		plugins: [
 			['babel-plugin-module-resolver', { root: ['./src'] }],
-		]
+		],
+		env: {
+			production: {
+				plugins: [
+					[
+						'babel-plugin-react-remove-properties',
+						{
+							properties: ['data-testid'],
+						},
+					],
+				],
+			},
+		},
 	}
 }
