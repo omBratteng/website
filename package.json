@@ -20,6 +20,12 @@
 		"> 0.2%"
 	],
 	"scripts": {},
-	"dependencies": {},
-	"devDependencies": {}
+	"dependencies": {
+		"core-js": "^3.6.5"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.11.4",
+		"@babel/preset-env": "^7.11.0",
+		"babel-plugin-module-resolver": "^4.0.0"
+	}
 }
