@@ -16,6 +16,14 @@ module.exports = (api) => {
 			'next/babel',
 		],
 		plugins: [
+			[
+				'babel-plugin-styled-components',
+				{
+					ssr: true,
+					displayName: isDev,
+					preprocess: false,
+				},
+			],
 			['babel-plugin-module-resolver', { root: ['./src'] }],
 		],
 		env: {
