@@ -1,0 +1,25 @@
+{
+	"name": "@bratteng/default-project",
+	"version": "1.0.0",
+	"description": "My starting point for projects",
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:bratteng/default-project.git"
+	},
+	"author": {
+		"name": "Ole-Martin Bratteng",
+		"email": "ole-martin@bratteng.solutions",
+		"url": "https://bratteng.solutions"
+	},
+	"license": "BSD-3-Clause",
+	"bugs": {
+		"url": "https://github.com/bratteng/default-project/issues"
+	},
+	"browserslist": [
+		"> 0.2%"
+	],
+	"scripts": {},
+	"dependencies": {},
+	"devDependencies": {}
+}
