@@ -19,9 +19,16 @@
 	"browserslist": [
 		"> 0.2%"
 	],
-	"scripts": {},
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"prestart": "yarn build",
+		"start": "next start"
+	},
 	"dependencies": {
+		"@svgr/webpack": "^5.4.0",
 		"core-js": "^3.6.5",
+		"next": "^9.5.2",
 		"prop-types": "^15.7.2",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1"

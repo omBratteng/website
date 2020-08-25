@@ -12,7 +12,8 @@ module.exports = (api) => {
 					corejs: 3,
 				},
 			],
-			'@babel/preset-react'
+			'@babel/preset-react',
+			'next/babel',
 		],
 		plugins: [
 			['babel-plugin-module-resolver', { root: ['./src'] }],
