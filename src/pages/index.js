@@ -54,18 +54,21 @@ const Index = () => {
 			<SocialMedia>
 				<SoMeLink
 					href="https://github.com/omBratteng"
+					alt="Ole-Martin Bratteng on GitHub"
 					hoverColor="#fff"
 					icon="github-alt"
 				/>
 
 				<SoMeLink
 					href="https://twitter.com/omBratteng"
+					alt="Ole-Martin Bratteng on Twitter"
 					hoverColor="#1da1f2"
 					icon="twitter"
 				/>
 
 				<SoMeLink
 					href="https://www.linkedin.com/in/ombratteng/"
+					alt="Ole-Martin Bratteng on LinkedIn"
 					hoverColor="#1683bb"
 					small={true}
 					icon="linkedin-in"

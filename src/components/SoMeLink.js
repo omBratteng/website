@@ -31,10 +31,11 @@ const Icon = styled(FontAwesomeIcon)`
 		`}
 `
 
-const SoMeLink = ({ href, hoverColor, small, icon }) => {
+const SoMeLink = ({ href, alt, hoverColor, small, icon }) => {
 	return (
 		<Link
 			href={href}
+			alt={alt}
 			className="no-bg"
 			hoverColor={hoverColor}
 			small={small}
@@ -46,6 +47,7 @@ const SoMeLink = ({ href, hoverColor, small, icon }) => {
 
 SoMeLink.propTypes = {
 	href: PropTypes.string,
+	alt: PropTypes.string,
 	hoverColor: PropTypes.string,
 	small: PropTypes.bool,
 	icon: PropTypes.string,
