@@ -22,7 +22,6 @@
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
-		"prestart": "yarn build",
 		"start": "next start"
 	},
 	"dependencies": {
