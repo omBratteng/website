@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useLayoutEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -23,11 +23,27 @@ const Button = styled.button`
 	}
 `
 
-const ToggleTheme = ({ darkMode }) => (
-	<Button onClick={darkMode.toggle} aria-label="Toggle dark mode on or off">
-		<FontAwesomeIcon icon={['fas', darkMode.value ? 'sun' : 'moon']} />
-	</Button>
-)
+const ToggleTheme = ({ darkMode }) => {
+	const [icon, setIcon] = useState('lightbulb')
+	const [hover, setHover] = useState(false)
+
+	useLayoutEffect(() => {
+		hover
+			? setIcon(darkMode.value ? 'lightbulb-on' : 'lightbulb-slash')
+			: setIcon('lightbulb')
+	}, [hover, setIcon, darkMode])
+
+	return (
+		<Button
+			onClick={darkMode.toggle}
+			onMouseEnter={() => setHover(true)}
+			onMouseLeave={() => setHover(false)}
+			aria-label={`Turn ${darkMode.value ? 'off' : 'on'} dark mode`}
+		>
+			<FontAwesomeIcon icon={['fad', icon]} fixedWidth />
+		</Button>
+	)
+}
 
 ToggleTheme.propTypes = {
 	darkMode: PropTypes.object,
