@@ -7,10 +7,14 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 // import { fad } from '@fortawesome/pro-duotone-svg-icons'
 // import { fal } from '@fortawesome/pro-light-svg-icons'
 // import { fas } from '@fortawesome/pro-solid-svg-icons'
-import { far } from '@fortawesome/pro-regular-svg-icons'
+// import { far } from '@fortawesome/pro-regular-svg-icons'
 import { faHashtag } from '@fortawesome/pro-regular-svg-icons'
-library.add(far)
-library.add(faHashtag)
+import {
+	faGithubAlt,
+	faTwitter,
+	faLinkedinIn,
+} from '@fortawesome/free-brands-svg-icons'
+library.add(faHashtag, faGithubAlt, faTwitter, faLinkedinIn)
 
 // Next.js
 import Head from 'next/head'

@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import SoMeLink from 'components/SoMeLink'
+
 const PageTitle = styled.h1`
 	flex-grow: 0;
 	font-size: 2.5rem;
@@ -24,9 +26,13 @@ const Hashtag = styled(FontAwesomeIcon)`
 	vertical-align: -0.125em;
 `
 
-const Section = styled.section``
+const Section = styled.section`
+	display: flex;
+	flex-wrap: wrap;
+`
 const SectionTitle = styled.h2`
 	font-size: 2rem;
+	width: 100%;
 `
 
 const SectionContent = styled.div`
@@ -34,10 +40,37 @@ const SectionContent = styled.div`
 	hyphens: auto;
 `
 
+const SocialMedia = styled(Section)`
+	align-items: center;
+	font-size: 4rem;
+	justify-content: center;
+`
+
 const Index = () => {
 	return (
 		<>
 			<PageTitle>bratteng.sh</PageTitle>
+
+			<SocialMedia>
+				<SoMeLink
+					href="https://github.com/omBratteng"
+					hoverColor="#fff"
+					icon="github-alt"
+				/>
+
+				<SoMeLink
+					href="https://twitter.com/omBratteng"
+					hoverColor="#1da1f2"
+					icon="twitter"
+				/>
+
+				<SoMeLink
+					href="https://www.linkedin.com/in/ombratteng/"
+					hoverColor="#1683bb"
+					small={true}
+					icon="linkedin-in"
+				/>
+			</SocialMedia>
 
 			<Section>
 				<SectionTitle>

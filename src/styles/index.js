@@ -45,14 +45,9 @@ body {
 
 a {
 	color: ${(props) => props.theme.linkColor};
-	${'' /* padding: 0 4px; */}
 	text-decoration: none;
 
-	&::before, ::after {
-		content:"";
-	}
-
-	&:hover {
+	&:hover:not(.no-bg) {
 		background: ${(props) => rgba(props.theme.linkColor, 0.15)};
 	}
 }
