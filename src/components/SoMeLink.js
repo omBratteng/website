@@ -14,7 +14,7 @@ const Link = styled.a`
 	font-size: ${(props) => (props.small ? '1.75rem' : '3.25rem')};
 	justify-content: center;
 	margin: 0 1rem;
-	transition: background 0.3s ease;
+	transition: all 0.5s ease;
 
 	&:hover {
 		background: ${(props) => props.hoverColor ?? props.hoverColor};
