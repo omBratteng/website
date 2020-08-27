@@ -23,13 +23,10 @@ const StyledLayout = styled.div`
 `
 
 const Main = styled.main`
-	display: flex;
-	flex: 1;
-	flex-direction: column;
-
-	@media (min-width: 900px) {
-		flex-direction: row;
-	}
+	align-self: center;
+	margin: 5rem 0;
+	max-width: 700px;
+	width: 100%;
 `
 
 const Layout = ({ siteTitle, children }) => {

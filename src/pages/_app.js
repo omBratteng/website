@@ -8,7 +8,9 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 // import { fal } from '@fortawesome/pro-light-svg-icons'
 // import { fas } from '@fortawesome/pro-solid-svg-icons'
 import { far } from '@fortawesome/pro-regular-svg-icons'
+import { faHashtag } from '@fortawesome/pro-regular-svg-icons'
 library.add(far)
+library.add(faHashtag)
 
 // Next.js
 import Head from 'next/head'
