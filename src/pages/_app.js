@@ -33,8 +33,8 @@ const App = ({ Component, pageProps, darkMode }) => {
 				<meta httpEquiv="X-UA-Compatible" content="ie=edge" />
 				<meta name="apple-mobile-web-app-capable" content="yes" />
 			</Head>
-				<Layout siteTitle="Borettslag.app">
 			<AppProvider preferDarkMode={darkMode}>
+				<Layout siteTitle="bratteng &middot; sh">
 					<Component {...pageProps} />
 				</Layout>
 			</AppProvider>
