@@ -1,4 +1,5 @@
 export const lightTheme = {
-	background: "#fff",
-	font: "#000"
+	background: '#fbfbfb',
+	font: '#666',
+	linkColor: '#aa9374',
 }

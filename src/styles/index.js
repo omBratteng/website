@@ -1,12 +1,14 @@
 import { createGlobalStyle } from 'styled-components'
+import { rgba } from 'polished'
 
 import { lightTheme } from 'styles/lightTheme'
 import { darkTheme } from 'styles/darkTheme'
 
 const GlobalStyle = createGlobalStyle`
 :root {
-	--global-background-color: ${props => props.theme.background};
-	--global-font-color: ${props => props.theme.font};
+	--global-background-color: ${(props) => props.theme.background};
+	--global-font-color: ${(props) => props.theme.font};
+	--global-link-color: ${(props) => props.theme.linkColor};
 	--global-line-height: 1.5;
 
 	box-sizing: border-box;
@@ -25,6 +27,11 @@ const GlobalStyle = createGlobalStyle`
 html,
 body,
 #__next { height: 100%; }
+
+::selection {
+	background: ${(props) => rgba(props.theme.linkColor, 0.15)};
+}
+
 body {
 	background-color: var(--global-background-color);
 	color: var(--global-font-color);
@@ -35,10 +42,20 @@ body {
 		font-feature-settings: "liga";
 	}
 }
+
+a {
+	color: ${(props) => props.theme.linkColor};
+	${'' /* padding: 0 4px; */}
+	text-decoration: none;
+
+	&::before, ::after {
+		content:"";
+	}
+
+	&:hover {
+		background: ${(props) => rgba(props.theme.linkColor, 0.15)};
+	}
+}
 `
 
-export {
-	GlobalStyle,
-	lightTheme,
-	darkTheme
-}
+export { GlobalStyle, lightTheme, darkTheme }
