@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import SoMeLink from 'components/SoMeLink'
+import ToggleTheme from 'components/ToggleTheme'
+
+import { useApp } from 'contexts/app'
 
 const PageTitle = styled.h1`
 	flex-grow: 0;
@@ -47,15 +50,19 @@ const SocialMedia = styled(Section)`
 `
 
 const Index = () => {
+	const { darkMode } = useApp()
+
 	return (
 		<>
 			<PageTitle>bratteng.sh</PageTitle>
 
 			<SocialMedia>
+				<ToggleTheme darkMode={darkMode} />
+
 				<SoMeLink
 					href="https://github.com/omBratteng"
 					alt="Ole-Martin Bratteng on GitHub"
-					hoverColor="#fff"
+					hoverColor={darkMode.value ? '#fff' : '#24292e'}
 					icon="github-alt"
 				/>
 

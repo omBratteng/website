@@ -14,7 +14,8 @@ import {
 	faTwitter,
 	faLinkedinIn,
 } from '@fortawesome/free-brands-svg-icons'
-library.add(faHashtag, faGithubAlt, faTwitter, faLinkedinIn)
+import { faSun, faMoon } from '@fortawesome/pro-solid-svg-icons'
+library.add(faHashtag, faGithubAlt, faTwitter, faLinkedinIn, faSun, faMoon)
 
 // Next.js
 import Head from 'next/head'
