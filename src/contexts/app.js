@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from 'react'
+import React, { createContext, useContext, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 
@@ -17,8 +17,17 @@ const useApp = () => {
 	return context
 }
 
-const AppProvider = ({ children }) => {
-	const darkMode = useDarkMode(false)
+const AppProvider = ({ children, preferDarkMode }) => {
+	const darkMode = useDarkMode(preferDarkMode)
+
+	useEffect(() => {
+		const now = new Date()
+		now.setTime(now.getTime() + 31 * 60 * 60 * 24 * 1000)
+
+		document.cookie = `darkMode=${
+			darkMode.value
+		}; expires=${now.toUTCString()}; path=/`
+	}, [darkMode])
 
 	return (
 		<AppContext.Provider value={{ darkMode }}>
@@ -32,6 +41,7 @@ const AppProvider = ({ children }) => {
 
 AppProvider.propTypes = {
 	children: PropTypes.node,
+	preferDarkMode: PropTypes.bool,
 }
 
 export default AppProvider
