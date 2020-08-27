@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
 	--global-line-height: 1.5;
 
 	box-sizing: border-box;
-	font-family: 'Nunito', sans-serif;
+	font-family: 'Space Mono', monospace;
 	font-size: 1rem;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;

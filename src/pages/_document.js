@@ -5,6 +5,10 @@ import process from 'process'
 
 const links = [
 	{
+		href:
+			'https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap',
+	},
+	{
 		href: 'https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css',
 		integrity: 'sha256-WAgYcAck1C1/zEl5sBl5cfyhxtLgKGdpI3oKyJffVRI=',
 	},
