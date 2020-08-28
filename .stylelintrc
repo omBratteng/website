@@ -55,7 +55,7 @@
 		"number-leading-zero": "always",
 		"selector-max-compound-selectors": 4,
 		"selector-max-specificity": "1,4,1",
-		"indentation": "tab",
+		"indentation": null,
 		"no-eol-whitespace": null,
 		"no-duplicate-selectors": null,
 
