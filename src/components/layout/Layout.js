@@ -19,14 +19,19 @@ const useLayout = () => {
 const StyledLayout = styled.div`
 	display: flex;
 	flex-direction: column;
-	min-height: 100vh;
+	min-height: fill-available;
 `
 
 const Main = styled.main`
 	align-self: center;
 	margin: 5rem 0;
 	max-width: 700px;
+	padding: 0 1.5rem;
 	width: 100%;
+
+	@media (min-width: 768px) {
+		padding: 0;
+	}
 `
 
 const Layout = ({ siteTitle, children }) => {

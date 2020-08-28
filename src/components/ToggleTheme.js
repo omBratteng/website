@@ -1,43 +1,50 @@
-import React, { useState, useLayoutEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { size } from 'polished'
 
+import { useHover } from '@react-aria/interactions'
+
 const Button = styled.button`
-	${size('3rem')}
+	${size('2rem')}
 	align-items: center;
-	background: var(--global-link-color);
+	background: var(
+		${(props) =>
+			props.isHovered ? '--global-font-color' : '--global-link-color'}
+	);
 	border: 0;
 	border-radius: 100%;
 	color: var(--global-background-color);
 	cursor: pointer;
 	display: flex;
-	font-size: 1.75rem;
+	font-size: 1rem;
 	justify-content: center;
-	margin: 0 1rem;
+	margin: 0 0.5rem;
 	transition: background 0.3s ease;
 
-	&:hover {
-		background: var(--global-font-color);
+	@media (min-width: 768px) {
+		font-size: 1.75rem;
+		margin: 0 1rem;
+		${size('3rem')}
 	}
 `
 
 const ToggleTheme = ({ darkMode }) => {
 	const [icon, setIcon] = useState('lightbulb')
-	const [hover, setHover] = useState(false)
+	const { hoverProps, isHovered } = useHover(false)
 
-	useLayoutEffect(() => {
-		hover
+	useEffect(() => {
+		isHovered
 			? setIcon(darkMode.value ? 'lightbulb-on' : 'lightbulb-slash')
 			: setIcon('lightbulb')
-	}, [hover, setIcon, darkMode])
+	}, [isHovered, setIcon, darkMode])
 
 	return (
 		<Button
+			{...hoverProps}
+			isHovered={isHovered}
 			onClick={darkMode.toggle}
-			onMouseEnter={() => setHover(true)}
-			onMouseLeave={() => setHover(false)}
 			aria-label={`Turn ${darkMode.value ? 'off' : 'on'} dark mode`}
 		>
 			<FontAwesomeIcon icon={['fad', icon]} fixedWidth />

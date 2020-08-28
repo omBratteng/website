@@ -32,6 +32,7 @@
 		"@fortawesome/pro-regular-svg-icons": "^5.14.0",
 		"@fortawesome/pro-solid-svg-icons": "^5.14.0",
 		"@fortawesome/react-fontawesome": "^0.1.11",
+		"@react-aria/interactions": "^3.2.0",
 		"@svgr/webpack": "^5.4.0",
 		"core-js": "^3.6.5",
 		"next": "^9.5.2",

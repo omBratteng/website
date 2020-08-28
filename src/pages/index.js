@@ -8,9 +8,9 @@ import ToggleTheme from 'components/ToggleTheme'
 import { useApp } from 'contexts/app'
 
 const PageTitle = styled.h1`
-	flex-grow: 0;
 	font-size: 2.5rem;
 	font-weight: 500;
+	margin: 0;
 	text-align: center;
 	width: 100%;
 
@@ -32,15 +32,34 @@ const Hashtag = styled(FontAwesomeIcon)`
 const Section = styled.section`
 	display: flex;
 	flex-wrap: wrap;
+	padding: 1rem 0;
+
+	&:first-of-type {
+		padding-top: 0;
+	}
+
+	&:last-of-type {
+		padding-bottom: 0;
+	}
 `
+
 const SectionTitle = styled.h2`
-	font-size: 2rem;
+	font-size: 1.5rem;
+	margin: 0 0 1rem;
 	width: 100%;
+
+	@media (min-width: 768px) {
+		font-size: 2rem;
+	}
 `
 
 const SectionContent = styled.div`
-	font-size: 1.3rem;
+	font-size: 1rem;
 	hyphens: auto;
+
+	@media (min-width: 768px) {
+		font-size: 1.3rem;
+	}
 `
 
 const SocialMedia = styled(Section)`
@@ -54,7 +73,9 @@ const Index = () => {
 
 	return (
 		<>
-			<PageTitle>bratteng.sh</PageTitle>
+			<Section>
+				<PageTitle>bratteng.sh</PageTitle>
+			</Section>
 
 			<SocialMedia>
 				<ToggleTheme darkMode={darkMode} />

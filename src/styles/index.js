@@ -28,6 +28,8 @@ html,
 body,
 #__next { height: 100%; }
 
+* { box-sizing: border-box; }
+
 ::selection {
 	background: ${(props) => rgba(props.theme.linkColor, 0.15)};
 }
