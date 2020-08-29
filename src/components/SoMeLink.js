@@ -20,6 +20,10 @@ const Link = styled.a`
 		background: ${(props) => props.hoverColor ?? props.hoverColor};
 	}
 
+	span {
+		font-size: 0;
+	}
+
 	@media (min-width: 768px) {
 		font-size: ${(props) => (props.small ? '1.75rem' : '3.25rem')};
 		margin: 0 1rem;
@@ -49,6 +53,7 @@ const SoMeLink = ({ href, alt, hoverColor, small, icon }) => {
 			small={small}
 		>
 			<Icon icon={['fab', icon]} />
+			<span>{alt}</span>
 		</Link>
 	)
 }

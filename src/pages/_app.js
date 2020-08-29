@@ -47,8 +47,13 @@ const App = ({ Component, pageProps, darkMode }) => {
 					name="viewport"
 					content="width=device-width, initial-scale=1, shrink-to-fit=no"
 				/>
+				<meta
+					name="description"
+					content="Ole-Martin Bratteng &mdash; Software developer"
+				/>
 				<meta httpEquiv="X-UA-Compatible" content="ie=edge" />
 				<meta name="apple-mobile-web-app-capable" content="yes" />
+				<link rel="shortcut icon" href="/favicon.ico" />
 			</Head>
 			<AppProvider preferDarkMode={darkMode}>
 				<Layout siteTitle="bratteng &middot; sh">
