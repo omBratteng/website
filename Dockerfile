@@ -12,18 +12,18 @@ WORKDIR /src
 
 COPY package.json ./
 COPY yarn.lock ./
-COPY .npmrc.default ./.npmrc
+COPY .npmrc ./
 RUN yarn install --frozen-lockfile
 
 # # -- CHECK STAGE --------------------------------
 
-# FROM base AS check
+FROM base AS check
 
-# ARG CI
-# ENV CI $CI
+ARG CI
+ENV CI $CI
 
-# COPY . .
-# RUN npm run lint
+COPY . .
+RUN yarn lint
 # RUN npm test
 
 # -- BUILD STAGE --------------------------------
