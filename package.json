@@ -22,7 +22,10 @@
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
-		"start": "next start"
+		"start": "next start",
+		"lint": "yarn lint:eslint && yarn lint:stylelint",
+		"lint:eslint": "eslint src/ --report-unused-disable-directives",
+		"lint:stylelint": "stylelint 'src/**/*.js'"
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^1.2.30",
