@@ -116,4 +116,4 @@ jobs:
         run: |
           yarn start &
           sleep 5
-          curl http://localhost:3000 > /dev/null
+          curl http://localhost:3000/api/status > /dev/null
