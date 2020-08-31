@@ -1,0 +1,119 @@
+name: Code linting
+
+on:
+  push:
+
+env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  FONTAWESOME_TOKEN: ${{ secrets.FONTAWESOME_TOKEN }}
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ['14']
+    name: "[v${{ matrix.node-version }}] prepare"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: |
+          yarn install --frozen-lockfile
+
+      - name: Cache node_modules
+        id: cache-node_modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ github.sha }}-node_modules-v${{ matrix.node-version }}
+
+  check:
+    runs-on: ubuntu-latest
+    needs: prepare
+    strategy:
+      matrix:
+        node-version: ['14']
+    name: "[v${{ matrix.node-version }}] check"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Cache node_modules
+        id: cache-node_modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ github.sha }}-node_modules-v${{ matrix.node-version }}
+
+      - name: Install dependencies
+        if: steps.cache-node_modules.outputs.cache-hit != 'true'
+        run: |
+          yarn install --frozen-lockfile
+
+      - name: Lint
+        run: |
+          yarn lint
+
+      # - name: Test
+      #   env:
+      #     CI: 1
+      #   run: |
+      #     yarn test
+
+      # - name: Submit coverage
+      #   uses: codecov/codecov-action@v1
+      #   with:
+      #     token: ${{ secrets.CODECOV_TOKEN }}
+
+  build-and-run:
+    runs-on: ubuntu-latest
+    needs: prepare
+    strategy:
+      matrix:
+        node-version: ['14']
+    name: "[v${{ matrix.node-version }}] build"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Cache node_modules
+        id: cache-node_modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ github.sha }}-node_modules-v${{ matrix.node-version }}
+
+      - name: Install dependencies
+        if: steps.cache-node_modules.outputs.cache-hit != 'true'
+        run: |
+          yarn install --frozen-lockfile
+
+      - name: Build
+        run: |
+          yarn build
+
+      - name: Run & check status code
+        run: |
+          yarn start &
+          sleep 5
+          curl http://localhost:3000 > /dev/null
