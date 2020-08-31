@@ -1,4 +1,4 @@
-name: Code linting
+name: Continuous Integration
 
 on:
   push:
