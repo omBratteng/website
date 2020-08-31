@@ -17,7 +17,7 @@ const Link = styled.a`
 	transition: all 0.5s ease;
 
 	&:hover {
-		background: ${(props) => props.hoverColor ?? props.hoverColor};
+		background: var(--${(props) => props.hoverColor}-hover-color);
 	}
 
 	span {

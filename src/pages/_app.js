@@ -65,7 +65,7 @@ const App = ({ Component, pageProps, darkMode }) => {
 }
 
 App.getInitialProps = ({ ctx }) => {
-	let darkMode = getCookie('darkMode', ctx.req.headers.cookie || '')
+	let darkMode = getCookie('darkMode', ctx.req.headers.cookie || '') || 'true'
 
 	return {
 		darkMode: darkMode === 'true',
@@ -79,7 +79,7 @@ App.propTypes = {
 }
 
 App.defaultProps = {
-	darkMode: false,
+	darkMode: true,
 }
 
 export default App

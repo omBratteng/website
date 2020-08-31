@@ -45,7 +45,7 @@ const ToggleTheme = ({ darkMode }) => {
 			{...hoverProps}
 			isHovered={isHovered}
 			onClick={darkMode.toggle}
-			aria-label={`Turn ${darkMode.value ? 'off' : 'on'} dark mode`}
+			aria-label={`Toggle colour scheme`}
 		>
 			<FontAwesomeIcon icon={['fad', icon]} fixedWidth />
 		</Button>

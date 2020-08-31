@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -70,13 +70,6 @@ const SocialMedia = styled(Section)`
 
 const Index = () => {
 	const { darkMode } = useApp()
-	const [ghHoverColor, setGitHubHoverColor] = useState(
-		darkMode.value ? '#fff' : '#24292e',
-	)
-
-	useEffect(() => {
-		setGitHubHoverColor(darkMode.value ? '#fff' : '#24292e')
-	}, [darkMode])
 
 	return (
 		<>
@@ -90,21 +83,21 @@ const Index = () => {
 				<SoMeLink
 					href="https://github.com/omBratteng"
 					alt="Ole-Martin Bratteng on GitHub"
-					hoverColor={ghHoverColor}
+					hoverColor="github"
 					icon="github-alt"
 				/>
 
 				<SoMeLink
 					href="https://twitter.com/omBratteng"
 					alt="Ole-Martin Bratteng on Twitter"
-					hoverColor="#1da1f2"
+					hoverColor="twitter"
 					icon="twitter"
 				/>
 
 				<SoMeLink
 					href="https://www.linkedin.com/in/ombratteng/"
 					alt="Ole-Martin Bratteng on LinkedIn"
-					hoverColor="#1683bb"
+					hoverColor="linkedin"
 					small={true}
 					icon="linkedin-in"
 				/>

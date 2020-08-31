@@ -44,6 +44,14 @@ body {
 	@supports not (font-variant-ligatures: common-ligatures) {
 		font-feature-settings: "liga";
 	}
+
+	--github-hover-color: #24292e;
+	--twitter-hover-color: #1da1f2;
+	--linkedin-hover-color: #1683bb;
+
+	&.dark-mode {
+		--github-hover-color: #fff;
+	}
 }
 
 a {
