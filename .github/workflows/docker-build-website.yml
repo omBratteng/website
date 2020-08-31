@@ -1,0 +1,30 @@
+name: Build Docker website image
+
+env:
+  DOCKER_BUILDKIT: 1
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and push to GitHub Packages
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: ombratteng/bratteng.sh/website
+          cache_froms: docker.pkg.github.com/omBratteng/bratteng.sh:latest
+          build_args: NPM_TOKEN=${{ secrets.NPM_TOKEN }},FONTAWESOME_TOKEN=${{ secrets.FONTAWESOME_TOKEN }},BUILDKIT_INLINE_CACHE=1
+          add_git_labels: true
+          tag_with_sha: true
+          tags: latest
