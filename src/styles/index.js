@@ -6,11 +6,6 @@ import { darkTheme } from 'styles/darkTheme'
 
 const GlobalStyle = createGlobalStyle`
 :root {
-	--global-background-color: ${(props) => props.theme.background};
-	--global-font-color: ${(props) => props.theme.font};
-	--global-link-color: ${(props) => props.theme.linkColor};
-	--global-line-height: 1.5;
-
 	box-sizing: border-box;
 	font-family: 'Space Mono', monospace;
 	font-size: 1rem;
@@ -18,7 +13,6 @@ const GlobalStyle = createGlobalStyle`
 	-webkit-font-smoothing: antialiased;
 	font-style: normal;
 	font-weight: 400;
-	line-height: var(--global-line-height);
 	-ms-overflow-style: -ms-autohiding-scrollbar;
 	text-rendering: optimizeLegibility;
 	text-size-adjust: 100%;
@@ -31,7 +25,7 @@ body,
 * { box-sizing: border-box; }
 
 ::selection {
-	background: ${(props) => rgba(props.theme.linkColor, 0.15)};
+	background: ${(props) => rgba(props.theme.colors.linkColor, 0.15)};
 }
 
 body {
@@ -39,6 +33,7 @@ body {
 	color: var(--global-font-color);
 	font-feature-settings: "liga" 1, "lnum" 1, "tnum" 1;
 	font-variant-ligatures: common-ligatures;
+	line-height: ${(props) => props.theme.font.lineHeight};
 	margin: 0;
 	transition: background 0.5s ease, color 0.5s ease;
 
@@ -46,21 +41,31 @@ body {
 		font-feature-settings: "liga";
 	}
 
-	--github-hover-color: #24292e;
-	--twitter-hover-color: #1da1f2;
-	--linkedin-hover-color: #1683bb;
+	--global-background-color: ${darkTheme.colors.background};
+	--global-font-color: ${darkTheme.colors.font};
+	--global-link-color: ${darkTheme.colors.linkColor};
 
-	&.dark-mode {
-		--github-hover-color: #fff;
+	--github-hover-color: ${darkTheme.some.github};
+	--twitter-hover-color: ${darkTheme.some.twitter};
+	--linkedin-hover-color: ${darkTheme.some.linkedin};
+
+	&.light-mode {
+		--global-background-color: ${lightTheme.colors.background};
+		--global-font-color: ${lightTheme.colors.font};
+		--global-link-color: ${lightTheme.colors.linkColor};
+
+		--github-hover-color: ${lightTheme.some.github};
+		--twitter-hover-color: ${lightTheme.some.twitter};
+		--linkedin-hover-color: ${lightTheme.some.linkedin};
 	}
 }
 
 a {
-	color: ${(props) => props.theme.linkColor};
+	color: ${(props) => props.theme.colors.linkColor};
 	text-decoration: none;
 
 	&:hover:not(.no-bg) {
-		background: ${(props) => rgba(props.theme.linkColor, 0.15)};
+		background: ${(props) => rgba(props.theme.colors.linkColor, 0.15)};
 	}
 }
 `
