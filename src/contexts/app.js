@@ -26,7 +26,7 @@ const AppProvider = ({ children }) => {
 
 		document.cookie = `darkMode=${
 			darkMode.value
-		}; expires=${now.toUTCString()}; path=/`
+		}; expires=${now.toUTCString()}; sameSite=strict; path=/`
 	}, [darkMode])
 
 	return (
