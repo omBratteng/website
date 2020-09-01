@@ -10,24 +10,18 @@ const devLinks = [
 	{
 		href: googleFonts('Space+Mono:ital,wght@0,400;0,700;1,400;1,700'),
 	},
-	{
-		href: 'https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css',
-		integrity: 'sha256-WAgYcAck1C1/zEl5sBl5cfyhxtLgKGdpI3oKyJffVRI=',
-	},
 ]
 
 const prodLinks = [
 	{
 		href: googleFonts('Space+Mono:wght@400;700'),
 	},
-	{
-		href: 'https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css',
-		integrity: 'sha256-WAgYcAck1C1/zEl5sBl5cfyhxtLgKGdpI3oKyJffVRI=',
-	},
 ]
 
+const globalLinks = []
+
 const isDev = process.env.NODE_ENV === 'development'
-const links = isDev ? devLinks : prodLinks
+const links = [...(isDev ? devLinks : prodLinks), ...globalLinks]
 
 class Doc extends Document {
 	static async getInitialProps(context) {

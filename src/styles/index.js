@@ -39,6 +39,7 @@ body {
 	color: var(--global-font-color);
 	font-feature-settings: "liga" 1, "lnum" 1, "tnum" 1;
 	font-variant-ligatures: common-ligatures;
+	margin: 0;
 	transition: background 0.5s ease, color 0.5s ease;
 
 	@supports not (font-variant-ligatures: common-ligatures) {
