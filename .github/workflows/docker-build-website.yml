@@ -20,7 +20,7 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.CR_PAT }}
           registry: ghcr.io
           repository: ombratteng/bratteng.sh
           cache_froms: ghcr.io/ombratteng/bratteng.sh:latest
