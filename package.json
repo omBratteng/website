@@ -38,7 +38,7 @@
 		"@react-aria/interactions": "^3.2.0",
 		"@svgr/webpack": "^5.4.0",
 		"core-js": "^3.6.5",
-		"next": "^9.5.2",
+		"next": "^9.5.3-canary.26",
 		"polished": "^3.6.5",
 		"prop-types": "^15.7.2",
 		"react": "^16.13.1",
