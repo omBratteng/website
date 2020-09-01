@@ -21,9 +21,9 @@ jobs:
         with:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
-          repository: ombratteng/bratteng.sh/website
-          cache_froms: docker.pkg.github.com/omBratteng/bratteng.sh:latest
+          registry: ghcr.io
+          repository: ombratteng/bratteng.sh
+          cache_froms: ghcr.io/ombratteng/bratteng.sh:latest
           build_args: NPM_TOKEN=${{ secrets.NPM_TOKEN }},FONTAWESOME_TOKEN=${{ secrets.FONTAWESOME_TOKEN }},BUILDKIT_INLINE_CACHE=1
           add_git_labels: true
           tag_with_sha: true
