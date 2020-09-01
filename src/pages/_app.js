@@ -33,12 +33,10 @@ import Head from 'next/head'
 // Context
 import AppProvider from 'contexts/app'
 
-import { getCookie } from 'hooks/useCookie'
-
 // Components
 import Layout from 'components/layout/Layout'
 
-const App = ({ Component, pageProps, darkMode }) => {
+const App = ({ Component, pageProps }) => {
 	return (
 		<>
 			<Head>
@@ -55,21 +53,13 @@ const App = ({ Component, pageProps, darkMode }) => {
 				<meta name="apple-mobile-web-app-capable" content="yes" />
 				<link rel="shortcut icon" href="/favicon.ico" />
 			</Head>
-			<AppProvider preferDarkMode={darkMode}>
+			<AppProvider>
 				<Layout siteTitle="bratteng &middot; sh">
 					<Component {...pageProps} />
 				</Layout>
 			</AppProvider>
 		</>
 	)
-}
-
-App.getInitialProps = ({ ctx }) => {
-	let darkMode = getCookie('darkMode', ctx.req.headers.cookie || '') || 'true'
-
-	return {
-		darkMode: darkMode === 'true',
-	}
 }
 
 App.propTypes = {

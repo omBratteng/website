@@ -17,8 +17,8 @@ const useApp = () => {
 	return context
 }
 
-const AppProvider = ({ children, preferDarkMode }) => {
-	const darkMode = useDarkMode(preferDarkMode)
+const AppProvider = ({ children }) => {
+	const darkMode = useDarkMode(true)
 
 	useEffect(() => {
 		const now = new Date()

@@ -9,7 +9,7 @@ import { useApp } from 'contexts/app'
 
 const PageTitle = styled.h1`
 	font-size: 2.5rem;
-	font-weight: 500;
+	font-weight: 400;
 	margin: 0;
 	text-align: center;
 	width: 100%;
@@ -18,7 +18,6 @@ const PageTitle = styled.h1`
 		color: #da4d5e;
 		content: '~/';
 		font-style: normal;
-		font-weight: 500;
 	}
 `
 

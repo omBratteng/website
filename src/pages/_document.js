@@ -67,19 +67,21 @@ class Doc extends Document {
 					<PreloadStyles links={links} />
 				</Head>
 				<body>
+					<script
+						dangerouslySetInnerHTML={{
+							__html: `!function(){var e="dark-mode",a="light-mode";function o(o){document.body.classList.add(o?e:a),document.body.classList.remove(o?a:e)}var t=window.matchMedia("(prefers-color-scheme: dark)"),r="(prefers-color-scheme: dark)"===t.media,d=null;try{d=localStorage.getItem("darkMode")}catch(e){}var s=null!==d;if(s&&(d=JSON.parse(d)),s)o(d);else if(r)o(t.matches),localStorage.setItem("darkMode",t.matches);else{var c=document.body.classList.contains(e);localStorage.setItem("darkMode",JSON.stringify(c))}}();`,
+						}}
+					/>
 					<Main />
 					<NextScript />
 					<script
+						async
 						dangerouslySetInnerHTML={{
 							__html: `(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');`,
-						}}
-					/>
-					<script
-						dangerouslySetInnerHTML={{
-							__html: `ga("create", "UA-176398081-1", "auto");
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga("create", "UA-176398081-1", "auto");
 ga("set", "anonymizeIp", true);
 ga("send", "pageview");`,
 						}}
