@@ -45,6 +45,8 @@ body {
 	--global-font-color: ${darkTheme.colors.font};
 	--global-link-color: ${darkTheme.colors.linkColor};
 
+	--red: ${darkTheme.colors.red};
+
 	--github-hover-color: ${darkTheme.some.github};
 	--twitter-hover-color: ${darkTheme.some.twitter};
 	--linkedin-hover-color: ${darkTheme.some.linkedin};
@@ -54,6 +56,8 @@ body {
 		--global-font-color: ${lightTheme.colors.font};
 		--global-link-color: ${lightTheme.colors.linkColor};
 
+		--red: ${lightTheme.colors.red};
+
 		--github-hover-color: ${lightTheme.some.github};
 		--twitter-hover-color: ${lightTheme.some.twitter};
 		--linkedin-hover-color: ${lightTheme.some.linkedin};
@@ -61,7 +65,7 @@ body {
 }
 
 a {
-	color: ${(props) => props.theme.colors.linkColor};
+	color: var(--global-link-color);
 	text-decoration: none;
 
 	&:hover:not(.no-bg) {

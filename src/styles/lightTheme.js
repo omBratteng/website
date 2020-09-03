@@ -1,8 +1,9 @@
 export const lightTheme = {
 	colors: {
 		background: '#fbfbfb',
-		font: '#666',
-		linkColor: '#aa9374',
+		font: '#555',
+		linkColor: '#857151',
+		red: '#cf2a3e',
 	},
 
 	some: {

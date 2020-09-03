@@ -3,6 +3,7 @@ export const darkTheme = {
 		background: '#282828',
 		font: '#ede1cf',
 		linkColor: '#aa9374',
+		red: '#cf2a3e',
 	},
 
 	some: {

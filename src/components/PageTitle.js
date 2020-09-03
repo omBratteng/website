@@ -10,7 +10,7 @@ const A = styled.a`
 	transition: color 0.3s ease;
 
 	&:hover {
-		color: #da4d5e;
+		color: var(--red);
 	}
 `
 
@@ -23,7 +23,7 @@ const H1 = styled.h1`
 	width: 100%;
 
 	&::before {
-		color: #da4d5e;
+		color: var(--red);
 		content: '~/';
 		font-style: normal;
 	}
@@ -36,7 +36,7 @@ const Slug = styled.span`
 					font-weight: bold;
 
 					&::before {
-						color: #da4d5e;
+						color: var(--red);
 						content: '/';
 						font-style: normal;
 						font-weight: 400;

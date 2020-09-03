@@ -28,7 +28,7 @@ const Title = styled.h2`
 `
 
 const Hashtag = styled(FontAwesomeIcon)`
-	color: #da4d5e;
+	color: var(--red);
 	margin-right: 0.75rem;
 	max-width: 1.75rem;
 	vertical-align: -0.125em;
