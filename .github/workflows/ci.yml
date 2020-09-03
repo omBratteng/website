@@ -2,6 +2,9 @@ name: Continuous Integration
 
 on:
   push:
+    branches:
+      - develop
+      - feature/*
 
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

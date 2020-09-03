@@ -4,12 +4,15 @@ env:
   DOCKER_BUILDKIT: 1
 
 on:
-  push:
+  pull_request:
     branches:
       - main
+    types:
+      - closed
 
 jobs:
   build:
+    if: github.event.pull_request.merged == true # only merged pull requests must trigger this job
     runs-on: ubuntu-latest
 
     steps:
