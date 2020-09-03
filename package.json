@@ -1,11 +1,11 @@
 {
-	"name": "@bratteng/default-project",
+	"name": "@bratteng/bratteng.sh",
 	"version": "1.3.0",
-	"description": "My starting point for projects",
+	"description": "My personal websites",
 	"private": true,
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:bratteng/default-project.git"
+		"url": "git@github.com:omBratteng/bratteng.sh.git"
 	},
 	"author": {
 		"name": "Ole-Martin Bratteng",
@@ -14,7 +14,7 @@
 	},
 	"license": "BSD-3-Clause",
 	"bugs": {
-		"url": "https://github.com/bratteng/default-project/issues"
+		"url": "https://github.com/omBratteng/bratteng.sh/issues"
 	},
 	"browserslist": [
 		"> 0.2%"
