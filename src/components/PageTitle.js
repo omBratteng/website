@@ -1,0 +1,70 @@
+import React from 'react'
+import styled, { css } from 'styled-components'
+import Link from 'next/link'
+
+import { useRouter } from 'next/router'
+
+const A = styled.a`
+	cursor: pointer;
+	padding: 0 0.5rem;
+	transition: color 0.3s ease;
+
+	&:hover {
+		color: #da4d5e;
+	}
+`
+
+const H1 = styled.h1`
+	font-size: 2.5rem;
+	font-weight: 400;
+	margin: 0;
+	padding-bottom: 1rem;
+	text-align: center;
+	width: 100%;
+
+	&::before {
+		color: #da4d5e;
+		content: '~/';
+		font-style: normal;
+	}
+`
+
+const Slug = styled.span`
+	${(props) =>
+		props.isNotHome
+			? css`
+					font-weight: bold;
+
+					&::before {
+						color: #da4d5e;
+						content: '/';
+						font-style: normal;
+						font-weight: 400;
+						margin-right: 0.5rem;
+					}
+			  `
+			: css`
+					padding: 0 0.5rem;
+			  `}
+`
+
+const PageTitle = () => {
+	const { route, query } = useRouter()
+
+	const pageTitle =
+		route !== '/' ? (
+			<Link href="/">
+				<A className="no-bg">bratteng.sh</A>
+			</Link>
+		) : (
+			<Slug>bratteng.sh</Slug>
+		)
+	return (
+		<H1 isNotHome={route !== '/'}>
+			{pageTitle}
+			{query.slug && <Slug isNotHome={route !== '/'}>{query.slug}</Slug>}
+		</H1>
+	)
+}
+
+export default PageTitle

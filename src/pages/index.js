@@ -1,56 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import SoMeLink from 'components/SoMeLink'
-import ToggleTheme from 'components/ToggleTheme'
+import BlogPosts from 'components/BlogPosts'
+import Section from 'components/layout/Section'
 
-import { useApp } from 'contexts/app'
-
-const PageTitle = styled.h1`
-	font-size: 2.5rem;
-	font-weight: 400;
-	margin: 0;
-	text-align: center;
-	width: 100%;
-
-	&::before {
-		color: #da4d5e;
-		content: '~/';
-		font-style: normal;
-	}
-`
-
-const Hashtag = styled(FontAwesomeIcon)`
-	color: #da4d5e;
-	margin-right: 0.75rem;
-	max-width: 1.75rem;
-	vertical-align: -0.125em;
-`
-
-const Section = styled.section`
-	display: flex;
-	flex-wrap: wrap;
-	padding: 1rem 0;
-
-	&:first-of-type {
-		padding-top: 0;
-	}
-
-	&:last-of-type {
-		padding-bottom: 0;
-	}
-`
-
-const SectionTitle = styled.h2`
-	font-size: 1.5rem;
-	margin: 0 0 1rem;
-	width: 100%;
-
-	@media (min-width: 768px) {
-		font-size: 2rem;
-	}
-`
+import { getAllPosts } from 'lib/getPost'
 
 const SectionContent = styled.div`
 	font-size: 1rem;
@@ -61,53 +16,10 @@ const SectionContent = styled.div`
 	}
 `
 
-const SocialMedia = styled(Section)`
-	align-items: center;
-	font-size: 4rem;
-	justify-content: center;
-`
-
-const Index = () => {
-	const { darkMode } = useApp()
-
+const Index = ({ allPosts }) => {
 	return (
 		<>
-			<Section>
-				<PageTitle>bratteng.sh</PageTitle>
-			</Section>
-
-			<SocialMedia>
-				<ToggleTheme darkMode={darkMode} />
-
-				<SoMeLink
-					href="https://github.com/omBratteng"
-					alt="Ole-Martin Bratteng on GitHub"
-					hoverColor="github"
-					icon="github-alt"
-				/>
-
-				<SoMeLink
-					href="https://twitter.com/omBratteng"
-					alt="Ole-Martin Bratteng on Twitter"
-					hoverColor="twitter"
-					icon="twitter"
-				/>
-
-				<SoMeLink
-					href="https://www.linkedin.com/in/ombratteng/"
-					alt="Ole-Martin Bratteng on LinkedIn"
-					hoverColor="linkedin"
-					small={true}
-					icon="linkedin-in"
-				/>
-			</SocialMedia>
-
-			<Section>
-				<SectionTitle>
-					<Hashtag icon={['far', 'hashtag']} />
-					About
-				</SectionTitle>
-
+			<Section title="About">
 				<SectionContent>
 					<span itemProp="name">Ole-Martin Bratteng</span> &mdash;
 					Software Developer. Located in the beautiful city of{' '}
@@ -122,8 +34,24 @@ const Index = () => {
 					.
 				</SectionContent>
 			</Section>
+
+			{allPosts.length > 0 && (
+				<Section title="Blog">
+					<SectionContent>
+						<BlogPosts posts={allPosts} />
+					</SectionContent>
+				</Section>
+			)}
 		</>
 	)
 }
+
+Index.propTypes = {
+	allPosts: PropTypes.arrayOf(PropTypes.object),
+}
+
+export const getStaticProps = async () => ({
+	props: { allPosts: getAllPosts(['title', 'date', 'slug']) },
+})
 
 export default Index
