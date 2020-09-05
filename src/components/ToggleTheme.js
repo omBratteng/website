@@ -5,13 +5,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { size } from 'polished'
 
 import { useHover } from '@react-aria/interactions'
+import { useFocusRing } from '@react-aria/focus'
 
 const Button = styled.button`
 	${size('2rem')}
 	align-items: center;
 	background: var(
 		${(props) =>
-			props.isHovered ? '--global-font-color' : '--global-link-color'}
+			props.isHovered || props.isFocused
+				? '--global-font-color'
+				: '--global-link-color'}
 	);
 	border: 0;
 	border-radius: 100%;
@@ -21,7 +24,12 @@ const Button = styled.button`
 	font-size: 1rem;
 	justify-content: center;
 	margin: 0 0.5rem;
-	transition: background 0.3s ease;
+	transition: all 0.5s ease;
+
+	&:focus {
+		box-shadow: 0px 0px 0px 2px #005fcc;
+		outline: 0;
+	}
 
 	@media (min-width: 768px) {
 		font-size: 1.75rem;
@@ -33,17 +41,20 @@ const Button = styled.button`
 const ToggleTheme = ({ darkMode }) => {
 	const [icon, setIcon] = useState('lightbulb')
 	const { hoverProps, isHovered } = useHover(false)
+	const { focusProps, isFocused } = useFocusRing()
 
 	useEffect(() => {
-		isHovered
+		isHovered || isFocused
 			? setIcon(darkMode.value ? 'lightbulb-on' : 'lightbulb-slash')
 			: setIcon('lightbulb')
-	}, [isHovered, setIcon, darkMode])
+	}, [isFocused, isHovered, setIcon, darkMode])
 
 	return (
 		<Button
 			{...hoverProps}
+			{...focusProps}
 			isHovered={isHovered}
+			isFocused={isFocused}
 			onClick={darkMode.toggle}
 			aria-label={`Toggle colour scheme`}
 		>

@@ -14,10 +14,17 @@ const Link = styled.a`
 	font-size: 1.25rem;
 	justify-content: center;
 	margin: 0 0.5rem;
+	outline: 0;
 	transition: all 0.5s ease;
 
+	&:focus,
 	&:hover {
 		background: var(--${(props) => props.hoverColor}-hover-color);
+	}
+
+	&:focus {
+		box-shadow: 0px 0px 0px 2px #005fcc;
+		outline: 0;
 	}
 
 	span {
