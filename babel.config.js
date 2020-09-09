@@ -6,14 +6,14 @@ module.exports = (api) => {
 	return {
 		presets: [
 			[
-				'@babel/preset-env',
+				'next/babel',
 				{
-					useBuiltIns: 'usage',
-					corejs: 3,
+					'preset-env': {
+						corejs: 3,
+						useBuiltIns: 'entry', //tells the preset to look for browserslist config source
+					},
 				},
 			],
-			'@babel/preset-react',
-			'next/babel',
 		],
 		plugins: [
 			[
