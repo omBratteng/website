@@ -22,7 +22,9 @@
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
+		"build:staging": "NODE_ENV=staging next build",
 		"start": "next start",
+		"start:staging": "NODE_ENV=staging next start",
 		"lint": "yarn lint:eslint && yarn lint:stylelint",
 		"lint:eslint": "eslint src/ --report-unused-disable-directives",
 		"lint:stylelint": "stylelint 'src/**/*.js'"
