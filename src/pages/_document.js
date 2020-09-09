@@ -3,6 +3,8 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 import process from 'process'
 
+import { getCookie } from 'hooks/useCookie'
+
 const googleFonts = (fonts) =>
 	`https://fonts.googleapis.com/css2?family=${fonts}&display=swap`
 
@@ -24,6 +26,12 @@ const isDev = process.env.NODE_ENV === 'development'
 const links = [...(isDev ? devLinks : prodLinks), ...globalLinks]
 
 class Doc extends Document {
+	constructor(props) {
+		super(props)
+
+		this.darkMode = props.darkMode
+	}
+
 	static async getInitialProps(context) {
 		const sheet = new ServerStyleSheet()
 		const originalRenderPage = context.renderPage
@@ -39,9 +47,15 @@ class Doc extends Document {
 						),
 				})
 
+			const darkMode = getCookie(
+				'darkMode',
+				context.req.headers.cookie || '',
+			)
+
 			const initialProps = await Document.getInitialProps(context)
 			return {
 				...initialProps,
+				darkMode,
 				styles: (
 					<>
 						{initialProps.styles}
@@ -60,7 +74,11 @@ class Doc extends Document {
 				<Head>
 					<PreloadStyles links={links} />
 				</Head>
-				<body>
+				<body
+					className={`${
+						this.darkMode === 'true' ? 'dark-mode' : 'light-mode'
+					}`}
+				>
 					<script
 						dangerouslySetInnerHTML={{
 							__html: `!function(){var e="dark-mode",a="light-mode";function o(o){document.body.classList.add(o?e:a),document.body.classList.remove(o?a:e)}var t=window.matchMedia("(prefers-color-scheme: dark)"),r="(prefers-color-scheme: dark)"===t.media,d=null;try{d=localStorage.getItem("darkMode")}catch(e){}var s=null!==d;if(s&&(d=JSON.parse(d)),s)o(d);else if(r)o(t.matches),localStorage.setItem("darkMode",t.matches);else{var c=document.body.classList.contains(e);localStorage.setItem("darkMode",JSON.stringify(c))}}();`,

@@ -65,11 +65,6 @@ const App = ({ Component, pageProps }) => {
 App.propTypes = {
 	Component: PropTypes.func,
 	pageProps: PropTypes.object,
-	darkMode: PropTypes.bool,
-}
-
-App.defaultProps = {
-	darkMode: true,
 }
 
 export default App

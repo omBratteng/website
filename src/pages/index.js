@@ -50,7 +50,7 @@ Index.propTypes = {
 	allPosts: PropTypes.arrayOf(PropTypes.object),
 }
 
-export const getStaticProps = async () => ({
+export const getServerSideProps = async () => ({
 	props: { allPosts: getAllPosts(['title', 'date', 'slug']) },
 })
 
