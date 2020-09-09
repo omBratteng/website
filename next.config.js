@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-
-const isProd = process.env.NODE_ENV === 'production'
+const isProd =
+	process.env.NODE_ENV === 'production' && process.env.APP_ENV !== 'staging'
 module.exports = {
 	reactStrictMode: false,
 	poweredByHeader: false,
