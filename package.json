@@ -16,9 +16,6 @@
 	"bugs": {
 		"url": "https://github.com/omBratteng/bratteng.sh/issues"
 	},
-	"browserslist": [
-		"> 0.2%"
-	],
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
