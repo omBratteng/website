@@ -41,26 +41,32 @@ body {
 		font-feature-settings: "liga";
 	}
 
-	--global-background-color: ${darkTheme.colors.background};
-	--global-font-color: ${darkTheme.colors.font};
-	--global-link-color: ${darkTheme.colors.linkColor};
-
 	--red: ${darkTheme.colors.red};
 
-	--github-hover-color: ${darkTheme.some.github};
-	--twitter-hover-color: ${darkTheme.some.twitter};
-	--linkedin-hover-color: ${darkTheme.some.linkedin};
+	&.dark-mode {
+		--global-background-color: ${darkTheme.colors.background};
+		--global-font-color: ${darkTheme.colors.font};
+		--global-link-color: ${darkTheme.colors.linkColor};
+
+		--github-hover-color: ${darkTheme.some.github};
+		--twitter-hover-color: ${darkTheme.some.twitter};
+		--linkedin-hover-color: ${darkTheme.some.linkedin};
+
+		--contentLoader-bg: #353535;
+		--contentLoader-fg: #424242;
+	}
 
 	&.light-mode {
 		--global-background-color: ${lightTheme.colors.background};
 		--global-font-color: ${lightTheme.colors.font};
 		--global-link-color: ${lightTheme.colors.linkColor};
 
-		--red: ${lightTheme.colors.red};
-
 		--github-hover-color: ${lightTheme.some.github};
 		--twitter-hover-color: ${lightTheme.some.twitter};
 		--linkedin-hover-color: ${lightTheme.some.linkedin};
+
+		--contentLoader-bg: #f3f3f3;
+		--contentLoader-fg: #ecebeb;
 	}
 }
 

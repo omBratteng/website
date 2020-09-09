@@ -17,12 +17,6 @@ module.exports = withAssetsManifest({
 
 		return config
 	},
-	// These options are used for both client and server manifest plugins.
-	assetsManifest: {
-		done(manifest) {
-			console.log(`${manifest}`)
-		},
-	},
 	// Customize the client side manifest.
 	assetsManifestClient: {
 		output: `${process.cwd()}/public/asset-manifest.json`,

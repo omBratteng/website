@@ -1,6 +1,6 @@
-const API = (req, res) =>
+const Status = (req, res) =>
 	res.status(200).json({
 		status: 'OK',
 	})
 
-export default API
+export default Status
