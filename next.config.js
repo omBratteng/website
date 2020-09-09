@@ -5,7 +5,7 @@ const isProd =
 module.exports = withAssetsManifest({
 	reactStrictMode: false,
 	poweredByHeader: false,
-	assetPrefix: isProd ? 'https://brattengsh.b-cdn.net' : '',
+	assetPrefix: isProd ? 'https://cdn.bratteng.sh' : '',
 	webpack(config) {
 		config.module.rules.push({
 			test: /\.svg$/,

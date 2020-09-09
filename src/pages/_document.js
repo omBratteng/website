@@ -2,6 +2,7 @@ import React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 import process from 'process'
+import { parse as URLParse } from 'url'
 
 import { getCookie } from 'hooks/useCookie'
 
@@ -15,6 +16,9 @@ const devLinks = [
 ]
 
 const prodLinks = [
+	{
+		href: 'https://cdn.bratteng.sh',
+	},
 	{
 		href: googleFonts('Space+Mono:wght@400;700'),
 	},
@@ -114,25 +118,27 @@ const PreloadStyles = ({ links }) => {
 	let preload = new Set()
 	let stylesheet = new Set()
 	links.map((linkProps) => {
-		let url = linkProps.href.match(/(https?:\/\/[a-z.]+)/i)[0]
-		preconnect.add(url)
+		let url = new URLParse(linkProps.href)
+		preconnect.add(`${url.protocol}//${url.host}`)
 
-		preload.add(
-			<link
-				rel="preload"
-				as="style"
-				{...linkProps}
-				crossOrigin="anonymous"
-			/>,
-		)
-		stylesheet.add(
-			<link
-				rel="stylesheet"
-				{...linkProps}
-				crossOrigin="anonymous"
-				async
-			/>,
-		)
+		if (url.pathname !== '/') {
+			preload.add(
+				<link
+					rel="preload"
+					as="style"
+					{...linkProps}
+					crossOrigin="anonymous"
+				/>,
+			)
+			stylesheet.add(
+				<link
+					rel="stylesheet"
+					{...linkProps}
+					crossOrigin="anonymous"
+					async
+				/>,
+			)
+		}
 	})
 
 	return [
