@@ -1204,16 +1204,7 @@
   dependencies:
     "@babel/runtime" "^7.6.2"
 
-"@react-aria/utils@^3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@react-aria/utils/-/utils-3.2.0.tgz#67d39dbba9d96612b4f9b3fe5c3243db4196b6f2"
-  integrity sha512-o2Far+gAnp78QksjlQTqo4Qq3A2f6ll931C7Q0RU2OIG/ImRHlSczqyMOPBlHRnEGyD+1ctWkmcHkdP4CvuD7g==
-  dependencies:
-    "@babel/runtime" "^7.6.2"
-    "@react-types/shared" "^3.2.0"
-    clsx "^1.1.1"
-
-"@react-aria/utils@^3.2.1":
+"@react-aria/utils@^3.2.0", "@react-aria/utils@^3.2.1":
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/@react-aria/utils/-/utils-3.2.1.tgz#9242308ee9f1106a6bd9cb3af8702bf6528d110a"
   integrity sha512-6Kto7wg2Wd6C2AeRxMxtYLIEigqscLhVxeeLQCiH+w4x3St72lZIH6p6zn+NVUIybkHE5p4ipfYUdhKJexFNxQ==
