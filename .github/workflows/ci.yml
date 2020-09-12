@@ -12,7 +12,7 @@ env:
 
 jobs:
   prepare:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
         node-version: ['14']
@@ -43,7 +43,7 @@ jobs:
           yarn install --frozen-lockfile
 
   check:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: prepare
     strategy:
       matrix:
@@ -90,7 +90,7 @@ jobs:
       #     token: ${{ secrets.CODECOV_TOKEN }}
 
   build-and-run:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: prepare
     strategy:
       matrix:
