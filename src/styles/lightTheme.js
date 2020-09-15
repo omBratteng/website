@@ -13,6 +13,6 @@ export const lightTheme = {
 	},
 
 	font: {
-		lineHeight: 1.5,
+		lineHeight: '1.5rem',
 	},
 }
