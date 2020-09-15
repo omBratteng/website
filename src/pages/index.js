@@ -1,28 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import BlogPosts from 'components/BlogPosts'
 import Section from 'components/layout/Section'
 
+import { getAllPosts } from 'lib/getPost'
+
 const SectionContent = styled.div`
 	font-size: 1rem;
 	hyphens: auto;
-	position: relative;
 
 	@media (min-width: 768px) {
 		font-size: 1.3rem;
 	}
 `
 
-const Index = () => {
-	const [posts, setPosts] = useState([])
-	useEffect(() => {
-		fetch('/api/blog/posts')
-			.then((response) => response.json())
-			.then((response) => setPosts(response.posts))
-	}, [])
-
+const Index = ({ allPosts }) => {
 	return (
 		<>
 			<Section title="About">
@@ -41,11 +35,13 @@ const Index = () => {
 				</SectionContent>
 			</Section>
 
-			<Section title="Blog">
-				<SectionContent>
-					<BlogPosts posts={posts} />
-				</SectionContent>
-			</Section>
+			{allPosts.length > 0 && (
+				<Section title="Blog">
+					<SectionContent>
+						<BlogPosts posts={allPosts} />
+					</SectionContent>
+				</Section>
+			)}
 		</>
 	)
 }
@@ -54,6 +50,8 @@ Index.propTypes = {
 	allPosts: PropTypes.arrayOf(PropTypes.object),
 }
 
-export const getServerSideProps = async () => ({ props: {} })
+export const getServerSideProps = async () => ({
+	props: { allPosts: getAllPosts(['title', 'date', 'slug']) },
+})
 
 export default Index
