@@ -15,7 +15,7 @@ const A = styled.a`
 `
 
 const H1 = styled.h1`
-	font-size: 2.5rem;
+	font-size: 2.25rem;
 	font-weight: 400;
 	margin: 0;
 	padding-bottom: 1rem;

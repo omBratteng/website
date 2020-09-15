@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
 :root {
 	box-sizing: border-box;
 	font-family: 'Space Mono', monospace;
-	font-size: 1rem;
+	font-size: 16px;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	font-style: normal;
