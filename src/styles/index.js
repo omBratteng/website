@@ -1,6 +1,11 @@
 import { createGlobalStyle } from 'styled-components'
 import { rgba } from 'polished'
 
+// FontAwesome
+// Add the css on the server side
+import { config, dom } from '@fortawesome/fontawesome-svg-core'
+config.autoAddCss = false
+
 import { lightTheme } from 'styles/lightTheme'
 import { darkTheme } from 'styles/darkTheme'
 
@@ -78,6 +83,8 @@ a {
 		background: ${(props) => rgba(props.theme.colors.linkColor, 0.15)};
 	}
 }
+
+${dom.css()}
 `
 
 export { GlobalStyle, lightTheme, darkTheme }
