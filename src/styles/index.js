@@ -3,7 +3,7 @@ import { rgba } from 'polished'
 
 // FontAwesome
 // Add the css on the server side
-import { config, dom } from '@fortawesome/fontawesome-svg-core'
+import { config } from '@fortawesome/fontawesome-svg-core'
 config.autoAddCss = false
 
 import { lightTheme } from 'styles/lightTheme'
@@ -84,7 +84,38 @@ a {
 	}
 }
 
-${dom.css()}
+svg:not(:root).svg-inline--fa{overflow:visible;}
+.svg-inline--fa{display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-0.125em;}
+${
+	'' /* .svg-inline--fa.fa-lg{vertical-align:-0.225em;}
+.svg-inline--fa.fa-w-1{width:0.0625em;}
+.svg-inline--fa.fa-w-2{width:0.125em;}
+.svg-inline--fa.fa-w-3{width:0.1875em;}
+.svg-inline--fa.fa-w-4{width:0.25em;}
+.svg-inline--fa.fa-w-5{width:0.3125em;}
+.svg-inline--fa.fa-w-6{width:0.375em;}
+.svg-inline--fa.fa-w-7{width:0.4375em;}
+.svg-inline--fa.fa-w-8{width:0.5em;}
+.svg-inline--fa.fa-w-9{width:0.5625em;}
+.svg-inline--fa.fa-w-10{width:0.625em;}
+.svg-inline--fa.fa-w-11{width:0.6875em;}
+.svg-inline--fa.fa-w-12{width:0.75em;}
+.svg-inline--fa.fa-w-13{width:0.8125em;}
+.svg-inline--fa.fa-w-14{width:0.875em;}
+.svg-inline--fa.fa-w-15{width:0.9375em;}
+.svg-inline--fa.fa-w-16{width:1em;}
+.svg-inline--fa.fa-w-17{width:1.0625em;}
+.svg-inline--fa.fa-w-18{width:1.125em;}
+.svg-inline--fa.fa-w-19{width:1.1875em;}
+.svg-inline--fa.fa-w-20{width:1.25em;}
+.svg-inline--fa.fa-pull-left{margin-right:0.3em;width:auto;}
+.svg-inline--fa.fa-pull-right{margin-left:0.3em;width:auto;}
+.svg-inline--fa.fa-border{height:1.5em;}
+.svg-inline--fa.fa-li{width:2em;} */
+}
+.svg-inline--fa.fa-fw{width:1.25em;}
+
+${'' /* ${dom.css()} */}
 `
 
 export { GlobalStyle, lightTheme, darkTheme }
