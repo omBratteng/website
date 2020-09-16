@@ -59,7 +59,7 @@ const SoMeLink = ({ href, alt, hoverColor, small, icon }) => {
 			hoverColor={hoverColor}
 			small={small}
 		>
-			<Icon icon={['fab', icon]} />
+			<Icon icon={['fab', icon]} fixedWidth />
 			<span>{alt}</span>
 		</Link>
 	)

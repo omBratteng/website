@@ -42,7 +42,7 @@ const Section = ({ children, title }) => (
 	<StyledSection>
 		{title && (
 			<Title>
-				<Hashtag icon={['far', 'hashtag']} />
+				<Hashtag icon={['far', 'hashtag']} fixedWidth />
 				{title}
 			</Title>
 		)}
