@@ -63,7 +63,6 @@ const App = ({ Component, pageProps }) => {
 }
 
 export const reportWebVitals = ({ id, name, label, value }) => {
-	// eslint-disable-next-line no-undef
 	ga('send', 'event', {
 		eventCategory:
 			label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
