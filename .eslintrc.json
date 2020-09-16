@@ -9,7 +9,9 @@
         "plugin:prettier/recommended"
     ],
     "parser": "babel-eslint",
-    "globals": {},
+    "globals": {
+		"ga": true
+	},
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
