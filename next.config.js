@@ -27,8 +27,7 @@ module.exports = withAssetsManifest({
 				headers: [
 					{
 						key: 'Content-Security-Policy',
-						value:
-							"default-src 'self' cdn.bratteng.sh; style-src 'nonce-OUEyOTYzOUQtMDQxRC00OTM0LThGRkYtMDdBRjcwRUE3M0MxCg' fonts.googleapis.com; font-src fonts.gstatic.com; script-src 'nonce-OUEyOTYzOUQtMDQxRC00OTM0LThGRkYtMDdBRjcwRUE3M0MxCg'",
+						value: `default-src 'self' cdn.bratteng.sh; style-src 'nonce-${nonce}' fonts.googleapis.com; font-src fonts.gstatic.com; script-src 'nonce-${nonce}'`,
 					},
 				],
 			},
