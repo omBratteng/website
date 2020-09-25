@@ -29,6 +29,9 @@ const globalLinks = []
 const isDev = process.env.NODE_ENV === 'development'
 const links = [...(isDev ? devLinks : prodLinks), ...globalLinks]
 
+const nonce = process.env.CSP_NONCE
+global.__webpack_nonce__ = nonce
+
 class Doc extends Document {
 	constructor(props) {
 		super(props)
@@ -75,7 +78,7 @@ class Doc extends Document {
 	render() {
 		return (
 			<Html lang="no">
-				<Head>
+				<Head {...{ nonce }}>
 					<PreloadStyles links={links} />
 				</Head>
 				<body
@@ -89,7 +92,7 @@ class Doc extends Document {
 						}}
 					/>
 					<Main />
-					<NextScript />
+					<NextScript {...{ nonce }} />
 					<script
 						async
 						dangerouslySetInnerHTML={
