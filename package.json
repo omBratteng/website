@@ -70,7 +70,6 @@
 		"stylelint-order": "^4.1.0"
 	},
 	"resolutions": {
-		"web-vitals": "0.2.4",
 		"node-fetch": "2.6.1"
 	}
 }
