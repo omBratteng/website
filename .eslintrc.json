@@ -5,8 +5,9 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:prettier/recommended"
+		"plugin:react/recommended",
+		"plugin:@next/eslint-plugin-next/recommended",
+		"plugin:prettier/recommended"
     ],
     "parser": "babel-eslint",
     "globals": {
@@ -23,7 +24,8 @@
     "plugins": [
         "react",
 		"prettier",
-		"react-hooks"
+		"react-hooks",
+		"@next/eslint-plugin-next"
     ],
     "settings": {
         "react": {

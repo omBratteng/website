@@ -1160,6 +1160,11 @@
   resolved "https://registry.yarnpkg.com/@next/env/-/env-9.5.5.tgz#db993649ec6e619e34a36de90dc2baa52fc5280f"
   integrity sha512-N9wdjU6XoqLqNQWtrGiWtp1SUuJsYK1cNrZ24A6YD+4w5CNV5SkZX6aewKZCCLP5Y8UNfTij2FkJiSYUfBjX8g==
 
+"@next/eslint-plugin-next@^9.5.5":
+  version "9.5.5"
+  resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-9.5.5.tgz#b381b4a97c20e8a40a3730a11417f15bb9387467"
+  integrity sha512-OTg0vxAHvWB02mYgWRVTzjLAx3/IY2x7FjNnUUrPfhHS5UUVq4z/xw3rjcCEXCNuKPcJAuA4B4stqllELNId7w==
+
 "@next/polyfill-module@9.5.5":
   version "9.5.5"
   resolved "https://registry.yarnpkg.com/@next/polyfill-module/-/polyfill-module-9.5.5.tgz#d9c65679a66664ab4859078f58997113c9d01f10"
