@@ -22,9 +22,10 @@
 		"build:staging": "APP_ENV=staging next build",
 		"start": "next start",
 		"start:staging": "APP_ENV=staging next start",
-		"lint": "yarn lint:eslint && yarn lint:stylelint",
+		"lint": "yarn lint:eslint && yarn lint:stylelint && yarn lint:markdown",
 		"lint:eslint": "eslint *.config.js src/ --report-unused-disable-directives",
-		"lint:stylelint": "stylelint 'src/**/*.js'"
+		"lint:stylelint": "stylelint 'src/**/*.js'",
+		"lint:markdown": "markdownlint 'content/*.md'"
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^1.2.32",
@@ -64,6 +65,7 @@
 		"eslint-plugin-prettier": "^3.1.4",
 		"eslint-plugin-react": "^7.21.4",
 		"eslint-plugin-react-hooks": "^4.1.2",
+		"markdownlint-cli": "^0.24.0",
 		"prettier": "^2.1.2",
 		"stylelint": "^13.7.2",
 		"stylelint-config-recommended": "^3.0.0",
