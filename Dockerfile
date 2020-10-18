@@ -1,5 +1,7 @@
-# Dockerfile that produce Lightweight runtime images
-# Inspired by https://github.com/zeit/next.js/issues/121#issuecomment-541399420
+# image used for the healthcheck binary
+FROM golang:1.15.2-alpine AS gobuilder
+COPY healthcheck/ /go/src/healthcheck/
+RUN CGO_ENABLED=0 go build -ldflags '-w -s -extldflags "-static"' -o /healthcheck /go/src/healthcheck/
 
 # -- BASE STAGE --------------------------------
 
@@ -58,6 +60,8 @@ COPY --from=build /src/.next /usr/app/.next
 COPY --from=build /src/public /usr/app/public
 COPY --from=build /src/content /usr/app/content
 COPY --from=build /src/next.config.js /usr/app/next.config.js
+
+HEALTHCHECK --interval=5s --timeout=10s --retries=3 CMD [ "/healthcheck", "3000" ]
 
 ENV PORT 3000
 EXPOSE $PORT
