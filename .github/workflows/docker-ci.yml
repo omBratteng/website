@@ -1,0 +1,74 @@
+name: Docker CI
+
+on:
+  push:
+    branches:
+      - develop
+      - feature/*
+    paths:
+        - "Dockerfile"
+        - "healthcheck/**"
+
+env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  FONTAWESOME_TOKEN: ${{ secrets.FONTAWESOME_TOKEN }}
+
+jobs:
+  golanglint:
+    name: Lint the healthcheck script
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          version: v1.31
+          working-directory: healthcheck
+
+  dockerfilelint:
+    name: Dockerfile lint
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Hadolint with reviewdog
+        uses: reviewdog/action-hadolint@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          hadolint_ignore: DL3008
+
+  dockerbuild:
+    name: Docker build with buildx
+    runs-on: ubuntu-20.04
+    needs: dockerfilelint
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker/setup-buildx-action@v1
+      - name: Docker build
+        run: docker buildx build . \
+          --file Dockerfile \
+          --tag image:${{ github.sha }} \
+          --cache-from ghcr.io/ombratteng/bratteng.sh:latest \
+          --build-arg NPM_TOKEN=${NPM_TOKEN} \
+          --build-arg FONTAWESOME_TOKEN=${FONTAWESOME_TOKEN}
+
+  dockerscan:
+    name: Docker security scan
+    runs-on: ubuntu-20.04
+    needs: dockerbuild
+    steps:
+      - uses: actions/checkout@v2
+      - name: Docker build
+        run: docker build . \
+          --file Dockerfile \
+          --tag image:${{ github.sha }} \
+          --build-arg NPM_TOKEN=${NPM_TOKEN} \
+          --build-arg FONTAWESOME_TOKEN=${FONTAWESOME_TOKEN}
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@0.0.8
+        with:
+          image-ref: 'image:${{ github.sha }}'
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          severity: 'CRITICAL,HIGH'
