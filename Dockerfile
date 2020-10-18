@@ -33,10 +33,6 @@ RUN yarn lint
 FROM base AS build
 
 # Define build arguments & map them to environment variables
-# ARG GTM_CONTAINER_ID
-# ARG SITE_URL
-# ENV GTM_CONTAINER_ID $GTM_CONTAINER_ID
-# ENV SITE_URL $SITE_URL
 ARG NPM_TOKEN
 ARG FONTAWESOME_TOKEN
 
@@ -50,19 +46,27 @@ RUN rm -rf .next/cache
 
 # -- RUNTIME STAGE --------------------------------
 
-FROM node:14-alpine AS runtime
+FROM gcr.io/distroless/nodejs:14
 
-WORKDIR /usr/app
+WORKDIR /app
 
-COPY --from=build /src/package.json /usr/app/package.json
-COPY --from=build /src/node_modules /usr/app/node_modules
-COPY --from=build /src/.next /usr/app/.next
-COPY --from=build /src/public /usr/app/public
-COPY --from=build /src/content /usr/app/content
-COPY --from=build /src/next.config.js /usr/app/next.config.js
+# copy in our healthcheck binary
+COPY --from=gobuilder --chown=nonroot /healthcheck /healthcheck
 
+COPY --chown=nonroot --from=build /src/package.json /app/package.json
+COPY --chown=nonroot --from=build /src/node_modules /app/node_modules
+COPY --chown=nonroot --from=build /src/.next /app/.next
+COPY --chown=nonroot --from=build /src/public /app/public
+COPY --chown=nonroot --from=build /src/content /app/content
+COPY --chown=nonroot --from=build /src/next.config.js /app/next.config.js
+
+# run as an unprivileged user
+USER nonroot
+
+# default next.js port
+EXPOSE 3000
+
+# healthcheck to report the container status
 HEALTHCHECK --interval=5s --timeout=10s --retries=3 CMD [ "/healthcheck", "3000" ]
 
-ENV PORT 3000
-EXPOSE $PORT
-CMD yarn start -p $PORT
+CMD ["/app/node_modules/.bin/next", "start", "-p", "3000"]
