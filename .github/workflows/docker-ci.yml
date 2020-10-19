@@ -54,6 +54,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Docker build
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          FONTAWESOME_TOKEN: ${{ secrets.FONTAWESOME_TOKEN }}
         run: |
           docker build \
             --cache-from ghcr.io/ombratteng/bratteng.sh:latest \
