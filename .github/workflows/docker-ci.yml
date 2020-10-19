@@ -58,12 +58,12 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           FONTAWESOME_TOKEN: ${{ secrets.FONTAWESOME_TOKEN }}
         run: |
-          docker build \
+          docker buildx build . \
+            --file Dockerfile \
+            --tag image:${{ github.sha }} \
             --cache-from ghcr.io/ombratteng/bratteng.sh:latest \
-            --build-arg NPM_TOKEN=${NPM_TOKEN} \
-            --build-arg FONTAWESOME_TOKEN=${FONTAWESOME_TOKEN} \
-            --build-arg BUILDKIT_INLINE_CACHE=1 \
-            --tag image:${{ github.sha }} .
+            --build-arg NPM_TOKEN=${{ secrets.NPM_TOKEN }} \
+            --build-arg FONTAWESOME_TOKEN=${{ secrets.FONTAWESOME_TOKEN }}
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.0.8
         with:
