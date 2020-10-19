@@ -1,1 +1,1 @@
-#A simple stock keeping app
+# My personal website
