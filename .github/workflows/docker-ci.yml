@@ -3,10 +3,6 @@ name: Docker CI
 on:
   pull_request:
 
-env:
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-  FONTAWESOME_TOKEN: ${{ secrets.FONTAWESOME_TOKEN }}
-
 jobs:
   golanglint:
     name: Lint the healthcheck script
@@ -54,9 +50,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Docker build
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          FONTAWESOME_TOKEN: ${{ secrets.FONTAWESOME_TOKEN }}
         run: |
           docker buildx build . \
             --file Dockerfile \
