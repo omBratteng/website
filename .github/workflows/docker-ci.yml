@@ -39,25 +39,28 @@ jobs:
       - uses: actions/checkout@v2
       - uses: docker/setup-buildx-action@v1
       - name: Docker build
-        run: docker buildx build . \
-          --file Dockerfile \
-          --tag image:${{ github.sha }} \
-          --cache-from ghcr.io/ombratteng/bratteng.sh:latest \
-          --build-arg NPM_TOKEN=${NPM_TOKEN} \
-          --build-arg FONTAWESOME_TOKEN=${FONTAWESOME_TOKEN}
+        run: |
+          docker buildx build . \
+            --file Dockerfile \
+            --tag image:${{ github.sha }} \
+            --cache-from ghcr.io/ombratteng/bratteng.sh:latest \
+            --build-arg NPM_TOKEN=${{ secrets.NPM_TOKEN }} \
+            --build-arg FONTAWESOME_TOKEN=${{ secrets.FONTAWESOME_TOKEN }}
 
   dockerscan:
     name: Docker security scan
     runs-on: ubuntu-20.04
-    needs: dockerbuild
+    needs: dockerfilelint
     steps:
       - uses: actions/checkout@v2
       - name: Docker build
-        run: docker build . \
-          --file Dockerfile \
-          --tag image:${{ github.sha }} \
-          --build-arg NPM_TOKEN=${NPM_TOKEN} \
-          --build-arg FONTAWESOME_TOKEN=${FONTAWESOME_TOKEN}
+        run: |
+          docker build \
+            --cache-from ghcr.io/ombratteng/bratteng.sh:latest \
+            --build-arg NPM_TOKEN=${NPM_TOKEN} \
+            --build-arg FONTAWESOME_TOKEN=${FONTAWESOME_TOKEN} \
+            --build-arg BUILDKIT_INLINE_CACHE=1 \
+            --tag image:${{ github.sha }} .
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.0.8
         with:
