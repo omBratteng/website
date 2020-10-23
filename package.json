@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "My personal websites",
 	"private": true,
+	"homepage": "https://bratteng.sh",
 	"repository": {
 		"type": "git",
 		"url": "git@github.com:omBratteng/bratteng.sh.git"
