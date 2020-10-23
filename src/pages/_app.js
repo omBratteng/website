@@ -62,17 +62,6 @@ const App = ({ Component, pageProps }) => {
 	)
 }
 
-export const reportWebVitals = ({ id, name, label, value }) => {
-	ga('send', 'event', {
-		eventCategory:
-			label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
-		eventAction: name,
-		eventValue: Math.round(name === 'CLS' ? value * 1000 : value),
-		eventLabel: id,
-		nonInteraction: true,
-	})
-}
-
 App.propTypes = {
 	Component: PropTypes.func,
 	pageProps: PropTypes.object,
