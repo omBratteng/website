@@ -1,79 +1,79 @@
 {
-	"name": "@bratteng/bratteng.sh",
-	"version": "1.0.2",
-	"description": "My personal websites",
-	"private": true,
-	"homepage": "https://bratteng.sh",
-	"repository": {
-		"type": "git",
-		"url": "git@github.com:omBratteng/bratteng.sh.git"
-	},
-	"author": {
-		"name": "Ole-Martin Bratteng",
-		"email": "ole-martin@bratteng.solutions",
-		"url": "https://bratteng.solutions"
-	},
-	"license": "BSD-3-Clause",
-	"bugs": {
-		"url": "https://github.com/omBratteng/bratteng.sh/issues"
-	},
-	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"build:staging": "APP_ENV=staging next build",
-		"start": "next start",
-		"start:staging": "APP_ENV=staging next start",
-		"lint": "yarn lint:eslint && yarn lint:stylelint && yarn lint:markdown",
-		"lint:eslint": "eslint *.config.js src/ --report-unused-disable-directives",
-		"lint:stylelint": "stylelint 'src/**/*.js'",
-		"lint:markdown": "markdownlint 'content/*.md'"
-	},
-	"dependencies": {
-		"@fortawesome/fontawesome-svg-core": "^1.2.32",
-		"@fortawesome/free-brands-svg-icons": "^5.15.1",
-		"@fortawesome/pro-duotone-svg-icons": "^5.15.1",
-		"@fortawesome/pro-light-svg-icons": "^5.15.1",
-		"@fortawesome/pro-regular-svg-icons": "^5.15.1",
-		"@fortawesome/pro-solid-svg-icons": "^5.15.1",
-		"@fortawesome/react-fontawesome": "^0.1.11",
-		"@react-aria/focus": "^3.2.2",
-		"@react-aria/interactions": "^3.2.1",
-		"@svgr/webpack": "^5.4.0",
-		"core-js": "^3.6.5",
-		"gray-matter": "^4.0.2",
-		"next": "^9.5.6-canary.12",
-		"next-assets-manifest": "^0.1.0",
-		"polished": "^4.0.3",
-		"prop-types": "^15.7.2",
-		"react": "^17.0.1",
-		"react-dom": "^17.0.1",
-		"remark": "^13.0.0",
-		"remark-html": "^13.0.1",
-		"styled-components": "^5.2.0",
-		"use-dark-mode": "^2.3.1"
-	},
-	"devDependencies": {
-		"@babel/core": "^7.12.3",
-		"@babel/preset-env": "^7.12.1",
-		"@babel/preset-react": "^7.12.1",
-		"@next/eslint-plugin-next": "^9.5.5",
-		"babel-eslint": "^10.1.0",
-		"babel-plugin-module-resolver": "^4.0.0",
-		"babel-plugin-react-remove-properties": "^0.3.0",
-		"babel-plugin-styled-components": "^1.11.1",
-		"eslint": "^7.11.0",
-		"eslint-config-prettier": "^6.14.0",
-		"eslint-plugin-prettier": "^3.1.4",
-		"eslint-plugin-react": "^7.21.5",
-		"eslint-plugin-react-hooks": "^4.2.0",
-		"markdownlint-cli": "^0.24.0",
-		"prettier": "^2.1.2",
-		"stylelint": "^13.7.2",
-		"stylelint-config-recommended": "^3.0.0",
-		"stylelint-config-styled-components": "^0.1.1",
-		"stylelint-order": "^4.1.0"
-	},
-	"resolutions": {
-		"node-fetch": "2.6.1"
-	}
+  "name": "@bratteng/bratteng.sh",
+  "version": "1.0.3",
+  "description": "My personal websites",
+  "private": true,
+  "homepage": "https://bratteng.sh",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:omBratteng/bratteng.sh.git"
+  },
+  "author": {
+    "name": "Ole-Martin Bratteng",
+    "email": "ole-martin@bratteng.solutions",
+    "url": "https://bratteng.solutions"
+  },
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/omBratteng/bratteng.sh/issues"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:staging": "APP_ENV=staging next build",
+    "start": "next start",
+    "start:staging": "APP_ENV=staging next start",
+    "lint": "yarn lint:eslint && yarn lint:stylelint && yarn lint:markdown",
+    "lint:eslint": "eslint *.config.js src/ --report-unused-disable-directives",
+    "lint:stylelint": "stylelint 'src/**/*.js'",
+    "lint:markdown": "markdownlint 'content/*.md'"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/pro-duotone-svg-icons": "^5.15.1",
+    "@fortawesome/pro-light-svg-icons": "^5.15.1",
+    "@fortawesome/pro-regular-svg-icons": "^5.15.1",
+    "@fortawesome/pro-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "@react-aria/focus": "^3.2.2",
+    "@react-aria/interactions": "^3.2.1",
+    "@svgr/webpack": "^5.4.0",
+    "core-js": "^3.6.5",
+    "gray-matter": "^4.0.2",
+    "next": "^9.5.6-canary.12",
+    "next-assets-manifest": "^0.1.0",
+    "polished": "^4.0.3",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "remark": "^13.0.0",
+    "remark-html": "^13.0.1",
+    "styled-components": "^5.2.0",
+    "use-dark-mode": "^2.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "@next/eslint-plugin-next": "^9.5.5",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "babel-plugin-react-remove-properties": "^0.3.0",
+    "babel-plugin-styled-components": "^1.11.1",
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.14.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "markdownlint-cli": "^0.24.0",
+    "prettier": "^2.1.2",
+    "stylelint": "^13.7.2",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-order": "^4.1.0"
+  },
+  "resolutions": {
+    "node-fetch": "2.6.1"
+  }
 }
