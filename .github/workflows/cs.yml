@@ -1,4 +1,4 @@
-name: Continuous Security
+name: continuous-security
 
 on:
   schedule:
