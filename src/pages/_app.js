@@ -43,7 +43,6 @@ const App = ({ Component, pageProps }) => {
 		server: 'https://analytics.bratteng.cloud',
 		options: {
 			detailed: true,
-			ignoreLocalhost: false,
 		},
 	})
 
