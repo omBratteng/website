@@ -20,19 +20,35 @@ jobs:
     runs-on: ubuntu-20.04
     needs: dockerfilelint
     steps:
-      - uses: actions/checkout@v2
-      - name: Docker build
+      -
+        name: Checkout code
+        uses: actions/checkout@v2
+
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      -
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.CR_PAT }}
+
+      -
+        name: Docker build
         run: |
           docker buildx build . \
             --file Dockerfile \
-            --tag image:${{ github.sha }} \
+            --tag ghcr.io/ombratteng/bratteng.sh:${{ github.sha }} \
             --cache-from ghcr.io/ombratteng/bratteng.sh:latest \
             --build-arg NPM_TOKEN=${{ secrets.NPM_TOKEN }} \
             --build-arg FONTAWESOME_TOKEN=${{ secrets.FONTAWESOME_TOKEN }}
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.0.8
         with:
-          image-ref: 'image:${{ github.sha }}'
+          image-ref: 'ghcr.io/ombratteng/bratteng.sh:${{ github.sha }}'
           format: 'table'
           exit-code: '1'
           ignore-unfixed: true
