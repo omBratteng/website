@@ -8,22 +8,16 @@ import PropTypes from 'prop-types'
 
 import { getCookie } from 'hooks/useCookie'
 
-const googleFonts = (fonts) =>
-	`https://fonts.googleapis.com/css2?family=${fonts}&display=swap`
+const googleFonts = (fonts) => ({
+	href: `https://fonts.googleapis.com/css2?family=${fonts}&display=swap`,
+	as: 'style',
+})
 
-const devLinks = [
-	{
-		href: googleFonts('Space+Mono:ital,wght@0,400;0,700;1,400;1,700'),
-	},
-]
+const devLinks = [googleFonts('Space+Mono:ital,wght@0,400;0,700;1,400;1,700')]
 
 const prodLinks = [
-	{
-		href: 'https://cdn.bratteng.sh',
-	},
-	{
-		href: googleFonts('Space+Mono:wght@400;700'),
-	},
+	'https://cdn.bratteng.sh',
+	googleFonts('Space+Mono:wght@400;700'),
 ]
 
 const globalLinks = []
@@ -81,7 +75,7 @@ class Doc extends Document {
 		return (
 			<Html lang="no">
 				<Head {...{ nonce }}>
-					<PreloadStyles links={links} />
+					<Preload links={links} />
 				</Head>
 				<body
 					className={`${
@@ -101,14 +95,19 @@ class Doc extends Document {
 	}
 }
 
-const PreloadStyles = ({ links }) => {
-	let preconnect = new Set()
-	let preload = new Set()
-	let stylesheet = new Set()
-	let scripts = new Set()
+const Preload = ({ links }) => {
+	const preconnect = new Set()
+	const preload = new Set()
+	const stylesheet = new Set()
+	const scripts = new Set()
 
-	links.map((linkProps, key) => {
-		const { as, integrity, href, autoload = true } = linkProps
+	links.map((link, key) => {
+		if (typeof link === 'string') {
+			preconnect.add(link)
+			return
+		}
+
+		const { as, integrity, href, autoload = true, ...props } = link
 		const url = URLParse(href)
 
 		preconnect.add(`${url.protocol}//${url.host}`)
@@ -117,11 +116,12 @@ const PreloadStyles = ({ links }) => {
 			preload.add(
 				<link
 					key={key}
-					rel="preload"
 					as={as}
+					rel="preload"
+					href={href}
 					integrity={integrity}
 					crossOrigin="anonymous"
-					{...linkProps}
+					{...props}
 				/>,
 			)
 
@@ -132,14 +132,14 @@ const PreloadStyles = ({ links }) => {
 						<link
 							key={key}
 							rel="stylesheet"
-							href={linkProps.href}
+							href={href}
 							crossOrigin="anonymous"
 						/>,
 				  )
 				: scripts.add(
 						<script
 							key={key}
-							src={linkProps.href}
+							src={href}
 							crossOrigin="anonymous"
 							async
 						/>,
@@ -166,7 +166,7 @@ const PreloadStyles = ({ links }) => {
 	)
 }
 
-PreloadStyles.propTypes = {
+Preload.propTypes = {
 	links: PropTypes.array,
 }
 
