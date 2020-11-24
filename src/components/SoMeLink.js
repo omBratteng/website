@@ -54,7 +54,6 @@ const SoMeLink = ({ href, alt, hoverColor, small, icon }) => {
 	return (
 		<Link
 			href={href}
-			alt={alt}
 			className="no-bg"
 			hoverColor={hoverColor}
 			small={small}
