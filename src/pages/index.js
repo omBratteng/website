@@ -20,7 +20,7 @@ const Index = ({ allPosts }) => {
 	return (
 		<>
 			<Section title="About">
-				<SectionContent>
+				<SectionContent itemScope itemType="http://schema.org/Person">
 					<span itemProp="name">Ole-Martin Bratteng</span> &mdash;
 					Software Developer. Located in the beautiful city of{' '}
 					<a href="http://en.wikipedia.org/wiki/Trondheim">
@@ -28,9 +28,17 @@ const Index = ({ allPosts }) => {
 						<span itemProp="nationality">Norway</span>
 					</a>
 					. <span itemProp="jobTitle">Software Developer</span> at{' '}
-					<a href="https://www.arkivverket.no/en">
-						the National Archives of Norway
-					</a>
+					<span
+						itemProp="worksFor"
+						itemScope
+						itemType="http://schema.org/Organization"
+					>
+						<a href="https://www.arkivverket.no/en" itemProp="url">
+							<span itemProp="name">
+								the National Archives of Norway
+							</span>
+						</a>
+					</span>
 					.
 				</SectionContent>
 			</Section>
