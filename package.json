@@ -1,6 +1,6 @@
 {
   "name": "@bratteng/bratteng.sh",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "My personal websites",
   "private": true,
   "homepage": "https://bratteng.sh",
@@ -30,8 +30,8 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
-	"@fortawesome/free-brands-svg-icons": "^5.15.1",
-	"@fortawesome/pro-duotone-svg-icons": "^5.15.1",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/pro-duotone-svg-icons": "^5.15.1",
     "@fortawesome/pro-light-svg-icons": "^5.15.1",
     "@fortawesome/pro-regular-svg-icons": "^5.15.1",
     "@fortawesome/pro-solid-svg-icons": "^5.15.1",
