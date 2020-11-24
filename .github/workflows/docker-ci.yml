@@ -4,18 +4,6 @@ on:
   pull_request:
 
 jobs:
-  golanglint:
-    name: Lint the healthcheck script
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-      - name: golangci-lint
-        uses: golangci/golangci-lint-action@v2
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          version: v1.31
-          working-directory: healthcheck
-
   dockerfilelint:
     name: Dockerfile lint
     runs-on: ubuntu-20.04
