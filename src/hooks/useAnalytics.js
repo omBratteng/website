@@ -1,9 +1,10 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 
 const useAnalytics = ({ domainId, server, options = {} }) => {
 	const router = useRouter()
 	const tracker = useRef()
+	const [trackerLoaded, setTrackerLoaded] = useState(false)
 
 	const recordVisit = () => {
 		if (!tracker.current) {
@@ -15,6 +16,7 @@ const useAnalytics = ({ domainId, server, options = {} }) => {
 
 	useEffect(() => {
 		;(async () => {
+			if (trackerLoaded) return
 			await import('ackee-tracker').then((ackeeTracker) => {
 				tracker.current = ackeeTracker.create(
 					{
@@ -23,19 +25,20 @@ const useAnalytics = ({ domainId, server, options = {} }) => {
 					},
 					options,
 				)
+				setTrackerLoaded(true)
 			})
-
-			console.log(typeof tracker.current)
 
 			recordVisit()
 		})()
+	}, [router.events, domainId, server, options, trackerLoaded])
 
-		router.events.on('routeChangeStart', recordVisit)
+	useEffect(() => {
+		router.events.on('routeChangeComplete', recordVisit)
 
 		return () => {
-			router.events.off('routeChangeStart', recordVisit)
+			router.events.off('routeChangeComplete', recordVisit)
 		}
-	}, [router.events, domainId, server, options])
+	}, [router.events])
 
 	return tracker.current
 }
