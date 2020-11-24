@@ -39,12 +39,13 @@ const Main = styled.main`
 	}
 `
 
-const SocialMedia = styled.section`
+const SocialMedia = styled.div`
 	align-items: center;
 	display: flex;
 	flex-wrap: wrap;
 	font-size: 4rem;
 	justify-content: center;
+	margin-bottom: 1rem;
 	padding: 1rem 0;
 `
 
