@@ -1,11 +1,6 @@
-# image used for the healthcheck binary
-FROM golang:1.15.2-alpine AS gobuilder
-COPY healthcheck/ /go/src/healthcheck/
-RUN CGO_ENABLED=0 go build -ldflags '-w -s -extldflags "-static"' -o /healthcheck /go/src/healthcheck/
-
 # -- BASE STAGE --------------------------------
 
-FROM node:14-alpine AS base
+FROM node:lts-slim AS base
 
 ARG NPM_TOKEN
 ARG FONTAWESOME_TOKEN
@@ -51,7 +46,7 @@ FROM gcr.io/distroless/nodejs:14
 WORKDIR /app
 
 # copy in our healthcheck binary
-COPY --from=gobuilder --chown=nonroot /healthcheck /healthcheck
+COPY --from=ghcr.io/bratteng/healthcheck-next:latest --chown=nonroot /healthcheck /healthcheck
 
 COPY --chown=nonroot --from=build /src/package.json /app/package.json
 COPY --chown=nonroot --from=build /src/node_modules /app/node_modules
