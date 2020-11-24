@@ -35,8 +35,17 @@ import AppProvider from 'contexts/app'
 
 // Components
 import Layout from 'components/layout/Layout'
+import useAnalytics from 'hooks/useAnalytics'
 
 const App = ({ Component, pageProps }) => {
+	useAnalytics({
+		domainId: 'cd291bc6-83f4-4b60-82e9-b2219d50f7b7',
+		server: 'https://analytics.bratteng.cloud',
+		options: {
+			detailed: true,
+		},
+	})
+
 	return (
 		<>
 			<Head>
