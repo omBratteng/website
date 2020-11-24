@@ -24,7 +24,7 @@ const BlogPosts = ({ posts }) => {
 			<List>
 				{posts.map((post) => (
 					<Li key={post.slug}>
-						<Link as={`blog/${post.slug}`} href="/blog/[slug]">
+						<Link href={`/blog/${post.slug}`}>
 							<a>{post.title}</a>
 						</Link>
 					</Li>
