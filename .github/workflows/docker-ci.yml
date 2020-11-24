@@ -15,22 +15,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           hadolint_ignore: DL3008
 
-  dockerbuild:
-    name: Docker build with buildx
-    runs-on: ubuntu-20.04
-    needs: dockerfilelint
-    steps:
-      - uses: actions/checkout@v2
-      - uses: docker/setup-buildx-action@v1
-      - name: Docker build
-        run: |
-          docker buildx build . \
-            --file Dockerfile \
-            --tag image:${{ github.sha }} \
-            --cache-from ghcr.io/ombratteng/bratteng.sh:latest \
-            --build-arg NPM_TOKEN=${{ secrets.NPM_TOKEN }} \
-            --build-arg FONTAWESOME_TOKEN=${{ secrets.FONTAWESOME_TOKEN }}
-
   dockerscan:
     name: Docker security scan
     runs-on: ubuntu-20.04
