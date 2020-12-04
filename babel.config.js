@@ -4,17 +4,7 @@ module.exports = (api) => {
 	const isDev = api.env('development')
 
 	return {
-		presets: [
-			[
-				'next/babel',
-				{
-					'preset-env': {
-						corejs: 3,
-						useBuiltIns: 'entry', //tells the preset to look for browserslist config source
-					},
-				},
-			],
-		],
+		presets: ['next/babel'],
 		plugins: [
 			[
 				'babel-plugin-styled-components',

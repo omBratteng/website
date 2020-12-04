@@ -40,7 +40,6 @@
     "@react-aria/interactions": "^3.3.2",
     "@svgr/webpack": "^5.5.0",
     "ackee-tracker": "^4.2.0",
-    "core-js": "^3.8.0",
     "gray-matter": "^4.0.2",
     "next": "^10.0.3",
     "next-assets-manifest": "^0.1.0",
