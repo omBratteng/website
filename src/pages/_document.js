@@ -1,10 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 import process from 'process'
 import { parse as URLParse } from 'url'
-
-import PropTypes from 'prop-types'
 
 import { getCookie } from 'hooks/useCookie'
 
@@ -44,7 +43,7 @@ class Doc extends Document {
 				originalRenderPage({
 					enhanceApp: (App) => (props) =>
 						sheet.collectStyles(
-							<StyleSheetManager disableVendorPrefixes={isDev}>
+							<StyleSheetManager>
 								<App {...props} />
 							</StyleSheetManager>,
 						),

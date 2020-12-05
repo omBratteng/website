@@ -9,6 +9,7 @@ import PageTitle from 'components/PageTitle'
 import SoMeLink from 'components/SoMeLink'
 import ToggleTheme from 'components/ToggleTheme'
 import { useApp } from 'contexts/app'
+import Footer from 'components/layout/Footer'
 
 const LayoutContext = createContext(undefined)
 const useLayout = () => {
@@ -94,6 +95,7 @@ const Layout = ({ siteTitle, children }) => {
 						</SocialMedia>
 						{children}
 					</Main>
+					<Footer />
 				</StyledLayout>
 			</LayoutContext.Provider>
 		</>

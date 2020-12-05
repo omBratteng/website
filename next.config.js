@@ -20,6 +20,12 @@ const nextConfig = {
 
 		return config
 	},
+	serverRuntimeConfig: {},
+	publicRuntimeConfig: {
+		assetPrefix,
+		offsetTonnes: process.env.OFFSET_TONNES,
+		nonce: process.env.CSP_NONCE,
+	},
 }
 
 module.exports = withPlugins([], nextConfig)

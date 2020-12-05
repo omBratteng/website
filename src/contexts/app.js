@@ -5,6 +5,9 @@ import { ThemeProvider } from 'styled-components'
 import { GlobalStyle, lightTheme, darkTheme } from 'styles'
 import useDarkMode from 'use-dark-mode'
 
+import getConfig from 'next/config'
+const { publicRuntimeConfig } = getConfig()
+
 const AppContext = createContext(undefined)
 
 const useApp = () => {
@@ -19,6 +22,7 @@ const useApp = () => {
 
 const AppProvider = ({ children }) => {
 	const darkMode = useDarkMode(true)
+	const { offsetTonnes } = publicRuntimeConfig
 
 	useEffect(() => {
 		const now = new Date()
@@ -30,7 +34,7 @@ const AppProvider = ({ children }) => {
 	}, [darkMode])
 
 	return (
-		<AppContext.Provider value={{ darkMode }}>
+		<AppContext.Provider value={{ darkMode, offsetTonnes }}>
 			<ThemeProvider theme={darkMode.value ? darkTheme : lightTheme}>
 				<GlobalStyle />
 				{children}
