@@ -1,14 +1,14 @@
 /* eslint-disable no-undef */
-const withAssetsManifest = require('next-assets-manifest')
+const withPlugins = require('next-compose-plugins')
 const isProd =
 	process.env.NODE_ENV === 'production' && process.env.APP_ENV !== 'staging'
 
-// const nonce = process.env.CSP_NONCE
+const assetPrefix = isProd ? 'https://cdn.bratteng.sh' : ''
 
-module.exports = withAssetsManifest({
+const nextConfig = {
 	reactStrictMode: false,
 	poweredByHeader: false,
-	assetPrefix: isProd ? 'https://cdn.bratteng.sh' : '',
+	assetPrefix,
 	webpack(config) {
 		config.module.rules.push({
 			test: /\.svg$/,
@@ -20,8 +20,6 @@ module.exports = withAssetsManifest({
 
 		return config
 	},
-	// Customize the client side manifest.
-	assetsManifestClient: {
-		output: `${process.cwd()}/public/asset-manifest.json`,
-	},
-})
+}
+
+module.exports = withPlugins([], nextConfig)
