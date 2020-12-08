@@ -1,6 +1,7 @@
 name: continuous-security
 
 on:
+  workflow_dispatch:
   schedule:
     # run every day at 1AM
     - cron: "0 1 * * *"
