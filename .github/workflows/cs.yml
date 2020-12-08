@@ -9,7 +9,6 @@ jobs:
   dockerscan:
     name: Docker security scan
     runs-on: ubuntu-20.04
-    needs: dockerfilelint
     steps:
       -
         name: Checkout code
@@ -36,11 +35,21 @@ jobs:
             --cache-from ghcr.io/ombratteng/bratteng.sh:latest \
             --build-arg NPM_TOKEN=${{ secrets.NPM_TOKEN }} \
             --build-arg FONTAWESOME_TOKEN=${{ secrets.FONTAWESOME_TOKEN }}
-      - name: Run Trivy vulnerability scanner
+
+      -
+        name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.0.8
         with:
           image-ref: 'ghcr.io/ombratteng/bratteng.sh:${{ github.sha }}'
-          format: 'table'
+          format: 'template'
+          template: '@/contrib/sarif.tpl'
+          output: 'trivy-results.sarif'
           exit-code: '1'
           ignore-unfixed: true
           severity: 'CRITICAL,HIGH'
+
+      -
+        name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: 'trivy-results.sarif'
