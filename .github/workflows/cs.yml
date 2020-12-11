@@ -28,12 +28,21 @@ jobs:
           password: ${{ secrets.CR_PAT }}
 
       -
+        name: Cache Docker layers
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+
+      -
         name: Docker build
         run: |
-          docker buildx build . \
-            --file Dockerfile \
+          docker buildx build . --load \
             --tag ghcr.io/ombratteng/bratteng.sh:${{ github.sha }} \
-            --cache-from ghcr.io/ombratteng/bratteng.sh:latest \
+            --cache-to=type=local,dest=/tmp/.buildx-cache \
+            --cache-from=type=local,src=/tmp/.buildx-cache \
             --build-arg NPM_TOKEN=${{ secrets.NPM_TOKEN }} \
             --build-arg FONTAWESOME_TOKEN=${{ secrets.FONTAWESOME_TOKEN }}
 
