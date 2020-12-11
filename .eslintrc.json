@@ -1,50 +1,61 @@
 {
-    "env": {
-        "browser": true,
-        "es6": true
-    },
-    "extends": [
-        "eslint:recommended",
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaVersion": 2021,
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"sourceType": "module",
+		"project": "./tsconfig.json",
+		"warnOnUnsupportedTypeScriptVersion": false
+	},
+	"plugins": [
+		"@typescript-eslint",
+		"react",
+		"react-hooks",
+		"prettier",
+		"@next/eslint-plugin-next"
+	],
+	"env": {
+		"browser": true,
+		"es6": true,
+		"node": true
+	},
+	"extends": [
+		"plugin:@typescript-eslint/recommended",
 		"plugin:react/recommended",
 		"plugin:@next/eslint-plugin-next/recommended",
+		"prettier",
+		"prettier/react",
+		"prettier/@typescript-eslint",
 		"plugin:prettier/recommended"
-    ],
-    "parser": "babel-eslint",
-    "globals": {
-		"ga": true,
+	],
+	"globals": {
 		"global": true
 	},
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 2020,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react",
-		"prettier",
-		"react-hooks",
-		"@next/eslint-plugin-next"
-    ],
-    "settings": {
-        "react": {
-            "version": "detect"
-        }
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
 	},
-	"ignorePatterns": [
-		"build/",
-		"**/*.min.*"
-	],
-    "rules": {
-        "prettier/prettier": ["error", {
-            "semi": false,
-            "singleQuote": true,
-            "tabWidth": 4,
-            "trailingComma": "all",
-            "useTabs": true
-		}],
+	"ignorePatterns": [".next/", "**/*.min.*"],
+	"rules": {
+		"prettier/prettier": [
+			"error",
+			{
+				"semi": false,
+				"singleQuote": true,
+				"tabWidth": 4,
+				"trailingComma": "all",
+				"useTabs": true
+			}
+		],
 		"react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn"
-    }
+		"react-hooks/exhaustive-deps": "warn",
+		"react/jsx-uses-react": "off",
+		"react/react-in-jsx-scope": "off",
+		"@typescript-eslint/type-annotation-spacing": "error",
+		"@typescript-eslint/no-empty-function": "off"
+	}
 }
