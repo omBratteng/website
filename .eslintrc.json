@@ -39,7 +39,7 @@
 			"version": "detect"
 		}
 	},
-	"ignorePatterns": [".next/", "**/*.min.*"],
+	"ignorePatterns": [".next/", "**/*.min.*", "**/*.js"],
 	"rules": {
 		"prettier/prettier": [
 			"error",
