@@ -1,4 +1,6 @@
-const Health = (req, res) =>
+import type { NextApiHandler } from 'next'
+
+const Health: NextApiHandler = (req, res) =>
 	req.headers.host === 'localhost:3000'
 		? res.status(200).json({
 				status: 'OK',
