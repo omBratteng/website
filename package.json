@@ -24,7 +24,7 @@
     "start": "next start",
     "start:staging": "APP_ENV=staging next start",
     "lint": "yarn lint:eslint && yarn lint:stylelint && yarn lint:markdown",
-    "lint:eslint": "eslint *.config.js src/ --report-unused-disable-directives",
+    "lint:eslint": "eslint '{src,pages}/**/*.{ts,tsx}' --report-unused-disable-directives",
     "lint:stylelint": "stylelint 'src/**/*.js'",
     "lint:markdown": "markdownlint 'content/*.md'"
   },
