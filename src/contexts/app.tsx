@@ -8,10 +8,10 @@ import useDarkMode, { DarkMode } from 'use-dark-mode'
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
 
-export type ContextProps = Partial<{
+export type ContextProps = {
 	darkMode: DarkMode
 	offsetTonnes: string
-}>
+}
 
 const AppContext = createContext({})
 const useApp = (): ContextProps => {
@@ -21,7 +21,7 @@ const useApp = (): ContextProps => {
 		throw new Error('useContext must be used within a AppProvider')
 	}
 
-	return context
+	return context as ContextProps
 }
 
 interface IAppProvider {

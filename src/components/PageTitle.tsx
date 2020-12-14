@@ -29,7 +29,7 @@ const H1 = styled.h1`
 	}
 `
 
-const Slug = styled.span`
+const Slug = styled.span<Partial<{ isNotHome: boolean }>>`
 	${(props) =>
 		props.isNotHome
 			? css`
@@ -48,7 +48,7 @@ const Slug = styled.span`
 			  `}
 `
 
-const PageTitle = () => {
+const PageTitle = (): JSX.Element => {
 	const { route, query } = useRouter()
 
 	const pageTitle =
@@ -60,7 +60,7 @@ const PageTitle = () => {
 			<Slug>bratteng.sh</Slug>
 		)
 	return (
-		<H1 isNotHome={route !== '/'}>
+		<H1>
 			{pageTitle}
 			{query.slug && <Slug isNotHome={route !== '/'}>{query.slug}</Slug>}
 		</H1>

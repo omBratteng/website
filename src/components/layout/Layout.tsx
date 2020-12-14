@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
+import type { Dispatch, ReactNode, SetStateAction } from 'react'
+import { createContext, useContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 // Next.js
@@ -11,8 +11,13 @@ import ToggleTheme from 'components/ToggleTheme'
 import { useApp } from 'contexts/app'
 import Footer from 'components/layout/Footer'
 
-const LayoutContext = createContext(undefined)
-const useLayout = () => {
+export type LayoutContext = Partial<{
+	pageTitle: string
+	setPageTitle: Dispatch<SetStateAction<string>>
+}>
+
+const LayoutContext = createContext({})
+const useLayout = (): LayoutContext => {
 	const context = useContext(LayoutContext)
 
 	if (context === undefined) {
@@ -50,7 +55,12 @@ const SocialMedia = styled.div`
 	padding: 1rem 0;
 `
 
-const Layout = ({ siteTitle, children }) => {
+interface Props {
+	siteTitle: string
+	children: ReactNode
+}
+
+const Layout = ({ siteTitle, children }: Props): JSX.Element => {
 	const [pageTitle, setPageTitle] = useState(undefined)
 	const [title, setTitle] = useState(siteTitle)
 	const { darkMode } = useApp()
@@ -100,15 +110,6 @@ const Layout = ({ siteTitle, children }) => {
 			</LayoutContext.Provider>
 		</>
 	)
-}
-
-Layout.propTypes = {
-	children: PropTypes.node,
-	siteTitle: PropTypes.string,
-}
-
-Layout.defaultProps = {
-	siteTitle: '',
 }
 
 export default Layout

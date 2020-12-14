@@ -1,7 +1,6 @@
-import React from 'react'
+import type { GetStaticProps } from 'next'
 import styled from 'styled-components'
 
-// import BlogPosts from 'components/BlogPosts'
 import Section from 'components/layout/Section'
 
 const SectionContent = styled.div`
@@ -43,7 +42,7 @@ const Index = (): JSX.Element => {
 	)
 }
 
-export const getServerSideProps = async () => ({
+export const getServerSideProps: GetStaticProps = async () => ({
 	props: {},
 })
 

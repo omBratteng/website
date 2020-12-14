@@ -1,5 +1,3 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Section from 'components/layout/Section'
@@ -37,17 +35,18 @@ const Content = styled.article`
 	}
 `
 
-const Markdown = ({ title, content, ...props }) => {
+interface Props {
+	title: string
+	content: string
+	props: unknown
+}
+
+const Markdown = ({ title, content }: Props): JSX.Element => {
 	return (
-		<Section {...props} title={title}>
+		<Section title={title}>
 			<Content dangerouslySetInnerHTML={{ __html: content }} />
 		</Section>
 	)
-}
-
-Markdown.propTypes = {
-	title: PropTypes.string,
-	content: PropTypes.string,
 }
 
 export default Markdown

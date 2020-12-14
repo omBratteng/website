@@ -1,5 +1,3 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Link from 'next/link'
@@ -18,24 +16,24 @@ const Li = styled.li`
 	}
 `
 
-const BlogPosts = ({ posts }) => {
-	return (
-		posts.length > 0 && (
-			<List>
-				{posts.map((post) => (
-					<Li key={post.slug}>
-						<Link href={`/blog/${post.slug}`}>
-							<a>{post.title}</a>
-						</Link>
-					</Li>
-				))}
-			</List>
-		)
-	)
+interface Props {
+	posts: []
 }
 
-BlogPosts.propTypes = {
-	posts: PropTypes.arrayOf(PropTypes.object),
+const BlogPosts = ({ posts }: Props): JSX.Element => {
+	return posts.length > 0 ? (
+		<List>
+			{posts.map((post: { [key: string]: string }) => (
+				<Li key={post.slug}>
+					<Link href={`/blog/${post.slug}`}>
+						<a>{post.title}</a>
+					</Link>
+				</Li>
+			))}
+		</List>
+	) : (
+		<></>
+	)
 }
 
 export default BlogPosts
