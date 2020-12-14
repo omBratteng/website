@@ -43,4 +43,8 @@ const Index = (): JSX.Element => {
 	)
 }
 
+export const getServerSideProps = async () => ({
+	props: {},
+})
+
 export default Index
