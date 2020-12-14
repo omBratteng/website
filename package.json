@@ -57,6 +57,7 @@
     "@babel/preset-env": "^7.12.10",
     "@babel/preset-react": "^7.12.10",
     "@next/eslint-plugin-next": "^10.0.3",
+    "@types/ackee-tracker": "^4.0.0",
     "@types/node": "^14.14.12",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",

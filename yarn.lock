@@ -1279,6 +1279,11 @@
     "@svgr/plugin-svgo" "^5.5.0"
     loader-utils "^2.0.0"
 
+"@types/ackee-tracker@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@types/ackee-tracker/-/ackee-tracker-4.0.0.tgz#d3452549f56cf44daaea52476d61f496dc73a6db"
+  integrity sha512-cyulrEIlIiBqc+LpuMOStbrescP4STYeEMqiGMJpOPAcetb5nZ/zFS8ybU967j76QclYwQXeyrq5QlENYKlwdA==
+
 "@types/hoist-non-react-statics@*":
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"
