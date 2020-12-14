@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import BlogPosts from 'components/BlogPosts'
+// import BlogPosts from 'components/BlogPosts'
 import Section from 'components/layout/Section'
 
 import { getAllPosts } from 'lib/getPost'
@@ -43,13 +43,13 @@ const Index = ({ allPosts }) => {
 				</SectionContent>
 			</Section>
 
-			{allPosts.length > 0 && (
+			{/* {allPosts.length > 0 && (
 				<Section title="Blog">
 					<SectionContent>
 						<BlogPosts posts={allPosts} />
 					</SectionContent>
 				</Section>
-			)}
+			)} */}
 		</>
 	)
 }
