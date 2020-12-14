@@ -13,13 +13,14 @@ import { getCookie } from 'hooks/useCookie'
 const nonce = process.env.CSP_NONCE || ''
 global.__webpack_nonce__ = nonce
 
-interface IDoc extends DocumentProps {
+type Props = {
 	darkMode: string
 }
+
 class Doc extends Document {
 	darkMode: string
 
-	constructor(props: IDoc) {
+	constructor(props: DocumentProps & Props) {
 		super(props)
 
 		this.darkMode = props.darkMode
@@ -27,7 +28,7 @@ class Doc extends Document {
 
 	static async getInitialProps(
 		context: DocumentContext,
-	): Promise<DocumentInitialProps> {
+	): Promise<DocumentInitialProps & Props> {
 		const sheet = new ServerStyleSheet()
 		const originalRenderPage = context.renderPage
 
@@ -42,10 +43,9 @@ class Doc extends Document {
 						),
 				})
 
-			const darkMode = getCookie(
-				'darkMode',
-				context.req.headers.cookie || '',
-			)
+			const darkMode = context.req
+				? getCookie('darkMode', context.req.headers.cookie || '')
+				: 'false'
 
 			const initialProps = await Document.getInitialProps(context)
 			return {
