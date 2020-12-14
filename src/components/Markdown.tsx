@@ -38,7 +38,6 @@ const Content = styled.article`
 interface Props {
 	title: string
 	content: string
-	props: unknown
 }
 
 const Markdown = ({ title, content }: Props): JSX.Element => {

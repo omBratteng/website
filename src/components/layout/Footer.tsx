@@ -26,6 +26,4 @@ const Footer = (): JSX.Element => {
 	)
 }
 
-Footer.propTypes = {}
-
 export default Footer

@@ -1,6 +1,5 @@
 import type { IconName } from '@fortawesome/fontawesome-common-types'
 import { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { size } from 'polished'
@@ -70,10 +69,6 @@ const ToggleTheme = ({ darkMode }: Props): JSX.Element => {
 			<FontAwesomeIcon icon={['fad', icon]} fixedWidth />
 		</Button>
 	)
-}
-
-ToggleTheme.propTypes = {
-	darkMode: PropTypes.object,
 }
 
 export default ToggleTheme

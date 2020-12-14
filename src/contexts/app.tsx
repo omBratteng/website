@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect } from 'react'
-import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 
 import { GlobalStyle, lightTheme, darkTheme } from 'styles'
@@ -49,11 +48,6 @@ const AppProvider = ({ children }: IAppProvider): JSX.Element => {
 			</ThemeProvider>
 		</AppContext.Provider>
 	)
-}
-
-AppProvider.propTypes = {
-	children: PropTypes.node,
-	preferDarkMode: PropTypes.bool,
 }
 
 export default AppProvider
