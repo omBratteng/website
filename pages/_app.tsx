@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHashtag } from '@fortawesome/pro-regular-svg-icons'
 

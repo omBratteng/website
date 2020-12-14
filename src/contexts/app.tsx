@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect } from 'react'
+import { createContext, useContext, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 
