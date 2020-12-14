@@ -3,14 +3,18 @@ import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 
 import { GlobalStyle, lightTheme, darkTheme } from 'styles'
-import useDarkMode from 'use-dark-mode'
+import useDarkMode, { DarkMode } from 'use-dark-mode'
 
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
 
-const AppContext = createContext(undefined)
+export type ContextProps = Partial<{
+	darkMode: DarkMode
+	offsetTonnes: string
+}>
 
-const useApp = () => {
+const AppContext = createContext({})
+const useApp = (): ContextProps => {
 	const context = useContext(AppContext)
 
 	if (context === undefined) {
@@ -20,9 +24,13 @@ const useApp = () => {
 	return context
 }
 
-const AppProvider = ({ children }) => {
+interface IAppProvider {
+	children: React.ReactNode
+}
+
+const AppProvider = ({ children }: IAppProvider): JSX.Element => {
 	const darkMode = useDarkMode(true)
-	const { offsetTonnes } = publicRuntimeConfig
+	const { offsetTonnes }: { offsetTonnes: string } = publicRuntimeConfig
 
 	useEffect(() => {
 		const now = new Date()
