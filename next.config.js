@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const withPlugins = require('next-compose-plugins')
 const isProd =
 	process.env.NODE_ENV === 'production' && process.env.APP_ENV !== 'staging'
