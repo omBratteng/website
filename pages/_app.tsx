@@ -2,8 +2,6 @@
 import type { AppProps } from 'next/app'
 import type { RuntimeConfig } from 'types'
 
-import { useEffect, useState } from 'react'
-
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHashtag } from '@fortawesome/pro-regular-svg-icons'
 
@@ -46,7 +44,6 @@ library.add(
 const { publicRuntimeConfig } = getConfig()
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
-	const [loaded, setLoaded] = useState<boolean>(false)
 	const { domainId }: RuntimeConfig = publicRuntimeConfig
 
 	useAnalytics({
@@ -56,21 +53,6 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 			detailed: true,
 		},
 	})
-
-	useEffect(() => {
-		;(async () => {
-			if (loaded) return
-			await import('webfontloader').then((WebFont) => {
-				WebFont.load({
-					custom: {
-						families: ['Space Mono'],
-					},
-				})
-
-				setLoaded(true)
-			})
-		})()
-	}, [loaded])
 
 	return (
 		<>
