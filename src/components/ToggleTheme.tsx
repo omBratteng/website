@@ -1,13 +1,18 @@
-import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
+import type { IconName } from '@fortawesome/fontawesome-common-types'
+import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { size } from 'polished'
 
 import { useHover } from '@react-aria/interactions'
 import { useFocusRing } from '@react-aria/focus'
+import { DarkMode } from 'use-dark-mode'
 
-const Button = styled.button`
+interface Button {
+	isHovered: boolean
+	isFocused: boolean
+}
+const Button = styled.button<Button>`
 	${size('2rem')}
 	align-items: center;
 	background: var(
@@ -38,9 +43,12 @@ const Button = styled.button`
 	}
 `
 
-const ToggleTheme = ({ darkMode }) => {
-	const [icon, setIcon] = useState('lightbulb')
-	const { hoverProps, isHovered } = useHover(false)
+interface Props {
+	darkMode: DarkMode
+}
+const ToggleTheme = ({ darkMode }: Props): JSX.Element => {
+	const [icon, setIcon] = useState<IconName>('lightbulb')
+	const { hoverProps, isHovered } = useHover({})
 	const { focusProps, isFocused } = useFocusRing()
 
 	useEffect(() => {
@@ -61,10 +69,6 @@ const ToggleTheme = ({ darkMode }) => {
 			<FontAwesomeIcon icon={['fad', icon]} fixedWidth />
 		</Button>
 	)
-}
-
-ToggleTheme.propTypes = {
-	darkMode: PropTypes.object,
 }
 
 export default ToggleTheme

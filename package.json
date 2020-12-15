@@ -23,9 +23,9 @@
     "build:staging": "APP_ENV=staging next build",
     "start": "next start",
     "start:staging": "APP_ENV=staging next start",
-    "lint": "yarn lint:eslint && yarn lint:stylelint && yarn lint:markdown",
-    "lint:eslint": "eslint *.config.js src/ --report-unused-disable-directives",
-    "lint:stylelint": "stylelint 'src/**/*.js'",
+    "lint": "yarn lint:eslint && yarn lint:stylelint",
+    "lint:eslint": "eslint '{src,pages}/**/*.{ts,tsx}' --cache --report-unused-disable-directives",
+    "lint:stylelint": "stylelint 'src/**/*.{ts,tsx}'",
     "lint:markdown": "markdownlint 'content/*.md'"
   },
   "dependencies": {
@@ -44,7 +44,6 @@
     "next": "^10.0.3",
     "next-compose-plugins": "^2.2.1",
     "polished": "^4.0.5",
-    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "remark": "^13.0.0",
@@ -57,6 +56,14 @@
     "@babel/preset-env": "^7.12.10",
     "@babel/preset-react": "^7.12.10",
     "@next/eslint-plugin-next": "^10.0.3",
+    "@types/ackee-tracker": "^4.0.0",
+    "@types/node": "^14.14.12",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/styled-components": "^5.1.5",
+    "@types/webpack-env": "^1.16.0",
+    "@typescript-eslint/eslint-plugin": "^4.9.1",
+    "@typescript-eslint/parser": "^4.9.1",
     "babel-eslint": "^10.1.0",
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-plugin-react-remove-properties": "^0.3.0",
@@ -71,7 +78,8 @@
     "stylelint": "^13.8.0",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-styled-components": "^0.1.1",
-    "stylelint-order": "^4.1.0"
+    "stylelint-order": "^4.1.0",
+    "typescript": "^4.1.2"
   },
   "resolutions": {
     "@ampproject/toolbox-optimizer": "^2.7.1"

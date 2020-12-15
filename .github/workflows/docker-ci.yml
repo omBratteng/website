@@ -4,7 +4,7 @@ on:
   pull_request:
 
 jobs:
-  dockerfilelint:
+  lint:
     name: Dockerfile lint
     runs-on: ubuntu-20.04
     steps:
@@ -15,14 +15,17 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           hadolint_ignore: DL3008
 
-  dockerscan:
-    name: Docker security scan
+  build:
+    name: Build image
     runs-on: ubuntu-20.04
-    needs: dockerfilelint
     steps:
       -
         name: Checkout code
         uses: actions/checkout@v2
+
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
 
       -
         name: Login to GitHub Container Registry
@@ -33,21 +36,20 @@ jobs:
           password: ${{ secrets.CR_PAT }}
 
       -
-        name: Docker build
-        run: |
-          docker buildx build . \
-            --file Dockerfile \
-            --tag ghcr.io/ombratteng/bratteng.sh:${{ github.sha }} \
-            --cache-from ghcr.io/ombratteng/bratteng.sh:latest \
-            --build-arg NPM_TOKEN=${{ secrets.NPM_TOKEN }} \
-            --build-arg FONTAWESOME_TOKEN=${{ secrets.FONTAWESOME_TOKEN }}
+        name: Cache Docker layers
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
 
       -
-        name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@0.0.8
-        with:
-          image-ref: 'ghcr.io/ombratteng/bratteng.sh:${{ github.sha }}'
-          format: 'table'
-          exit-code: '1'
-          ignore-unfixed: true
-          severity: 'CRITICAL,HIGH'
+        name: Docker build
+        run: |
+          docker buildx build . --load \
+            --tag image:${{ github.sha }} \
+            --cache-to=type=local,dest=/tmp/.buildx-cache \
+            --cache-from=type=local,src=/tmp/.buildx-cache \
+            --build-arg NPM_TOKEN=${{ secrets.NPM_TOKEN }} \
+            --build-arg FONTAWESOME_TOKEN=${{ secrets.FONTAWESOME_TOKEN }}

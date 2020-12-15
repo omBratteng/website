@@ -1,10 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import type {
+	IconName,
+	IconPrefix,
+} from '@fortawesome/fontawesome-common-types'
 import styled, { css } from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { hideVisually, size } from 'polished'
 
-const Link = styled.a`
+interface Link {
+	hoverColor: string
+	small?: boolean
+}
+const Link = styled.a<Link>`
 	${size('2rem')}
 	align-items: center;
 	background: var(--global-link-color);
@@ -38,7 +44,7 @@ const Link = styled.a`
 	}
 `
 
-const Icon = styled(FontAwesomeIcon)`
+const Icon = styled(FontAwesomeIcon)<{ icon: [IconPrefix, IconName] }>`
 	@media (min-width: 768px) {
 		${(props) =>
 			props.icon[1] === 'twitter' &&
@@ -50,7 +56,20 @@ const Icon = styled(FontAwesomeIcon)`
 	}
 `
 
-const SoMeLink = ({ href, alt, hoverColor, small, icon }) => {
+interface Props {
+	href: string
+	alt: string
+	hoverColor: string
+	icon: IconName
+	small?: boolean
+}
+const SoMeLink = ({
+	href,
+	alt,
+	hoverColor,
+	small,
+	icon,
+}: Props): JSX.Element => {
 	return (
 		<Link
 			href={href}
@@ -62,14 +81,6 @@ const SoMeLink = ({ href, alt, hoverColor, small, icon }) => {
 			<span>{alt}</span>
 		</Link>
 	)
-}
-
-SoMeLink.propTypes = {
-	href: PropTypes.string,
-	alt: PropTypes.string,
-	hoverColor: PropTypes.string,
-	small: PropTypes.bool,
-	icon: PropTypes.string,
 }
 
 export default SoMeLink

@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import type { ReactNode } from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -38,7 +37,12 @@ const Hashtag = styled(FontAwesomeIcon)`
 	}
 `
 
-const Section = ({ children, title }) => (
+interface Props {
+	title: string
+	children: ReactNode
+}
+
+const Section = ({ children, title }: Props): JSX.Element => (
 	<StyledSection>
 		{title && (
 			<Title>
@@ -49,14 +53,5 @@ const Section = ({ children, title }) => (
 		{children}
 	</StyledSection>
 )
-
-Section.propTypes = {
-	title: PropTypes.string,
-	children: PropTypes.oneOfType([
-		PropTypes.element,
-		PropTypes.node,
-		PropTypes.string,
-	]).isRequired,
-}
 
 export default Section

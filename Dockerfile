@@ -55,7 +55,6 @@ COPY --chown=nonroot --from=build /src/package.json /app/package.json
 COPY --chown=nonroot --from=build /src/node_modules /app/node_modules
 COPY --chown=nonroot --from=build /src/.next /app/.next
 COPY --chown=nonroot --from=build /src/public /app/public
-COPY --chown=nonroot --from=build /src/content /app/content
 COPY --chown=nonroot --from=build /src/next.config.js /app/next.config.js
 
 # run as an unprivileged user

@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 import { useApp } from 'contexts/app'
 
@@ -11,7 +10,7 @@ const StyledFooter = styled.footer`
 	width: 100%;
 `
 
-const Footer = () => {
+const Footer = (): JSX.Element => {
 	const { offsetTonnes } = useApp()
 
 	return (
@@ -26,7 +25,5 @@ const Footer = () => {
 		</>
 	)
 }
-
-Footer.propTypes = {}
 
 export default Footer

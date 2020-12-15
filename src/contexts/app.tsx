@@ -1,28 +1,35 @@
-import React, { createContext, useContext, useEffect } from 'react'
-import PropTypes from 'prop-types'
+import { createContext, useContext, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import { GlobalStyle, lightTheme, darkTheme } from 'styles'
-import useDarkMode from 'use-dark-mode'
+import useDarkMode, { DarkMode } from 'use-dark-mode'
 
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
 
-const AppContext = createContext(undefined)
+export type ContextProps = {
+	darkMode: DarkMode
+	offsetTonnes: string
+}
 
-const useApp = () => {
+const AppContext = createContext({})
+const useApp = (): ContextProps => {
 	const context = useContext(AppContext)
 
 	if (context === undefined) {
 		throw new Error('useContext must be used within a AppProvider')
 	}
 
-	return context
+	return context as ContextProps
 }
 
-const AppProvider = ({ children }) => {
+interface IAppProvider {
+	children: React.ReactNode
+}
+
+const AppProvider = ({ children }: IAppProvider): JSX.Element => {
 	const darkMode = useDarkMode(true)
-	const { offsetTonnes } = publicRuntimeConfig
+	const { offsetTonnes }: { offsetTonnes: string } = publicRuntimeConfig
 
 	useEffect(() => {
 		const now = new Date()
@@ -41,11 +48,6 @@ const AppProvider = ({ children }) => {
 			</ThemeProvider>
 		</AppContext.Provider>
 	)
-}
-
-AppProvider.propTypes = {
-	children: PropTypes.node,
-	preferDarkMode: PropTypes.bool,
 }
 
 export default AppProvider

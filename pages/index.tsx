@@ -1,11 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import type { GetStaticProps } from 'next'
 import styled from 'styled-components'
 
-import BlogPosts from 'components/BlogPosts'
 import Section from 'components/layout/Section'
-
-import { getAllPosts } from 'lib/getPost'
 
 const SectionContent = styled.div`
 	font-size: 1rem;
@@ -16,7 +12,7 @@ const SectionContent = styled.div`
 	}
 `
 
-const Index = ({ allPosts }) => {
+const Index = (): JSX.Element => {
 	return (
 		<>
 			<Section title="About">
@@ -42,24 +38,12 @@ const Index = ({ allPosts }) => {
 					.
 				</SectionContent>
 			</Section>
-
-			{allPosts.length > 0 && (
-				<Section title="Blog">
-					<SectionContent>
-						<BlogPosts posts={allPosts} />
-					</SectionContent>
-				</Section>
-			)}
 		</>
 	)
 }
 
-Index.propTypes = {
-	allPosts: PropTypes.arrayOf(PropTypes.object),
-}
-
-export const getServerSideProps = async () => ({
-	props: { allPosts: getAllPosts(['title', 'date', 'slug']) },
+export const getServerSideProps: GetStaticProps = async () => ({
+	props: {},
 })
 
 export default Index

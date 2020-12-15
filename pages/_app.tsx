@@ -1,6 +1,3 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHashtag } from '@fortawesome/pro-regular-svg-icons'
 
@@ -17,6 +14,7 @@ import {
 } from '@fortawesome/pro-duotone-svg-icons'
 
 // Next.js
+import type { AppProps } from 'next/app'
 import Head from 'next/head'
 
 // Context
@@ -26,11 +24,14 @@ import AppProvider from 'contexts/app'
 import Layout from 'components/layout/Layout'
 import useAnalytics from 'hooks/useAnalytics'
 
+import { preload } from 'utils'
+import links from 'links'
+
 library.add(faHashtag)
 library.add(faGithubAlt, faTwitter, faLinkedinIn)
 library.add(faLightbulb, faLightbulbOn, faLightbulbSlash)
 
-const App = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 	useAnalytics({
 		domainId: 'cd291bc6-83f4-4b60-82e9-b2219d50f7b7',
 		server: 'https://analytics.bratteng.cloud',
@@ -42,7 +43,6 @@ const App = ({ Component, pageProps }) => {
 	return (
 		<>
 			<Head>
-				<meta charSet="utf-8" />
 				<meta
 					name="viewport"
 					content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -51,6 +51,7 @@ const App = ({ Component, pageProps }) => {
 					name="description"
 					content="Ole-Martin Bratteng &mdash; Software developer"
 				/>
+				{preload({ links })}
 				<meta httpEquiv="X-UA-Compatible" content="ie=edge" />
 				<meta name="apple-mobile-web-app-capable" content="yes" />
 				<link rel="shortcut icon" href="/favicon.ico" />
@@ -62,11 +63,6 @@ const App = ({ Component, pageProps }) => {
 			</AppProvider>
 		</>
 	)
-}
-
-App.propTypes = {
-	Component: PropTypes.func,
-	pageProps: PropTypes.object,
 }
 
 export default App
