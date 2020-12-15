@@ -100,6 +100,7 @@ svg:not(:root).svg-inline--fa{overflow:visible;}
 
 
 @font-face {
+	font-display: swap;
 	font-family: 'Space Mono';
 	font-style: normal;
 	font-weight: 400;
@@ -109,6 +110,7 @@ svg:not(:root).svg-inline--fa{overflow:visible;}
 		U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
+	font-display: swap;
 	font-family: 'Space Mono';
 	font-style: italic;
 	font-weight: 400;
@@ -118,6 +120,7 @@ svg:not(:root).svg-inline--fa{overflow:visible;}
 		U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
+	font-display: swap;
 	font-family: 'Space Mono';
 	font-style: normal;
 	font-weight: 700;
@@ -127,6 +130,7 @@ svg:not(:root).svg-inline--fa{overflow:visible;}
 		U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
+	font-display: swap;
 	font-family: 'Space Mono';
 	font-style: italic;
 	font-weight: 700;
