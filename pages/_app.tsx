@@ -33,9 +33,15 @@ import useAnalytics from 'hooks/useAnalytics'
 import { preload } from 'utils'
 import links from 'links'
 
-library.add(faHashtag)
-library.add(faGithubAlt, faTwitter, faLinkedinIn)
-library.add(faLightbulb, faLightbulbOn, faLightbulbSlash)
+library.add(
+	faGithubAlt,
+	faHashtag,
+	faLightbulb,
+	faLightbulbOn,
+	faLightbulbSlash,
+	faLinkedinIn,
+	faTwitter,
+)
 
 const { publicRuntimeConfig } = getConfig()
 
