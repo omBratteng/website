@@ -1,26 +1,12 @@
 import process from 'process'
 import getConfig from 'next/config'
 
-import googleFonts from 'utils/googleFonts'
-
 type Links = (string | { href: string; as?: string; type?: string })[]
 
 const { publicRuntimeConfig } = getConfig()
 const { assetPrefix } = publicRuntimeConfig
 
-const devLinks: Links = [
-	googleFonts('Space+Mono:ital,wght@0,400;0,700;1,400;1,700'),
-	{
-		href: `${assetPrefix}/assets/fonts/space-mono-v6-latin-700italic.woff2`,
-		as: 'font',
-		type: 'font/woff2',
-	},
-	{
-		href: `${assetPrefix}/assets/fonts/space-mono-v6-latin-italic.woff2`,
-		as: 'font',
-		type: 'font/woff2',
-	},
-]
+const devLinks: Links = []
 
 const prodLinks: Links = [assetPrefix]
 const globalLinks: Links = [

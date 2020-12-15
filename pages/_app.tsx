@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHashtag } from '@fortawesome/pro-regular-svg-icons'
 
@@ -32,6 +34,8 @@ library.add(faGithubAlt, faTwitter, faLinkedinIn)
 library.add(faLightbulb, faLightbulbOn, faLightbulbSlash)
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
+	const [loaded, setLoaded] = useState<boolean>(false)
+
 	useAnalytics({
 		domainId: 'cd291bc6-83f4-4b60-82e9-b2219d50f7b7',
 		server: 'https://analytics.bratteng.cloud',
@@ -39,6 +43,21 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 			detailed: true,
 		},
 	})
+
+	useEffect(() => {
+		;(async () => {
+			if (loaded) return
+			await import('webfontloader').then((WebFont) => {
+				WebFont.load({
+					custom: {
+						families: ['Space Mono'],
+					},
+				})
+
+				setLoaded(true)
+			})
+		})()
+	}, [loaded])
 
 	return (
 		<>

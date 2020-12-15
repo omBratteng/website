@@ -3,11 +3,16 @@ import { useApp } from 'contexts/app'
 
 const StyledFooter = styled.footer`
 	align-self: center;
-	font-size: 0.8rem;
+	font-size: 0.8125rem;
+	letter-spacing: 1.15px;
 	margin-top: auto;
 	max-width: 700px;
 	padding: 0 1.25rem;
 	width: 100%;
+
+	html.wf-active & {
+		letter-spacing: 1px;
+	}
 `
 
 const Footer = (): JSX.Element => {

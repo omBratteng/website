@@ -8,7 +8,7 @@ const SectionContent = styled.div`
 	hyphens: auto;
 
 	@media (min-width: 768px) {
-		font-size: 1.3rem;
+		font-size: 1.3125rem;
 	}
 `
 

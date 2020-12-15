@@ -14,17 +14,23 @@ const { publicRuntimeConfig } = getConfig()
 const { assetPrefix } = publicRuntimeConfig
 
 const GlobalStyle = createGlobalStyle`
-:root {
+html {
 	box-sizing: border-box;
-	font-family: 'Space Mono', monospace;
+	font-family: monospace;
 	font-size: 16px;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	font-style: normal;
 	font-weight: 400;
+	letter-spacing: 1.25px;
 	-ms-overflow-style: -ms-autohiding-scrollbar;
 	text-rendering: optimizeLegibility;
 	text-size-adjust: 100%;
+
+	&.wf-active {
+		font-family: 'Space Mono', monospace;
+		letter-spacing: 1px;
+	}
 }
 
 html,
@@ -42,7 +48,6 @@ body {
 	color: var(--global-font-color);
 	font-feature-settings: "liga" 1, "lnum" 1, "tnum" 1;
 	font-variant-ligatures: common-ligatures;
-	letter-spacing: 1px;
 	line-height: ${(props) => props.theme.font.lineHeight};
 	margin: 0;
 	transition: background 0.5s ease, color 0.5s ease;
