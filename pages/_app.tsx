@@ -1,3 +1,7 @@
+// Types
+import type { AppProps } from 'next/app'
+import type { RuntimeConfig } from 'types'
+
 import { useEffect, useState } from 'react'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -16,8 +20,8 @@ import {
 } from '@fortawesome/pro-duotone-svg-icons'
 
 // Next.js
-import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import getConfig from 'next/config'
 
 // Context
 import AppProvider from 'contexts/app'
@@ -33,11 +37,14 @@ library.add(faHashtag)
 library.add(faGithubAlt, faTwitter, faLinkedinIn)
 library.add(faLightbulb, faLightbulbOn, faLightbulbSlash)
 
+const { publicRuntimeConfig } = getConfig()
+
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 	const [loaded, setLoaded] = useState<boolean>(false)
+	const { domainId }: RuntimeConfig = publicRuntimeConfig
 
 	useAnalytics({
-		domainId: 'cd291bc6-83f4-4b60-82e9-b2219d50f7b7',
+		domainId: domainId,
 		server: 'https://analytics.bratteng.cloud',
 		options: {
 			detailed: true,

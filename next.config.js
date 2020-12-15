@@ -36,6 +36,7 @@ const nextConfig = {
 	serverRuntimeConfig: {},
 	publicRuntimeConfig: {
 		assetPrefix,
+		domainId: process.env.DOMAIN_ID,
 		offsetTonnes: process.env.OFFSET_TONNES,
 		nonce: process.env.CSP_NONCE,
 	},

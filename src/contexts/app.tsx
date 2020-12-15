@@ -12,7 +12,9 @@ export type ContextProps = {
 	offsetTonnes: string
 }
 
-const AppContext = createContext({})
+const AppContext = createContext<Partial<ContextProps>>({
+	offsetTonnes: '0',
+})
 const useApp = (): ContextProps => {
 	const context = useContext(AppContext)
 
