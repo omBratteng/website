@@ -28,8 +28,8 @@ import AppProvider from 'contexts/app'
 import Layout from 'components/layout/Layout'
 import useAnalytics from 'hooks/useAnalytics'
 
-import { preload } from 'utils'
-import links from 'links'
+// import { preload } from 'utils'
+// import links from 'links'
 
 library.add(
 	faGithubAlt,
@@ -65,7 +65,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 					name="description"
 					content="Ole-Martin Bratteng &mdash; Software developer"
 				/>
-				{preload({ links })}
+				{/* {preload({ links })} */}
 				<meta httpEquiv="X-UA-Compatible" content="ie=edge" />
 				<meta name="apple-mobile-web-app-capable" content="yes" />
 				<link rel="shortcut icon" href="/favicon.ico" />
