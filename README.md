@@ -24,11 +24,40 @@ npx webfont-dl "https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&dis
 ```
 
 To fetch to unique characters, run this in the console.
-> **NOTE:** This doesn't get characters inside `content` of css nor does it detect `font-weight`
+> **NOTE:** Not a perfect script, elements without a set `font-weight`, e.g. parent divs, will get the text content of e.g. child `<strong />` elements
+>
+> Also doesn't care/ crawl for other pages
 ```js
-document.documentElement.innerText
-	.replace(/\r?\n|\r/g, '')
-	.split('')
-	.filter((item, pos, self) => self.indexOf(item) === pos)
-	.join('')
+const fontWeights = {}
+
+document.querySelectorAll('*').forEach(elem => {
+    if (["HTML", "HEAD", "BODY", "META", "LINK", "SCRIPT", "TITLE", "NOSCRIPT", "STYLE"].includes(elem.tagName)) return
+    if (!elem.innerText) return
+    let weight = window.getComputedStyle(elem).fontWeight
+    if (!fontWeights[weight]) fontWeights[weight] = []
+    fontWeights[weight].push(elem.innerText.replace(/\r?\n|\r/g, ''))
+
+    if(window.getComputedStyle(elem, "::before").content !== "none") {
+        fontWeights[weight].push(window.getComputedStyle(elem, "::before").content)
+    }
+
+    if(window.getComputedStyle(elem, "::after").content !== "none") {
+        console.log(typeof window.getComputedStyle(elem, "::after").content);
+        fontWeights[weight].push(window.getComputedStyle(elem, "::after").content)
+    }
+})
+
+Object.keys(fontWeights)
+.filter((key) => fontWeights[key].length > 0)
+.map((key) => {
+    let weight = fontWeights[key]
+    let text = weight.toString().replace(/\r?\n|\r/g, '')
+                     .split('')
+                     .filter((item, pos, self) => self.indexOf(item) === pos)
+                     .join('')
+
+    fontWeights[key] = encodeURIComponent(text)
+})
+
+console.log(fontWeights)
 ```
