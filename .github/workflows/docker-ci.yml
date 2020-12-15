@@ -16,7 +16,7 @@ jobs:
           hadolint_ignore: DL3008
 
   build:
-    name: Docker security scan
+    name: Build image
     runs-on: ubuntu-20.04
     steps:
       -
