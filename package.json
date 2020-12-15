@@ -25,8 +25,7 @@
     "start:staging": "APP_ENV=staging next start",
     "lint": "yarn lint:eslint && yarn lint:stylelint",
     "lint:eslint": "eslint '{src,pages}/**/*.{ts,tsx}' --cache --report-unused-disable-directives",
-    "lint:stylelint": "stylelint 'src/**/*.{ts,tsx}'",
-    "lint:markdown": "markdownlint 'content/*.md'"
+    "lint:stylelint": "stylelint 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
@@ -40,14 +39,11 @@
     "@react-aria/interactions": "^3.3.2",
     "@svgr/webpack": "^5.5.0",
     "ackee-tracker": "^4.2.0",
-    "gray-matter": "^4.0.2",
     "next": "^10.0.3",
     "next-compose-plugins": "^2.2.1",
     "polished": "^4.0.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "remark": "^13.0.0",
-    "remark-html": "^13.0.1",
     "styled-components": "^5.2.1",
     "use-dark-mode": "^2.3.1"
   },
@@ -73,7 +69,6 @@
     "eslint-plugin-prettier": "^3.3.0",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "markdownlint-cli": "^0.25.0",
     "prettier": "^2.2.1",
     "stylelint": "^13.8.0",
     "stylelint-config-recommended": "^3.0.0",
