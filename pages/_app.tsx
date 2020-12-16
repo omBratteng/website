@@ -27,6 +27,7 @@ import AppProvider from 'contexts/app'
 // Components
 import Layout from 'components/layout/Layout'
 import useAnalytics from 'hooks/useAnalytics'
+import 'fonts.css'
 
 // import { preload } from 'utils'
 // import links from 'links'
