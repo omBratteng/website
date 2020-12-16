@@ -27,7 +27,6 @@ import AppProvider from 'contexts/app'
 // Components
 import Layout from 'components/layout/Layout'
 import useAnalytics from 'hooks/useAnalytics'
-import 'fonts.css'
 
 // import { preload } from 'utils'
 // import links from 'links'
@@ -58,6 +57,8 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 	return (
 		<>
 			<Head>
+				<link rel="preload" href="/css/fonts.css" as="style" />
+				<link rel="stylesheet" href="/css/fonts.css" />
 				<meta
 					name="viewport"
 					content="width=device-width, initial-scale=1, shrink-to-fit=no"
