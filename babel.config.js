@@ -14,7 +14,6 @@ module.exports = (api) => {
 					preprocess: false,
 				},
 			],
-			['babel-plugin-module-resolver', { root: ['./src'] }],
 		],
 		env: {
 			production: {
