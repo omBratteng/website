@@ -23,7 +23,7 @@ export const getCookie = (
  */
 export const setCookie = (
 	key: string,
-	value: string,
+	value: string | boolean | number,
 	numberOfDays = 14,
 ): void => {
 	const now = new Date()
@@ -31,10 +31,10 @@ export const setCookie = (
 	// set the time to be now + numberOfDays
 	now.setTime(now.getTime() + numberOfDays * 60 * 60 * 24 * 1000)
 
-	document.cookie = `${key}=${value}; expires=${now.toUTCString()}; path=/`
+	document.cookie = `${key}=${value}; expires=${now.toUTCString()}; sameSite=strict; path=/`
 }
 
-type IUpdateCooke = (value: string, numberOfDays: number) => void
+type UpdateCooke = (value: string, numberOfDays?: number) => void
 
 /**
  * @param key The key to store our data to
@@ -43,12 +43,12 @@ type IUpdateCooke = (value: string, numberOfDays: number) => void
 export const useCookie = (
 	key: string,
 	defaultValue: string,
-): [string, IUpdateCooke] => {
+): [string, UpdateCooke] => {
 	const [cookieState, setCookieState] = useState(
 		getCookie(key) || defaultValue,
 	)
 
-	const updateCookie = (value: string, numberOfDays: number): void => {
+	const updateCookie: UpdateCooke = (value, numberOfDays): void => {
 		setCookieState(value)
 		setCookie(key, value, numberOfDays)
 	}

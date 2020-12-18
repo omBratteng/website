@@ -1,5 +1,4 @@
-import type { Dispatch, SetStateAction } from 'react'
-import { createContext, useEffect, useState } from 'react'
+import { createContext, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 
 // Next.js
@@ -7,45 +6,33 @@ import Head from 'next/head'
 
 import { GlobalStyle, dark, light } from 'styles'
 import useDarkMode, { DarkMode } from 'use-dark-mode'
+import { setCookie } from 'hooks'
 
 export type ContextProps = {
 	darkMode: DarkMode
-	pageTitle: string
-	setPageTitle: Dispatch<SetStateAction<string>>
+	siteTitle: string
 }
 
 export const AppContext = createContext({})
 
-interface IAppProvider {
+type Props = {
 	siteTitle: string
 	children: React.ReactNode
 }
 
-const AppProvider = ({ siteTitle, children }: IAppProvider): JSX.Element => {
-	const [pageTitle, setPageTitle] = useState<string>('')
-	const [title, setTitle] = useState<string>(siteTitle)
-
+const AppProvider = ({ siteTitle, children }: Props): JSX.Element => {
 	const darkMode = useDarkMode(true)
 
 	useEffect(() => {
-		const now = new Date()
-		now.setTime(now.getTime() + 31 * 60 * 60 * 24 * 1000)
-
-		document.cookie = `darkMode=${
-			darkMode.value
-		}; expires=${now.toUTCString()}; sameSite=strict; path=/`
+		setCookie('darkMode', darkMode.value)
 	}, [darkMode])
-
-	useEffect(() => {
-		setTitle(pageTitle ? `${pageTitle} – ${siteTitle}` : siteTitle)
-	}, [pageTitle, siteTitle])
 
 	return (
 		<>
 			<Head>
-				<title>{title}</title>
+				<title>{siteTitle}</title>
 			</Head>
-			<AppContext.Provider value={{ darkMode, pageTitle, setPageTitle }}>
+			<AppContext.Provider value={{ darkMode, siteTitle }}>
 				<ThemeProvider theme={darkMode.value ? dark : light}>
 					<GlobalStyle />
 					{children}

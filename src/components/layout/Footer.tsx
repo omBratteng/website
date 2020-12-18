@@ -1,10 +1,8 @@
 import styled from 'styled-components'
-
 import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig()
 
-// Hooks
-// import { useApp } from 'hooks'
+// Types
+import type { RuntimeConfig } from 'types'
 
 const StyledFooter = styled.footer`
 	align-self: center;
@@ -17,7 +15,8 @@ const StyledFooter = styled.footer`
 `
 
 const Footer = (): JSX.Element => {
-	const { offsetTonnes }: { offsetTonnes: string } = publicRuntimeConfig
+	const { publicRuntimeConfig } = getConfig()
+	const { offsetTonnes }: RuntimeConfig = publicRuntimeConfig
 
 	return (
 		<>

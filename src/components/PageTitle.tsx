@@ -50,9 +50,11 @@ const Slug = styled.span<Partial<{ isNotHome: boolean }>>`
 const PageTitle = (): JSX.Element => {
 	const { route, query } = useRouter()
 
+	const subTitle = route === '/404' ? route.substring(1) : query.slug
+
 	const pageTitle =
 		route !== '/' ? (
-			<Link href="/">
+			<Link href="/" passHref>
 				<A className="no-bg">bratteng.sh</A>
 			</Link>
 		) : (
@@ -61,7 +63,7 @@ const PageTitle = (): JSX.Element => {
 	return (
 		<H1>
 			{pageTitle}
-			{query.slug && <Slug isNotHome={route !== '/'}>{query.slug}</Slug>}
+			{subTitle && <Slug isNotHome={route !== '/'}>{subTitle}</Slug>}
 		</H1>
 	)
 }
