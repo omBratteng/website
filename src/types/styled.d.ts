@@ -1,7 +1,7 @@
 // Strongly type the styled-components theme
 import { CSSProp } from 'styled-components'
 
-import { lightTheme as theme } from 'styles/lightTheme'
+import { dark as theme } from 'styles'
 
 // Enable css prop support globally
 declare module 'react' {

@@ -26,7 +26,7 @@ import AppProvider from 'contexts/app'
 
 // Components
 import Layout from 'components/layout/Layout'
-import useAnalytics from 'hooks/useAnalytics'
+import { useAnalytics } from 'hooks'
 
 // import { preload } from 'utils'
 // import links from 'links'
@@ -72,8 +72,8 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 				<meta name="apple-mobile-web-app-capable" content="yes" />
 				<link rel="shortcut icon" href="/favicon.ico" />
 			</Head>
-			<AppProvider>
-				<Layout siteTitle="bratteng &middot; sh">
+			<AppProvider siteTitle="bratteng &middot; sh">
+				<Layout>
 					<Component {...pageProps} />
 				</Layout>
 			</AppProvider>

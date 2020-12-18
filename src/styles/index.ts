@@ -6,8 +6,7 @@ import { rgba } from 'polished'
 import { config } from '@fortawesome/fontawesome-svg-core'
 config.autoAddCss = false
 
-import { lightTheme } from 'styles/lightTheme'
-import { darkTheme } from 'styles/darkTheme'
+import { dark, light } from 'styles/themes'
 
 const GlobalStyle = createGlobalStyle`
 html {
@@ -47,29 +46,29 @@ body {
 		font-feature-settings: "liga";
 	}
 
-	--red: ${darkTheme.colors.red};
+	--red: ${dark.colors.red};
 
 	&.dark-mode {
-		--global-background-color: ${darkTheme.colors.background};
-		--global-font-color: ${darkTheme.colors.font};
-		--global-link-color: ${darkTheme.colors.linkColor};
+		--global-background-color: ${dark.colors.background};
+		--global-font-color: ${dark.colors.font};
+		--global-link-color: ${dark.colors.linkColor};
 
-		--github-hover-color: ${darkTheme.some.github};
-		--twitter-hover-color: ${darkTheme.some.twitter};
-		--linkedin-hover-color: ${darkTheme.some.linkedin};
+		--github-hover-color: ${dark.some.github};
+		--twitter-hover-color: ${dark.some.twitter};
+		--linkedin-hover-color: ${dark.some.linkedin};
 
 		--contentLoader-bg: #353535;
 		--contentLoader-fg: #424242;
 	}
 
 	&.light-mode {
-		--global-background-color: ${lightTheme.colors.background};
-		--global-font-color: ${lightTheme.colors.font};
-		--global-link-color: ${lightTheme.colors.linkColor};
+		--global-background-color: ${light.colors.background};
+		--global-font-color: ${light.colors.font};
+		--global-link-color: ${light.colors.linkColor};
 
-		--github-hover-color: ${lightTheme.some.github};
-		--twitter-hover-color: ${lightTheme.some.twitter};
-		--linkedin-hover-color: ${lightTheme.some.linkedin};
+		--github-hover-color: ${light.some.github};
+		--twitter-hover-color: ${light.some.twitter};
+		--linkedin-hover-color: ${light.some.linkedin};
 
 		--contentLoader-bg: #f3f3f3;
 		--contentLoader-fg: #ecebeb;
@@ -90,4 +89,4 @@ svg:not(:root).svg-inline--fa{overflow:visible;}
 .svg-inline--fa.fa-fw{width:1.25em;}
 `
 
-export { GlobalStyle, lightTheme, darkTheme }
+export { GlobalStyle, dark, light }

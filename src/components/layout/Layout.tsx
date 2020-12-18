@@ -1,31 +1,10 @@
-import type { Dispatch, ReactNode, SetStateAction } from 'react'
-import { createContext, useContext, useState, useEffect } from 'react'
+import type { ReactNode } from 'react'
 import styled from 'styled-components'
-
-// Next.js
-import Head from 'next/head'
 
 import PageTitle from 'components/PageTitle'
 import SoMeLink from 'components/SoMeLink'
 import ToggleTheme from 'components/ToggleTheme'
-import { useApp } from 'contexts/app'
 import Footer from 'components/layout/Footer'
-
-export type LayoutContext = Partial<{
-	pageTitle: string
-	setPageTitle: Dispatch<SetStateAction<string>>
-}>
-
-const LayoutContext = createContext({})
-const useLayout = (): LayoutContext => {
-	const context = useContext(LayoutContext)
-
-	if (context === undefined) {
-		throw new Error('useContext must be used within a LayoutContext')
-	}
-
-	return context
-}
 
 const StyledLayout = styled.div`
 	display: flex;
@@ -56,61 +35,44 @@ const SocialMedia = styled.div`
 `
 
 interface Props {
-	siteTitle: string
 	children: ReactNode
 }
 
-const Layout = ({ siteTitle, children }: Props): JSX.Element => {
-	const [pageTitle, setPageTitle] = useState(undefined)
-	const [title, setTitle] = useState(siteTitle)
-	const { darkMode } = useApp()
-
-	useEffect(() => {
-		setTitle(pageTitle ? `${pageTitle} – ${siteTitle}` : siteTitle)
-	}, [pageTitle, siteTitle])
-
+const Layout = ({ children }: Props): JSX.Element => {
 	return (
-		<>
-			<Head>
-				<title>{title}</title>
-			</Head>
-			<LayoutContext.Provider value={{ pageTitle, setPageTitle }}>
-				<StyledLayout>
-					<Main>
-						<PageTitle />
-						<SocialMedia>
-							<ToggleTheme darkMode={darkMode} />
+		<StyledLayout>
+			<Main>
+				<PageTitle />
+				<SocialMedia>
+					<ToggleTheme />
 
-							<SoMeLink
-								href="https://github.com/omBratteng"
-								alt="Ole-Martin Bratteng on GitHub"
-								hoverColor="github"
-								icon="github-alt"
-							/>
+					<SoMeLink
+						href="https://github.com/omBratteng"
+						alt="Ole-Martin Bratteng on GitHub"
+						hoverColor="github"
+						icon="github-alt"
+					/>
 
-							<SoMeLink
-								href="https://twitter.com/omBratteng"
-								alt="Ole-Martin Bratteng on Twitter"
-								hoverColor="twitter"
-								icon="twitter"
-							/>
+					<SoMeLink
+						href="https://twitter.com/omBratteng"
+						alt="Ole-Martin Bratteng on Twitter"
+						hoverColor="twitter"
+						icon="twitter"
+					/>
 
-							<SoMeLink
-								href="https://www.linkedin.com/in/ombratteng/"
-								alt="Ole-Martin Bratteng on LinkedIn"
-								hoverColor="linkedin"
-								small={true}
-								icon="linkedin-in"
-							/>
-						</SocialMedia>
-						{children}
-					</Main>
-					<Footer />
-				</StyledLayout>
-			</LayoutContext.Provider>
-		</>
+					<SoMeLink
+						href="https://www.linkedin.com/in/ombratteng/"
+						alt="Ole-Martin Bratteng on LinkedIn"
+						hoverColor="linkedin"
+						small={true}
+						icon="linkedin-in"
+					/>
+				</SocialMedia>
+				{children}
+			</Main>
+			<Footer />
+		</StyledLayout>
 	)
 }
 
 export default Layout
-export { useLayout }

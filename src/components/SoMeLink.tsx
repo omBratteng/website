@@ -63,6 +63,7 @@ interface Props {
 	icon: IconName
 	small?: boolean
 }
+
 const SoMeLink = ({
 	href,
 	alt,

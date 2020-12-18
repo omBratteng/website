@@ -1,7 +1,11 @@
-import { createContext, useContext, useEffect } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 
-import { GlobalStyle, lightTheme, darkTheme } from 'styles'
+// Next.js
+import Head from 'next/head'
+
+import { GlobalStyle, dark, light } from 'styles'
 import useDarkMode, { DarkMode } from 'use-dark-mode'
 
 import getConfig from 'next/config'
@@ -10,26 +14,23 @@ const { publicRuntimeConfig } = getConfig()
 export type ContextProps = {
 	darkMode: DarkMode
 	offsetTonnes: string
+	pageTitle: string
+	setPageTitle: Dispatch<SetStateAction<string>>
 }
 
-const AppContext = createContext<Partial<ContextProps>>({
+export const AppContext = createContext<Partial<ContextProps>>({
 	offsetTonnes: '0',
 })
-const useApp = (): ContextProps => {
-	const context = useContext(AppContext)
-
-	if (context === undefined) {
-		throw new Error('useContext must be used within a AppProvider')
-	}
-
-	return context as ContextProps
-}
 
 interface IAppProvider {
+	siteTitle: string
 	children: React.ReactNode
 }
 
-const AppProvider = ({ children }: IAppProvider): JSX.Element => {
+const AppProvider = ({ siteTitle, children }: IAppProvider): JSX.Element => {
+	const [pageTitle, setPageTitle] = useState<string>('')
+	const [title, setTitle] = useState<string>(siteTitle)
+
 	const darkMode = useDarkMode(true)
 	const { offsetTonnes }: { offsetTonnes: string } = publicRuntimeConfig
 
@@ -42,15 +43,25 @@ const AppProvider = ({ children }: IAppProvider): JSX.Element => {
 		}; expires=${now.toUTCString()}; sameSite=strict; path=/`
 	}, [darkMode])
 
+	useEffect(() => {
+		setTitle(pageTitle ? `${pageTitle} – ${siteTitle}` : siteTitle)
+	}, [pageTitle, siteTitle])
+
 	return (
-		<AppContext.Provider value={{ darkMode, offsetTonnes }}>
-			<ThemeProvider theme={darkMode.value ? darkTheme : lightTheme}>
-				<GlobalStyle />
-				{children}
-			</ThemeProvider>
-		</AppContext.Provider>
+		<>
+			<Head>
+				<title>{title}</title>
+			</Head>
+			<AppContext.Provider
+				value={{ darkMode, offsetTonnes, pageTitle, setPageTitle }}
+			>
+				<ThemeProvider theme={darkMode.value ? dark : light}>
+					<GlobalStyle />
+					{children}
+				</ThemeProvider>
+			</AppContext.Provider>
+		</>
 	)
 }
 
 export default AppProvider
-export { useApp }

@@ -7,7 +7,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 import process from 'process'
 
-import { getCookie } from 'hooks/useCookie'
+import { getCookie } from 'hooks'
 
 const nonce = process.env.CSP_NONCE || ''
 global.__webpack_nonce__ = nonce

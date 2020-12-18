@@ -1,12 +1,15 @@
-import type { IconName } from '@fortawesome/fontawesome-common-types'
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { size } from 'polished'
 
+// Hooks
 import { useHover } from '@react-aria/interactions'
 import { useFocusRing } from '@react-aria/focus'
-import { DarkMode } from 'use-dark-mode'
+import { useApp } from 'hooks'
+
+// Types
+import type { IconName } from '@fortawesome/fontawesome-common-types'
 
 interface Button {
 	isHovered: boolean
@@ -43,13 +46,11 @@ const Button = styled.button<Button>`
 	}
 `
 
-interface Props {
-	darkMode: DarkMode
-}
-const ToggleTheme = ({ darkMode }: Props): JSX.Element => {
+const ToggleTheme = (): JSX.Element => {
 	const [icon, setIcon] = useState<IconName>('lightbulb')
 	const { hoverProps, isHovered } = useHover({})
 	const { focusProps, isFocused } = useFocusRing()
+	const { darkMode } = useApp()
 
 	useEffect(() => {
 		isHovered || isFocused

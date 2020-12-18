@@ -1,5 +1,7 @@
 import styled from 'styled-components'
-import { useApp } from 'contexts/app'
+
+// Hooks
+import { useApp } from 'hooks'
 
 const StyledFooter = styled.footer`
 	align-self: center;
