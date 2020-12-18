@@ -56,9 +56,6 @@ body {
 		--github-hover-color: ${dark.some.github};
 		--twitter-hover-color: ${dark.some.twitter};
 		--linkedin-hover-color: ${dark.some.linkedin};
-
-		--contentLoader-bg: #353535;
-		--contentLoader-fg: #424242;
 	}
 
 	&.light-mode {
@@ -69,9 +66,6 @@ body {
 		--github-hover-color: ${light.some.github};
 		--twitter-hover-color: ${light.some.twitter};
 		--linkedin-hover-color: ${light.some.linkedin};
-
-		--contentLoader-bg: #f3f3f3;
-		--contentLoader-fg: #ecebeb;
 	}
 }
 
