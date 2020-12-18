@@ -5,12 +5,8 @@ import type {
 } from 'next/document'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
-import process from 'process'
 
 import { getCookie } from 'hooks'
-
-const nonce = process.env.CSP_NONCE || ''
-global.__webpack_nonce__ = nonce
 
 type Props = {
 	darkMode: string
@@ -65,7 +61,7 @@ class Doc extends Document {
 	render(): JSX.Element {
 		return (
 			<Html lang="no">
-				<Head {...{ nonce }} />
+				<Head />
 				<body
 					className={`${
 						this.darkMode === 'true' ? 'dark-mode' : 'light-mode'
@@ -77,7 +73,7 @@ class Doc extends Document {
 						}}
 					/>
 					<Main />
-					<NextScript {...{ nonce }} />
+					<NextScript />
 				</body>
 			</Html>
 		)
