@@ -9,6 +9,29 @@ config.autoAddCss = false
 import { dark, light } from 'styles/themes'
 
 const GlobalStyle = createGlobalStyle`
+:root {
+	--red: ${dark.colors.red};
+	--line-height: ${dark.font.lineHeight};
+
+	--global-background-color: ${light.colors.background};
+	--global-font-color: ${light.colors.font};
+	--global-link-color: ${light.colors.linkColor};
+
+	--github-hover-color: ${light.some.github};
+	--twitter-hover-color: ${light.some.twitter};
+	--linkedin-hover-color: ${light.some.linkedin};
+}
+
+[data-theme="dark"] {
+	--global-background-color: ${dark.colors.background};
+	--global-font-color: ${dark.colors.font};
+	--global-link-color: ${dark.colors.linkColor};
+
+	--github-hover-color: ${dark.some.github};
+	--twitter-hover-color: ${dark.some.twitter};
+	--linkedin-hover-color: ${dark.some.linkedin};
+}
+
 html {
 	box-sizing: border-box;
 	font-family: monospace;
@@ -30,7 +53,7 @@ body,
 * { box-sizing: border-box; }
 
 ::selection {
-	background: ${(props) => rgba(props.theme.colors.linkColor, 0.15)};
+	background: ${({ theme }) => rgba(theme.colors.linkColor, 0.15)};
 }
 
 body {
@@ -38,34 +61,15 @@ body {
 	color: var(--global-font-color);
 	font-feature-settings: "liga" 1, "lnum" 1, "tnum" 1;
 	font-variant-ligatures: common-ligatures;
-	line-height: ${(props) => props.theme.font.lineHeight};
+	line-height: var(--line-height);
 	margin: 0;
-	transition: background 0.5s ease, color 0.5s ease;
 
 	@supports not (font-variant-ligatures: common-ligatures) {
 		font-feature-settings: "liga";
 	}
 
-	--red: ${dark.colors.red};
-
-	&.dark-mode {
-		--global-background-color: ${dark.colors.background};
-		--global-font-color: ${dark.colors.font};
-		--global-link-color: ${dark.colors.linkColor};
-
-		--github-hover-color: ${dark.some.github};
-		--twitter-hover-color: ${dark.some.twitter};
-		--linkedin-hover-color: ${dark.some.linkedin};
-	}
-
-	&.light-mode {
-		--global-background-color: ${light.colors.background};
-		--global-font-color: ${light.colors.font};
-		--global-link-color: ${light.colors.linkColor};
-
-		--github-hover-color: ${light.some.github};
-		--twitter-hover-color: ${light.some.twitter};
-		--linkedin-hover-color: ${light.some.linkedin};
+	&[initialised] {
+		transition: background 0.5s ease, color 0.5s ease;
 	}
 }
 
@@ -74,7 +78,7 @@ a {
 	text-decoration: none;
 
 	&:hover:not(.no-bg) {
-		background: ${(props) => rgba(props.theme.colors.linkColor, 0.15)};
+		background: ${({ theme }) => rgba(theme.colors.linkColor, 0.15)};
 	}
 }
 

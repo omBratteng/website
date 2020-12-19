@@ -1,6 +1,6 @@
 import useAnalytics from './useAnalytics'
 import useApp from './useApp'
 import useTitle from './useTitle'
-import { getCookie, setCookie, useCookie } from './useCookie'
+import useTheme from './useTheme'
 
-export { useAnalytics, useApp, getCookie, setCookie, useCookie, useTitle }
+export { useAnalytics, useApp, useTitle, useTheme }

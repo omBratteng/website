@@ -50,13 +50,13 @@ const ToggleTheme = (): JSX.Element => {
 	const [icon, setIcon] = useState<IconName>('lightbulb')
 	const { hoverProps, isHovered } = useHover({})
 	const { focusProps, isFocused } = useFocusRing()
-	const { darkMode } = useApp()
+	const { theme, setTheme } = useApp()
 
 	useEffect(() => {
 		isHovered || isFocused
-			? setIcon(darkMode.value ? 'lightbulb-on' : 'lightbulb-slash')
+			? setIcon(theme ? 'lightbulb-on' : 'lightbulb-slash')
 			: setIcon('lightbulb')
-	}, [isFocused, isHovered, setIcon, darkMode])
+	}, [isFocused, isHovered, setIcon, theme])
 
 	return (
 		<Button
@@ -64,7 +64,7 @@ const ToggleTheme = (): JSX.Element => {
 			{...focusProps}
 			isHovered={isHovered}
 			isFocused={isFocused}
-			onClick={darkMode.toggle}
+			onClick={() => setTheme((prevState) => !prevState)}
 			aria-label={`Toggle colour scheme`}
 		>
 			<FontAwesomeIcon icon={['fad', icon]} fixedWidth />

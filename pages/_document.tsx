@@ -1,29 +1,11 @@
-import type {
-	DocumentContext,
-	DocumentInitialProps,
-	DocumentProps,
-} from 'next/document'
+import type { DocumentContext, DocumentInitialProps } from 'next/document'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 
-import { getCookie } from 'hooks'
-
-type Props = {
-	darkMode: string
-}
-
-class Doc extends Document {
-	darkMode: string
-
-	constructor(props: DocumentProps & Props) {
-		super(props)
-
-		this.darkMode = props.darkMode
-	}
-
+export default class Doc extends Document {
 	static async getInitialProps(
 		context: DocumentContext,
-	): Promise<DocumentInitialProps & Props> {
+	): Promise<DocumentInitialProps> {
 		const sheet = new ServerStyleSheet()
 		const originalRenderPage = context.renderPage
 
@@ -38,14 +20,9 @@ class Doc extends Document {
 						),
 				})
 
-			const darkMode = context.req
-				? getCookie('darkMode', context.req.headers.cookie || '')
-				: 'false'
-
 			const initialProps = await Document.getInitialProps(context)
 			return {
 				...initialProps,
-				darkMode,
 				styles: (
 					<>
 						{initialProps.styles}
@@ -62,16 +39,12 @@ class Doc extends Document {
 		return (
 			<Html lang="no">
 				<Head />
-				<body
-					className={`${
-						this.darkMode === 'true' ? 'dark-mode' : 'light-mode'
-					}`}
-				>
+				<body>
 					<script
 						dangerouslySetInnerHTML={{
-							__html: `!function(){var e="dark-mode",a="light-mode";function o(o){document.body.classList.add(o?e:a),document.body.classList.remove(o?a:e)}var t=window.matchMedia("(prefers-color-scheme: dark)"),r="(prefers-color-scheme: dark)"===t.media,d=null;try{d=localStorage.getItem("darkMode")}catch(e){}var s=null!==d;if(s&&(d=JSON.parse(d)),s)o(d);else if(r)o(t.matches),localStorage.setItem("darkMode",t.matches);else{var c=document.body.classList.contains(e);localStorage.setItem("darkMode",JSON.stringify(c))}}();`,
+							__html: blockingSetInitialColorMode,
 						}}
-					/>
+					></script>
 					<Main />
 					<NextScript />
 				</body>
@@ -80,4 +53,43 @@ class Doc extends Document {
 	}
 }
 
-export default Doc
+const blockingSetInitialColorMode = `(function() {
+	${setInitialColorMode.toString()}
+	setInitialColorMode();
+})()
+`
+
+function setInitialColorMode() {
+	function getInitialColorMode() {
+		const persistedColorPreference = window.localStorage.getItem('theme')
+		const hasPersistedPreference =
+			typeof persistedColorPreference === 'string'
+
+		/**
+		 * If the user has explicitly chosen light or dark,
+		 * use it. Otherwise, this value will be null.
+		 */
+		if (hasPersistedPreference) {
+			return persistedColorPreference
+		}
+
+		// If there is no saved preference, use a media query
+		const mql = window.matchMedia('(prefers-color-scheme: dark)')
+		const hasMediaQueryPreference = typeof mql.matches === 'boolean'
+
+		if (hasMediaQueryPreference) {
+			return mql.matches ? 'dark' : 'light'
+		}
+
+		// default to 'light'.
+		return 'light'
+	}
+
+	const colorMode = getInitialColorMode()
+	const root = document.documentElement
+	root.style.setProperty('--initial-color-mode', colorMode)
+
+	// add HTML attribute if dark mode
+	if (colorMode === 'dark')
+		document.documentElement.setAttribute('data-theme', 'dark')
+}

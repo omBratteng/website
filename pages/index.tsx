@@ -1,4 +1,3 @@
-import type { GetStaticProps } from 'next'
 import styled from 'styled-components'
 
 import Section from 'components/layout/Section'
@@ -41,9 +40,5 @@ const Index = (): JSX.Element => {
 		</>
 	)
 }
-
-export const getServerSideProps: GetStaticProps = async () => ({
-	props: {},
-})
 
 export default Index

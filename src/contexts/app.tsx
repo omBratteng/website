@@ -1,15 +1,14 @@
-import { createContext, useEffect } from 'react'
+import { createContext } from 'react'
 import { ThemeProvider } from 'styled-components'
 
 // Next.js
 import Head from 'next/head'
 
 import { GlobalStyle, dark, light } from 'styles'
-import useDarkMode, { DarkMode } from 'use-dark-mode'
-import { setCookie } from 'hooks'
 
-export type ContextProps = {
-	darkMode: DarkMode
+import useTheme, { IUseTheme } from 'hooks/useTheme'
+
+export interface ContextProps extends IUseTheme {
 	siteTitle: string
 }
 
@@ -21,19 +20,15 @@ type Props = {
 }
 
 const AppProvider = ({ siteTitle, children }: Props): JSX.Element => {
-	const darkMode = useDarkMode(true)
-
-	useEffect(() => {
-		setCookie('darkMode', darkMode.value)
-	}, [darkMode])
+	const [theme, setTheme] = useTheme()
 
 	return (
 		<>
 			<Head>
 				<title>{siteTitle}</title>
 			</Head>
-			<AppContext.Provider value={{ darkMode, siteTitle }}>
-				<ThemeProvider theme={darkMode.value ? dark : light}>
+			<AppContext.Provider value={{ siteTitle, theme, setTheme }}>
+				<ThemeProvider theme={theme ? dark : light}>
 					<GlobalStyle />
 					{children}
 				</ThemeProvider>
