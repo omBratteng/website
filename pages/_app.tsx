@@ -53,8 +53,17 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 	return (
 		<>
 			<Head>
-				<link rel="preload" href="/css/fonts.css" as="style" />
-				<link rel="stylesheet" href="/css/fonts.css" />
+				<link
+					rel="preload"
+					href="/css/fonts.edbb5bf.css"
+					as="style"
+					integrity="sha256-GxJsHG3iYHNKUW01TtdnnBwmrKgBtJDCZZtAzo0udCY="
+				/>
+				<link
+					rel="stylesheet"
+					href="/css/fonts.edbb5bf.css"
+					integrity="sha256-GxJsHG3iYHNKUW01TtdnnBwmrKgBtJDCZZtAzo0udCY="
+				/>
 				<meta
 					name="viewport"
 					content="width=device-width, initial-scale=1, shrink-to-fit=no"
