@@ -33,6 +33,7 @@ FROM base AS build
 # Define build arguments & map them to environment variables
 ARG NPM_TOKEN
 ARG FONTAWESOME_TOKEN
+ENV NEXT_TELEMETRY_DISABLED=1
 
 # Build the project and then dispose files not necessary to run the project
 # This will make the runtime image as small as possible
@@ -45,6 +46,7 @@ RUN rm -rf .next/cache
 # -- RUNTIME STAGE --------------------------------
 
 FROM gcr.io/distroless/nodejs:14
+ENV NEXT_TELEMETRY_DISABLED=1
 
 WORKDIR /app
 
