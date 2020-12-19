@@ -25,7 +25,7 @@
     "start:staging": "APP_ENV=staging next start",
     "lint": "yarn lint:eslint && yarn lint:stylelint",
     "lint:eslint": "eslint '{src,pages}/**/*.{ts,tsx}' --cache --report-unused-disable-directives",
-    "lint:stylelint": "stylelint 'src/**/*.{ts,tsx}'"
+    "lint:stylelint": "stylelint 'src/**/*.{ts,tsx}' --cache"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
