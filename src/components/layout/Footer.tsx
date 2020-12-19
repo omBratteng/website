@@ -10,6 +10,10 @@ const StyledFooter = styled.footer`
 	max-width: 700px;
 	padding: 0 1.25rem;
 	width: 100%;
+
+	html._fonts & {
+		letter-spacing: 1px;
+	}
 `
 
 const Footer = (): JSX.Element => {

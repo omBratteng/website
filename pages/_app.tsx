@@ -55,14 +55,14 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 			<Head>
 				<link
 					rel="preload"
-					href="/css/fonts.edbb5bf.css"
+					href="/css/fonts.78e9c902.css"
 					as="style"
-					integrity="sha256-GxJsHG3iYHNKUW01TtdnnBwmrKgBtJDCZZtAzo0udCY="
+					integrity="sha256-eOnJAujZDMFT80fO+Q8DRlGvrYPvbSTI17bYHfr6l4Y="
 				/>
 				<link
 					rel="stylesheet"
-					href="/css/fonts.edbb5bf.css"
-					integrity="sha256-GxJsHG3iYHNKUW01TtdnnBwmrKgBtJDCZZtAzo0udCY="
+					href="/css/fonts.78e9c902.css"
+					integrity="sha256-eOnJAujZDMFT80fO+Q8DRlGvrYPvbSTI17bYHfr6l4Y="
 				/>
 				<meta
 					name="viewport"

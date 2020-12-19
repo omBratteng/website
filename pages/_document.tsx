@@ -37,7 +37,7 @@ export default class Doc extends Document {
 
 	render(): JSX.Element {
 		return (
-			<Html lang="no">
+			<Html lang="no" className="_fonts">
 				<Head />
 				<body>
 					<script
