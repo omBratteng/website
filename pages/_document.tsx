@@ -42,7 +42,7 @@ export default class Doc extends Document {
 				<body>
 					<script
 						dangerouslySetInnerHTML={{
-							__html: blockingSetInitialColorMode,
+							__html: `(()=>{const e=(()=>{const e=window.localStorage.getItem("theme");if("string"==typeof e)return e;const t=window.matchMedia("(prefers-color-scheme: dark)");return"boolean"==typeof t.matches&&t.matches?"dark":"light"})();document.documentElement.style.setProperty("--initial-color-mode",e),"dark"===e&&document.documentElement.setAttribute("data-theme","dark")})();`,
 						}}
 					></script>
 					<Main />
@@ -53,22 +53,15 @@ export default class Doc extends Document {
 	}
 }
 
-const blockingSetInitialColorMode = `(function() {
-	${setInitialColorMode.toString()}
-	setInitialColorMode();
-})()
-`
-
-function setInitialColorMode() {
-	function getInitialColorMode() {
+/**
+const setInitialColorMode = () => {
+	const getInitialColorMode =  () => {
 		const persistedColorPreference = window.localStorage.getItem('theme')
 		const hasPersistedPreference =
 			typeof persistedColorPreference === 'string'
 
-		/**
-		 * If the user has explicitly chosen light or dark,
-		 * use it. Otherwise, this value will be null.
-		 */
+		// If the user has explicitly chosen light or dark,
+		// use it. Otherwise, this value will be null.
 		if (hasPersistedPreference) {
 			return persistedColorPreference
 		}
@@ -93,3 +86,4 @@ function setInitialColorMode() {
 	if (colorMode === 'dark')
 		document.documentElement.setAttribute('data-theme', 'dark')
 }
+**/
