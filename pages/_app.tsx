@@ -24,9 +24,6 @@ import AppProvider from 'contexts/app'
 
 // Components
 import Layout from 'components/layout/Layout'
-import { useAnalytics } from 'hooks'
-
-import { domainId } from 'env'
 
 // import { preload } from 'utils'
 // import links from 'links'
@@ -42,14 +39,6 @@ library.add(
 )
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
-	useAnalytics({
-		domainId,
-		server: 'https://analytics.bratteng.cloud',
-		options: {
-			detailed: true,
-		},
-	})
-
 	return (
 		<>
 			<Head>

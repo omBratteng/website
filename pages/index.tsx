@@ -11,6 +11,8 @@ const SectionContent = styled.div`
 	}
 `
 
+export const config = { amp: false }
+
 const Index = (): JSX.Element => {
 	return (
 		<>
