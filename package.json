@@ -26,9 +26,7 @@
     "lint": "yarn lint:eslint && yarn lint:stylelint",
     "lint:eslint": "eslint '{src,pages}/**/*.{ts,tsx}' --cache --report-unused-disable-directives",
     "lint:stylelint": "stylelint '{src,pages}/**/*.{ts,tsx}' --cache",
-    "test": "yarn jest:watch",
-    "jest": "jest --collectCoverage",
-    "jest:watch": "jest --watch --collectCoverage"
+    "test": "jest --collectCoverage"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
