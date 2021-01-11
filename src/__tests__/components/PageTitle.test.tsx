@@ -1,4 +1,4 @@
-import { prettyDOM, render } from 'test-utils'
+import { render } from 'test-utils'
 
 import PageTitle from 'components/PageTitle'
 
