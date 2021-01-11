@@ -23,7 +23,8 @@
 		"baseUrl": ".",
 		"paths": {
 			"*": [
-				"src/*"
+				"src/*",
+				"test/*"
 			],
 			"assets/*": [
 				"public/assets/*"
@@ -37,8 +38,8 @@
 		"next-env.d.ts",
 		"**/*.ts",
 		"**/*.tsx",
-		"next.config.js",
-		"babel.config.js"
+		"**/*.js",
+		"**/*.jsx"
 	],
 	"exclude": [
 		"node_modules"

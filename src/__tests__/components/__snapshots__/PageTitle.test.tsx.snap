@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PageTitle /> It renders 1`] = `
+.c0 {
+  font-size: 2.25rem;
+  font-weight: 400;
+  margin: 0;
+  padding-bottom: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.c0::before {
+  color: var(--red);
+  content: '~/';
+  font-style: normal;
+}
+
+.c1 {
+  padding: 0 0.5rem;
+}
+
+<h1
+  class="c0"
+>
+  <span
+    class="c1"
+  >
+    bratteng.sh
+  </span>
+</h1>
+`;
+
+exports[`<PageTitle /> It renders with a slug 1`] = `
+.c1 {
+  cursor: pointer;
+  padding: 0 0.5rem;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.c1:hover {
+  color: var(--red);
+}
+
+.c0 {
+  font-size: 2.25rem;
+  font-weight: 400;
+  margin: 0;
+  padding-bottom: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.c0::before {
+  color: var(--red);
+  content: '~/';
+  font-style: normal;
+}
+
+.c2 {
+  font-weight: bold;
+}
+
+.c2::before {
+  color: var(--red);
+  content: '/';
+  font-style: normal;
+  font-weight: 400;
+  margin-right: 0.5rem;
+}
+
+<h1
+  class="c0"
+>
+  <a
+    class="c1 no-bg"
+    href="/"
+  >
+    bratteng.sh
+  </a>
+  <span
+    class="c2"
+  >
+    another-page
+  </span>
+</h1>
+`;
+
+exports[`<PageTitle /> It renders with a slug when in a 404 page 1`] = `
+.c1 {
+  cursor: pointer;
+  padding: 0 0.5rem;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.c1:hover {
+  color: var(--red);
+}
+
+.c0 {
+  font-size: 2.25rem;
+  font-weight: 400;
+  margin: 0;
+  padding-bottom: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.c0::before {
+  color: var(--red);
+  content: '~/';
+  font-style: normal;
+}
+
+.c2 {
+  font-weight: bold;
+}
+
+.c2::before {
+  color: var(--red);
+  content: '/';
+  font-style: normal;
+  font-weight: 400;
+  margin-right: 0.5rem;
+}
+
+<h1
+  class="c0"
+>
+  <a
+    class="c1 no-bg"
+    href="/"
+  >
+    bratteng.sh
+  </a>
+  <span
+    class="c2"
+  >
+    404
+  </span>
+</h1>
+`;

@@ -78,16 +78,16 @@ jobs:
         run: |
           yarn lint
 
-      # - name: Test
-      #   env:
-      #     CI: 1
-      #   run: |
-      #     yarn test
+      - name: Test
+        env:
+          CI: 1
+        run: |
+          yarn test
 
-      # - name: Submit coverage
-      #   uses: codecov/codecov-action@v1
-      #   with:
-      #     token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Submit coverage
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
   build-and-run:
     runs-on: ubuntu-20.04
