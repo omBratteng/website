@@ -2,6 +2,7 @@
 
 module.exports = (api) => {
 	const isDev = api.env('development')
+	const isTest = api.env('test')
 
 	return {
 		presets: ['next/babel'],
@@ -9,7 +10,7 @@ module.exports = (api) => {
 			[
 				'babel-plugin-styled-components',
 				{
-					ssr: true,
+					ssr: !isTest,
 					displayName: isDev,
 					preprocess: false,
 				},
