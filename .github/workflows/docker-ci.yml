@@ -2,6 +2,8 @@ name: docker-ci
 
 on:
   pull_request:
+    paths:
+      - 'Dockerfile'
 
 jobs:
   lint:
