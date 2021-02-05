@@ -14,19 +14,16 @@ env:
 jobs:
   prepare:
     runs-on: ubuntu-20.04
-    strategy:
-      matrix:
-        node-version: ['14']
-    name: "[v${{ matrix.node-version }}] prepare"
+    name: Prepare
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 14
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 14
 
       - name: Cache node_modules
         id: cache-node_modules
@@ -46,19 +43,16 @@ jobs:
   check:
     runs-on: ubuntu-20.04
     needs: prepare
-    strategy:
-      matrix:
-        node-version: ['14']
-    name: "[v${{ matrix.node-version }}] check"
+    name: "Check"
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 14
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 14
 
       - name: Cache node_modules
         id: cache-node_modules
@@ -93,19 +87,16 @@ jobs:
   build-and-run:
     runs-on: ubuntu-20.04
     needs: prepare
-    strategy:
-      matrix:
-        node-version: ['14']
-    name: "[v${{ matrix.node-version }}] build"
+    name: Build
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 14
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 14
 
       - name: Cache node_modules
         id: cache-node_modules
