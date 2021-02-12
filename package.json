@@ -74,7 +74,7 @@
     "jest-styled-components": "^7.0.3",
     "jest-watch-typeahead": "^0.6.1",
     "prettier": "^2.2.1",
-    "stylelint": "^13.9.0",
+    "stylelint": "^13.10.0",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-order": "^4.1.0",
