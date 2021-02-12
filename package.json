@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.13",
-    "@babel/preset-env": "^7.12.13",
+    "@babel/preset-env": "^7.12.16",
     "@babel/preset-react": "^7.12.13",
     "@next/eslint-plugin-next": "^10.0.6",
     "@testing-library/jest-dom": "^5.11.9",
