@@ -80,7 +80,7 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           tags: ${{ steps.prep.outputs.tags }}
           cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,mode=max,dest=/tmp/.buildx-cache-new
+          cache-to: type=local,dest=/tmp/.buildx-cache-new
           build-args: |
             NPM_TOKEN=${{ secrets.NPM_TOKEN }}
             FONTAWESOME_TOKEN=${{ secrets.FONTAWESOME_TOKEN }}
