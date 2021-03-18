@@ -46,17 +46,33 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 	return (
 		<>
 			<Head>
-				<link
-					rel="preload"
-					href={`${assetPrefix}/css/fonts.551bfafc.css`}
-					as="style"
-					integrity="sha256-VRv6/ArXajDHBOmEd+bgWQ9FoAJuIgBN3jF7hP6lWAw="
-				/>
-				<link
-					rel="stylesheet"
-					href={`${assetPrefix}/css/fonts.551bfafc.css`}
-					integrity="sha256-VRv6/ArXajDHBOmEd+bgWQ9FoAJuIgBN3jF7hP6lWAw="
-				/>
+				{process.env.NODE_ENV !== 'development' ? (
+					<>
+						<link
+							rel="preload"
+							href={`${assetPrefix}/css/fonts.551bfafc.css`}
+							as="style"
+							integrity="sha256-VRv6/ArXajDHBOmEd+bgWQ9FoAJuIgBN3jF7hP6lWAw="
+						/>
+						<link
+							rel="stylesheet"
+							href={`${assetPrefix}/css/fonts.551bfafc.css`}
+							integrity="sha256-VRv6/ArXajDHBOmEd+bgWQ9FoAJuIgBN3jF7hP6lWAw="
+						/>
+					</>
+				) : (
+					<>
+						<link
+							rel="preload"
+							href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700"
+							as="style"
+						/>
+						<link
+							rel="stylesheet"
+							href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700"
+						/>
+					</>
+				)}
 				<meta
 					name="viewport"
 					content="width=device-width, initial-scale=1, shrink-to-fit=no"
