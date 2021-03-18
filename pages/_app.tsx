@@ -18,6 +18,7 @@ import {
 
 // Next.js
 import Head from 'next/head'
+import getConfig from 'next/config'
 
 // Context
 import AppProvider from 'contexts/app'
@@ -27,6 +28,9 @@ import Layout from 'components/layout/Layout'
 
 // import { preload } from 'utils'
 // import links from 'links'
+
+const { publicRuntimeConfig } = getConfig()
+const { assetPrefix } = publicRuntimeConfig
 
 library.add(
 	faGithubAlt,
@@ -44,14 +48,14 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 			<Head>
 				<link
 					rel="preload"
-					href="/css/fonts.78e9c902.css"
+					href={`${assetPrefix}/css/fonts.551bfafc.css`}
 					as="style"
-					integrity="sha256-eOnJAujZDMFT80fO+Q8DRlGvrYPvbSTI17bYHfr6l4Y="
+					integrity="sha256-VRv6/ArXajDHBOmEd+bgWQ9FoAJuIgBN3jF7hP6lWAw="
 				/>
 				<link
 					rel="stylesheet"
-					href="/css/fonts.78e9c902.css"
-					integrity="sha256-eOnJAujZDMFT80fO+Q8DRlGvrYPvbSTI17bYHfr6l4Y="
+					href={`${assetPrefix}/css/fonts.551bfafc.css`}
+					integrity="sha256-VRv6/ArXajDHBOmEd+bgWQ9FoAJuIgBN3jF7hP6lWAw="
 				/>
 				<meta
 					name="viewport"

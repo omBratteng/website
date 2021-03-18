@@ -23,7 +23,7 @@ const nextConfig = {
 	async headers() {
 		return [
 			{
-				source: '/css/fonts.css',
+				source: '/css/fonts.551bfafc.css',
 				headers: [
 					{
 						key: 'Cache-Control',
