@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { offsetTonnes } from 'env'
+import { useEffect, useState } from 'react'
 
 const StyledFooter = styled.footer`
 	align-self: center;
@@ -17,14 +17,21 @@ const StyledFooter = styled.footer`
 `
 
 const Footer = (): JSX.Element => {
+	const [offset, setOffset] = useState<string | null>('0.00')
+	useEffect(() => {
+		fetch('/api/offsetTonnes', {
+			method: 'HEAD',
+		}).then(({ headers }) => setOffset(headers.get('X-Offset-Tonnes')))
+	}, [])
 	return (
 		<>
 			<StyledFooter>
-				I have offset a total of {offsetTonnes} tons of CO<sub>2</sub>{' '}
-				with{' '}
+				So far I have offset a total of {offset} tons of CO
+				<sub>2</sub> with{' '}
 				<a href="https://www.wren.co/join/omBratteng?utm_campaign=share&utm_medium=profile_referral_link">
 					Project Wren
 				</a>
+				.
 			</StyledFooter>
 		</>
 	)
