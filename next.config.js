@@ -33,11 +33,11 @@ const nextConfig = {
 			},
 		]
 	},
-	serverRuntimeConfig: {},
+	serverRuntimeConfig: {
+		wrenToken: process.env.WREN_TOKEN,
+	},
 	publicRuntimeConfig: {
 		assetPrefix,
-		domainId: process.env.DOMAIN_ID,
-		offsetTonnes: process.env.OFFSET_TONNES,
 	},
 }
 
