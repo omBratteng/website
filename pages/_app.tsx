@@ -52,12 +52,10 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 							rel="preload"
 							href={`${assetPrefix}/css/fonts.551bfafc.css`}
 							as="style"
-							integrity="sha256-VRv6/ArXajDHBOmEd+bgWQ9FoAJuIgBN3jF7hP6lWAw="
 						/>
 						<link
 							rel="stylesheet"
 							href={`${assetPrefix}/css/fonts.551bfafc.css`}
-							integrity="sha256-VRv6/ArXajDHBOmEd+bgWQ9FoAJuIgBN3jF7hP6lWAw="
 						/>
 					</>
 				) : (
