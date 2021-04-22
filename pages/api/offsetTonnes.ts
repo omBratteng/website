@@ -18,13 +18,8 @@ const OffsetTonnes: NextApiHandler = async (req, res) => {
 		},
 	)
 		.then((data) => data.json())
-		.then((offsets) => {
-			return offsets.reduce(
-				(prev: number, { tons }: { tons: number }) => {
-					return prev + tons
-				},
-				0,
-			)
+		.then(({ stats }) => {
+			return stats.totalTons
 		})
 		.then((offset: number) => parseFloat(offset.toFixed(2)))
 
