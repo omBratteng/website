@@ -7,6 +7,9 @@ on:
       - develop
       - feature/**
 
+permissions:
+  actions: write
+
 env:
   CI: true
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
