@@ -8,6 +8,7 @@ on:
       - feature/**
 
 env:
+  CI: true
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   FONTAWESOME_TOKEN: ${{ secrets.FONTAWESOME_TOKEN }}
 
@@ -17,15 +18,18 @@ jobs:
     name: Prepare
 
     steps:
-      - name: Checkout code
+      -
+        name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Use Node.js 14
+      -
+        name: Use Node.js 14
         uses: actions/setup-node@v2
         with:
           node-version: 14
 
-      - name: Cache node_modules
+      -
+        name: Cache node_modules
         id: cache-node_modules
         uses: actions/cache@v2.1.5
         with:
@@ -35,7 +39,8 @@ jobs:
             ${{ runner.os }}-node_modules-
             ${{ runner.os }}-
 
-      - name: Install dependencies
+      -
+        name: Install dependencies
         if: steps.cache-node_modules.outputs.cache-hit != 'true'
         run: |
           yarn install --frozen-lockfile
@@ -46,15 +51,18 @@ jobs:
     name: Check
 
     steps:
-      - name: Checkout code
+      -
+        name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Use Node.js 14
+      -
+        name: Use Node.js 14
         uses: actions/setup-node@v2
         with:
           node-version: 14
 
-      - name: Cache node_modules
+      -
+        name: Cache node_modules
         id: cache-node_modules
         uses: actions/cache@v2.1.5
         with:
@@ -64,22 +72,24 @@ jobs:
             ${{ runner.os }}-node_modules-
             ${{ runner.os }}-
 
-      - name: Install dependencies
+      -
+        name: Install dependencies
         if: steps.cache-node_modules.outputs.cache-hit != 'true'
         run: |
           yarn install --frozen-lockfile
 
-      - name: Lint
+      -
+        name: Lint
         run: |
           yarn lint
 
-      - name: Test
-        env:
-          CI: 1
+      -
+        name: Test
         run: |
           yarn test
 
-      - name: Submit coverage
+      -
+        name: Submit coverage
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
@@ -90,15 +100,18 @@ jobs:
     name: Build
 
     steps:
-      - name: Checkout code
+      -
+        name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Use Node.js 14
+      -
+        name: Use Node.js 14
         uses: actions/setup-node@v2
         with:
           node-version: 14
 
-      - name: Cache node_modules
+      -
+        name: Cache node_modules
         id: cache-node_modules
         uses: actions/cache@v2.1.5
         with:
@@ -108,23 +121,27 @@ jobs:
             ${{ runner.os }}-node_modules-
             ${{ runner.os }}-
 
-      - name: Cache next
+      -
+        name: Cache next
         id: cache-next
         uses: actions/cache@v2.1.5
         with:
           path: ${{ github.workspace }}/.next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Install dependencies
+      -
+        name: Install dependencies
         if: steps.cache-node_modules.outputs.cache-hit != 'true'
         run: |
           yarn install --frozen-lockfile
 
-      - name: Build
+      -
+        name: Build
         run: |
           yarn build
 
-      - name: Run & check status code
+      -
+        name: Run & check status code
         run: |
           yarn start &
           sleep 5
