@@ -21,11 +21,10 @@ jobs:
         uses: crazy-max/ghaction-docker-meta@v2.3.0
         with:
           images: ghcr.io/ombratteng/bratteng.sh
-          tag-semver: |
-            {{version}}
-            {{major}}
-            {{major}}.{{minor}}
-            {{major}}.{{minor}}.{{patch}}
+          tags: |
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
 
       -
         name: Set up Docker Buildx
