@@ -11,9 +11,17 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    registries:
+      - fontawesome
 
   # Maintain dependencies for docker
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
       interval: "daily"
+
+registries:
+  fontawesome:
+    type: npm-registry
+    url: https://npm.fontawesome.com/
+    token: ${{ secrets.FONTAWESOME_TOKEN }}
