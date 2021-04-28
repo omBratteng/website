@@ -15,7 +15,7 @@ interface IPreload {
 
 const preload = ({ links }: IPreload): JSX.Element[] => {
 	const preconnect = new Set<string>()
-	const preload = new Set<JSX.Element>()
+	const preloads = new Set<JSX.Element>()
 	const stylesheet = new Set<JSX.Element>()
 	const scripts = new Set<JSX.Element>()
 
@@ -31,7 +31,7 @@ const preload = ({ links }: IPreload): JSX.Element[] => {
 		preconnect.add(`${url.protocol}//${url.host}`)
 
 		if (url.pathname !== '/') {
-			preload.add(
+			preloads.add(
 				<link
 					key={`preload-${as}-${key}`}
 					rel="preload"
@@ -75,7 +75,7 @@ const preload = ({ links }: IPreload): JSX.Element[] => {
 				crossOrigin="anonymous"
 			/>
 		)),
-		...preload,
+		...preloads,
 		...stylesheet,
 		...scripts,
 	]
