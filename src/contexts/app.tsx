@@ -8,7 +8,7 @@ import { GlobalStyle, dark, light } from 'styles'
 
 import useTheme, { IUseTheme } from 'hooks/useTheme'
 
-export interface ContextProps extends IUseTheme {
+export interface AppContextProps extends IUseTheme {
 	siteTitle: string
 }
 

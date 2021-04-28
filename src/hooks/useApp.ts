@@ -1,14 +1,14 @@
 import { useContext } from 'react'
-import { AppContext, ContextProps } from 'contexts/app'
+import { AppContext, AppContextProps } from 'contexts/app'
 
-const useApp = (): ContextProps => {
+const useApp = (): AppContextProps => {
 	const context = useContext(AppContext)
 
 	if (context === undefined) {
 		throw new Error('useContext must be used within a AppProvider')
 	}
 
-	return context as ContextProps
+	return context as AppContextProps
 }
 
 export default useApp
