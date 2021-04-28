@@ -19,7 +19,7 @@ const preload = ({ links }: IPreload): JSX.Element[] => {
 	const stylesheet = new Set<JSX.Element>()
 	const scripts = new Set<JSX.Element>()
 
-	links.map((link, key: number) => {
+	links.forEach((link, key: number) => {
 		if (typeof link === 'string') {
 			preconnect.add(link)
 			return
