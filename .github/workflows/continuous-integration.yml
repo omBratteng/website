@@ -1,7 +1,7 @@
 name: continuous-integration
 
 on:
-  pull_request:
+  pull_request_target:
   push:
     branches:
       - develop
@@ -19,6 +19,14 @@ jobs:
 
     steps:
       -
+        if: ${{ github.actor == 'dependabot[bot]' }}
+        name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      -
+        if: ${{ github.actor != 'dependabot[bot]' }}
         name: Checkout code
         uses: actions/checkout@v2
 
@@ -52,6 +60,14 @@ jobs:
 
     steps:
       -
+        if: ${{ github.actor == 'dependabot[bot]' }}
+        name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      -
+        if: ${{ github.actor != 'dependabot[bot]' }}
         name: Checkout code
         uses: actions/checkout@v2
 
@@ -101,6 +117,14 @@ jobs:
 
     steps:
       -
+        if: ${{ github.actor == 'dependabot[bot]' }}
+        name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      -
+        if: ${{ github.actor != 'dependabot[bot]' }}
         name: Checkout code
         uses: actions/checkout@v2
 
