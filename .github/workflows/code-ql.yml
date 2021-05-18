@@ -5,9 +5,21 @@ on:
     branches:
       - develop
       - main
+    paths:
+      - 'pages/**'
+      - 'src/**'
+      - 'test/**'
+      - 'package.json'
+      - 'yarn.lock'
   pull_request:
     branches:
       - develop
+    paths:
+      - 'pages/**'
+      - 'src/**'
+      - 'test/**'
+      - 'package.json'
+      - 'yarn.lock'
   schedule:
     # run every day at 1AM
     - cron: "0 1 * * *"
