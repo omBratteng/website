@@ -74,6 +74,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 						/>
 					</>
 				)}
+				<meta property="og:url" content="https://bratteng.sh" />
 				<meta property="og:image" content={ogImage} />
 				<meta property="og:image:type" content="image/png" />
 				<meta property="og:image:alt" content={ogDescription} />
