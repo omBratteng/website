@@ -58,13 +58,8 @@ export default class Doc extends Document {
 					) : (
 						<>
 							<link
-								rel="preload"
-								href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700"
-								as="style"
-							/>
-							<link
 								rel="stylesheet"
-								href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700"
+								href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
 							/>
 						</>
 					)}
