@@ -49,31 +49,6 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 	return (
 		<>
 			<Head>
-				{process.env.NODE_ENV !== 'development' ? (
-					<>
-						<link
-							rel="preload"
-							href={`${assetPrefix}/css/fonts.551bfafc.css`}
-							as="style"
-						/>
-						<link
-							rel="stylesheet"
-							href={`${assetPrefix}/css/fonts.551bfafc.css`}
-						/>
-					</>
-				) : (
-					<>
-						<link
-							rel="preload"
-							href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700"
-							as="style"
-						/>
-						<link
-							rel="stylesheet"
-							href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700"
-						/>
-					</>
-				)}
 				<meta property="og:url" content="https://bratteng.sh" />
 				<meta property="og:image" content={ogImage} />
 				<meta property="og:image:type" content="image/png" />

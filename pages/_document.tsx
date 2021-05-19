@@ -1,6 +1,10 @@
 import type { DocumentContext, DocumentInitialProps } from 'next/document'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import getConfig from 'next/config'
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
+
+const { publicRuntimeConfig } = getConfig()
+const { assetPrefix } = publicRuntimeConfig
 
 export default class Doc extends Document {
 	static async getInitialProps(
@@ -38,7 +42,33 @@ export default class Doc extends Document {
 	render(): JSX.Element {
 		return (
 			<Html lang="no" className="_fonts">
-				<Head />
+				<Head>
+					{process.env.NODE_ENV !== 'development' ? (
+						<>
+							<link
+								rel="preload"
+								href={`${assetPrefix}/css/fonts.551bfafc.css`}
+								as="style"
+							/>
+							<link
+								rel="stylesheet"
+								href={`${assetPrefix}/css/fonts.551bfafc.css`}
+							/>
+						</>
+					) : (
+						<>
+							<link
+								rel="preload"
+								href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700"
+								as="style"
+							/>
+							<link
+								rel="stylesheet"
+								href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700"
+							/>
+						</>
+					)}
+				</Head>
 				<body>
 					<script
 						dangerouslySetInnerHTML={{
