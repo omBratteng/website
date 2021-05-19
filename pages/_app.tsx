@@ -46,9 +46,21 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 	const ogTitle = 'Ole-Martin Bratteng'
 	const ogDescription = `${ogTitle} &mdash; Software developer`
 	const ogImage = `${assetPrefix}/ogimage.png`
+	const siteTitle = 'bratteng &middot; sh'
+
 	return (
 		<>
 			<Head>
+				<meta
+					name="viewport"
+					content="width=device-width, initial-scale=1, shrink-to-fit=no"
+				/>
+				<meta name="description" content={ogDescription} />
+				{/* {preload({ links })} */}
+				<meta httpEquiv="X-UA-Compatible" content="ie=edge" />
+				<meta name="apple-mobile-web-app-capable" content="yes" />
+				<link rel="shortcut icon" href="/favicon.ico" />
+
 				<meta property="og:url" content="https://bratteng.sh" />
 				<meta property="og:image" content={ogImage} />
 				<meta property="og:image:type" content="image/png" />
@@ -56,7 +68,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 				<meta property="og:description" content={ogDescription} />
 				<meta property="og:type" content="website" />
 				<meta property="og:title" content={ogTitle} />
-				<meta property="og:site_name" content={ogTitle} />
+				<meta property="og:site_name" content={siteTitle} />
 				<meta property="og:locale" content="en_GB" />
 
 				<meta name="twitter:card" content="summary" />
@@ -67,18 +79,8 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 				<meta name="twitter:description" content={ogDescription} />
 				<meta name="twitter:image" content={ogImage} />
 				<meta name="twitter:image:alt" content={ogDescription} />
-
-				<meta
-					name="viewport"
-					content="width=device-width, initial-scale=1, shrink-to-fit=no"
-				/>
-				<meta name="description" content={ogDescription} />
-				{/* {preload({ links })} */}
-				<meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-				<meta name="apple-mobile-web-app-capable" content="yes" />
-				<link rel="shortcut icon" href="/favicon.ico" />
 			</Head>
-			<AppProvider siteTitle="bratteng &middot; sh">
+			<AppProvider siteTitle={siteTitle}>
 				<Layout>
 					<Component {...pageProps} />
 				</Layout>
