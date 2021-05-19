@@ -57,7 +57,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 				<meta property="og:type" content="website" />
 				<meta property="og:title" content={ogTitle} />
 				<meta property="og:site_name" content={ogTitle} />
-				<meta property="og:locale" content="en_UK" />
+				<meta property="og:locale" content="en_GB" />
 
 				<meta name="twitter:card" content="summary" />
 				<meta name="twitter:site" content="@omBratteng" />

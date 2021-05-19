@@ -41,7 +41,7 @@ export default class Doc extends Document {
 
 	render(): JSX.Element {
 		return (
-			<Html lang="no" className="_fonts">
+			<Html lang="en" className="_fonts">
 				<Head>
 					{process.env.NODE_ENV !== 'development' ? (
 						<>
