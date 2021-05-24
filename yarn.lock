@@ -1324,10 +1324,10 @@
   resolved "https://registry.yarnpkg.com/@next/env/-/env-10.2.2.tgz#cb61f6c29f349815108184c2f1926ada65458e28"
   integrity sha512-m0xOpl4F9z7R7Yt2OtJoo6ZUsFPdx+kuvZeoctH7T6lO66DmZL3W6MQDxso/ArkH8VOlDPZgeQVVBPf+I7wflA==
 
-"@next/eslint-plugin-next@^10.2.0":
-  version "10.2.0"
-  resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-10.2.0.tgz#296faf16a3132b12eceefc3215cb3a7676bcc06d"
-  integrity sha512-FaW/mZrRwbHz10JmWV/JpK+TJpfB3EWTiJulKa1oJgLjOBaWND3PwmuBkQcBwGEE8vEZjsHpMPA8hToQA73dPw==
+"@next/eslint-plugin-next@^10.2.2":
+  version "10.2.2"
+  resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-10.2.2.tgz#e6835ed2687078976369b5b5819f8a3b9cbe22fd"
+  integrity sha512-VuESoMro0DrwChhTH1BiML1cyFaIMpxOlLHZpk8kXO4/+hQ2CPJCfmyKLkY9TaV1j4ZeLrTL1LSOj9zr5KMc9Q==
 
 "@next/polyfill-module@10.2.2":
   version "10.2.2"
