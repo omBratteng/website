@@ -1,9 +1,10 @@
 # My personal website
+
+[![build](https://img.shields.io/github/workflow/status/ombratteng/bratteng.sh/continuous-integration?event=push&label=CI%20Build&style=for-the-badge)](https://github.com/omBratteng/bratteng.sh/actions?query=workflow:continuous-integration)
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
-
-[![build](https://img.shields.io/github/workflow/status/ombratteng/bratteng.sh/continuous-integration?event=push&label=CI%20Build&style=for-the-badge)](https://github.com/omBratteng/bratteng.sh/actions?query=workflow:continuous-integration)
 
 ## Generating fonts
 
