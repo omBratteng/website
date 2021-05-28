@@ -1,0 +1,26 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "omBratteng",
+      "name": "Ole-Martin Bratteng",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1681525?v=4",
+      "profile": "https://bratteng.sh/",
+      "contributions": [
+        "infra",
+        "test",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "bratteng.sh",
+  "projectOwner": "omBratteng",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
