@@ -37,7 +37,13 @@ ENV NEXT_TELEMETRY_DISABLED=1
 
 # Build the project and then dispose files not necessary to run the project
 # This will make the runtime image as small as possible
-COPY . .
+COPY next-env.d.ts ./
+COPY next.config.js ./
+COPY tsconfig.json ./
+COPY babel.config.js ./
+COPY src ./src/
+COPY public ./public/
+
 RUN npx next telemetry disable > /dev/null
 RUN yarn build
 RUN yarn install --production

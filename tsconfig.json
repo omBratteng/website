@@ -30,7 +30,7 @@
 				"public/assets/*"
 			],
 			"pages/*": [
-				"pages/*"
+				"src/pages/*"
 			]
 		}
 	},
