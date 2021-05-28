@@ -1,10 +1,7 @@
 import type { ReactNode } from 'react'
 import styled from 'styled-components'
 
-import PageTitle from 'components/PageTitle'
-import SoMeLink from 'components/SoMeLink'
-import ToggleTheme from 'components/ToggleTheme'
-import Footer from 'components/layout/Footer'
+import { Footer, PageTitle, SoMeLink, ToggleTheme } from 'components'
 
 const StyledLayout = styled.div`
 	display: flex;

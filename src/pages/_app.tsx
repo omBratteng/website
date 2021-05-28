@@ -21,10 +21,10 @@ import Head from 'next/head'
 import getConfig from 'next/config'
 
 // Context
-import AppProvider from 'contexts/app'
+import { AppProvider } from 'contexts'
 
 // Components
-import Layout from 'components/layout/Layout'
+import { Layout } from 'components'
 
 // import { preload } from 'utils'
 // import links from 'links'

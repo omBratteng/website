@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Section from 'components/layout/Section'
+import { Section } from 'components'
 
 const SectionContent = styled.div`
 	font-size: 1rem;
