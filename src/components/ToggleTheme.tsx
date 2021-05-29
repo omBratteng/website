@@ -11,11 +11,10 @@ import { useApp } from 'hooks'
 // Types
 import type { IconName } from '@fortawesome/fontawesome-common-types'
 
-interface Button {
+const Button = styled.button<{
 	isHovered: boolean
 	isFocused: boolean
-}
-const Button = styled.button<Button>`
+}>`
 	${size('2rem')}
 	align-items: center;
 	background: var(${(props) => (props.isHovered || props.isFocused ? '--global-font-color' : '--global-link-color')});
