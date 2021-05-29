@@ -18,9 +18,6 @@ import { AppProvider } from 'contexts'
 // Components
 import { Layout } from 'components'
 
-// import { preload } from 'utils'
-// import links from 'links'
-
 const { publicRuntimeConfig } = getConfig()
 const { assetPrefix } = publicRuntimeConfig
 
@@ -37,7 +34,6 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 			<Head>
 				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 				<meta name="description" content={ogDescription} />
-				{/* {preload({ links })} */}
 				<meta httpEquiv="X-UA-Compatible" content="ie=edge" />
 				<meta name="apple-mobile-web-app-capable" content="yes" />
 				<link rel="shortcut icon" href="/favicon.ico" />
