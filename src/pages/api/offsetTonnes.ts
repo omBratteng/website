@@ -11,7 +11,7 @@ export type OffsetTonnes = {
 const ApiEndpoint: NextApiHandler<OffsetTonnes> = async (_, res) => {
 	if (!wrenToken) return res.status(500).end()
 
-	const offsetTonnes = await fetch('https://wren-staging.herokuapp.com/api/offset-orders', {
+	const offsetTonnes = await fetch('https://www.wren.co/api/offset-orders', {
 		method: 'GET',
 		headers: {
 			Authorization: `Bearer ${wrenToken}`,
