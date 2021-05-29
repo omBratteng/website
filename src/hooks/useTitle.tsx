@@ -6,9 +6,7 @@ const useTitle = (pageTitle = ''): JSX.Element => {
 
 	return (
 		<Head>
-			<title>
-				{pageTitle ? `${pageTitle} – ${siteTitle}` : siteTitle}
-			</title>
+			<title>{pageTitle ? `${pageTitle} – ${siteTitle}` : siteTitle}</title>
 		</Head>
 	)
 }

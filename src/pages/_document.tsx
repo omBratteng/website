@@ -7,9 +7,7 @@ const { publicRuntimeConfig } = getConfig()
 const { assetPrefix } = publicRuntimeConfig
 
 export default class Doc extends Document {
-	static async getInitialProps(
-		context: DocumentContext,
-	): Promise<DocumentInitialProps> {
+	static async getInitialProps(context: DocumentContext): Promise<DocumentInitialProps> {
 		const sheet = new ServerStyleSheet()
 		const originalRenderPage = context.renderPage
 
@@ -45,15 +43,8 @@ export default class Doc extends Document {
 				<Head>
 					{process.env.NODE_ENV !== 'development' ? (
 						<>
-							<link
-								rel="preload"
-								href={`${assetPrefix}/css/fonts.551bfafc.css`}
-								as="style"
-							/>
-							<link
-								rel="stylesheet"
-								href={`${assetPrefix}/css/fonts.551bfafc.css`}
-							/>
+							<link rel="preload" href={`${assetPrefix}/css/fonts.551bfafc.css`} as="style" />
+							<link rel="stylesheet" href={`${assetPrefix}/css/fonts.551bfafc.css`} />
 						</>
 					) : (
 						<>

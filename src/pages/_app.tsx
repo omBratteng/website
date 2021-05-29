@@ -4,17 +4,9 @@ import type { AppProps } from 'next/app'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHashtag } from '@fortawesome/pro-regular-svg-icons'
 
-import {
-	faGithubAlt,
-	faTwitter,
-	faLinkedinIn,
-} from '@fortawesome/free-brands-svg-icons'
+import { faGithubAlt, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
-import {
-	faLightbulb,
-	faLightbulbOn,
-	faLightbulbSlash,
-} from '@fortawesome/pro-duotone-svg-icons'
+import { faLightbulb, faLightbulbOn, faLightbulbSlash } from '@fortawesome/pro-duotone-svg-icons'
 
 // Next.js
 import Head from 'next/head'
@@ -32,15 +24,7 @@ import { Layout } from 'components'
 const { publicRuntimeConfig } = getConfig()
 const { assetPrefix } = publicRuntimeConfig
 
-library.add(
-	faGithubAlt,
-	faHashtag,
-	faLightbulb,
-	faLightbulbOn,
-	faLightbulbSlash,
-	faLinkedinIn,
-	faTwitter,
-)
+library.add(faGithubAlt, faHashtag, faLightbulb, faLightbulbOn, faLightbulbSlash, faLinkedinIn, faTwitter)
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 	const ogTitle = 'Ole-Martin Bratteng'
@@ -51,10 +35,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 	return (
 		<>
 			<Head>
-				<meta
-					name="viewport"
-					content="width=device-width, initial-scale=1, shrink-to-fit=no"
-				/>
+				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 				<meta name="description" content={ogDescription} />
 				{/* {preload({ links })} */}
 				<meta httpEquiv="X-UA-Compatible" content="ie=edge" />

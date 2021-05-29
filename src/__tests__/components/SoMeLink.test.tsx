@@ -14,10 +14,7 @@ describe('<PageTitle />', () => {
 
 		expect(container.firstChild).toMatchSnapshot()
 		expect(container.firstChild).toHaveTextContent('This is the alt text')
-		expect(container.firstChild).toHaveAttribute(
-			'href',
-			'https://example.com',
-		)
+		expect(container.firstChild).toHaveAttribute('href', 'https://example.com')
 		expect(container.firstChild).toHaveStyleRule('font-size', '3.25rem', {
 			media: '(min-width: 768px)',
 		})

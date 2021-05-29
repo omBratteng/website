@@ -1,7 +1,4 @@
-type TGoogleFonts = (
-	fonts: string,
-	text?: string,
-) => { href: string; as: 'style' }
+type TGoogleFonts = (fonts: string, text?: string) => { href: string; as: 'style' }
 
 const googleFonts: TGoogleFonts = (fonts, text) => {
 	let url = `https://fonts.googleapis.com/css2?family=${fonts}&display=swap`

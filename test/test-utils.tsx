@@ -9,14 +9,9 @@ import React from 'react'
 interface ThemeWrapperProps {
 	children: ReactNode
 }
-const ThemeWrapper = ({ children }: ThemeWrapperProps): JSX.Element => (
-	<ThemeProvider theme={dark}>{children}</ThemeProvider>
-)
+const ThemeWrapper = ({ children }: ThemeWrapperProps): JSX.Element => <ThemeProvider theme={dark}>{children}</ThemeProvider>
 
-const customRender = (
-	ui: ReactElement,
-	options: RenderOptions = {},
-): RenderResult =>
+const customRender = (ui: ReactElement, options: RenderOptions = {}): RenderResult =>
 	render(ui, { wrapper: ThemeWrapper as React.FunctionComponent, ...options })
 
 export * from '@testing-library/react'

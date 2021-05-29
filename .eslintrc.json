@@ -38,7 +38,8 @@
 				"singleQuote": true,
 				"tabWidth": 4,
 				"trailingComma": "all",
-				"useTabs": true
+				"useTabs": true,
+				"printWidth": 127
 			}
 		],
 		"@typescript-eslint/type-annotation-spacing": "error",

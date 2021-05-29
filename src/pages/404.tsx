@@ -19,9 +19,8 @@ const Page404 = (): JSX.Element => (
 		<Section title="404">
 			<SectionContent>
 				<p>
-					This page is missing, or you assembled the link incorrectly.
-					Don&apos;t worry, you can return to browsing just by{' '}
-					<Link href="/">going home</Link>
+					This page is missing, or you assembled the link incorrectly. Don&apos;t worry, you can return to browsing
+					just by <Link href="/">going home</Link>
 				</p>
 			</SectionContent>
 		</Section>

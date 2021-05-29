@@ -1,7 +1,4 @@
-import type {
-	IconName,
-	IconPrefix,
-} from '@fortawesome/fontawesome-common-types'
+import type { IconName, IconPrefix } from '@fortawesome/fontawesome-common-types'
 import styled, { css } from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { hideVisually, size } from 'polished'
@@ -64,20 +61,9 @@ interface Props {
 	small?: boolean
 }
 
-const SoMeLink = ({
-	href,
-	alt,
-	hoverColor,
-	small,
-	icon,
-}: Props): JSX.Element => {
+const SoMeLink = ({ href, alt, hoverColor, small, icon }: Props): JSX.Element => {
 	return (
-		<Link
-			href={href}
-			className="no-bg"
-			hoverColor={hoverColor}
-			small={small}
-		>
+		<Link href={href} className="no-bg" hoverColor={hoverColor} small={small}>
 			<Icon icon={['fab', icon]} fixedWidth />
 			<span>{alt}</span>
 		</Link>

@@ -23,8 +23,7 @@ const Footer = (): JSX.Element => {
 	return (
 		<>
 			<StyledFooter>
-				So far I have offset a total of {data?.offsetTonnes ?? '0.00'}{' '}
-				tons of CO
+				So far I have offset a total of {data?.offsetTonnes ?? '0.00'} tons of CO
 				<sub>2</sub> with{' '}
 				<a href="https://www.wren.co/join/omBratteng?utm_campaign=share&utm_medium=profile_referral_link">
 					Project Wren

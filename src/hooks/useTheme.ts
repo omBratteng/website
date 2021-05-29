@@ -10,10 +10,7 @@ export interface IUseTheme {
 	setTheme: ThemeAction
 }
 
-const useTheme = (
-	key = 'theme',
-	initialValue = '',
-): [ThemeState, ThemeAction] => {
+const useTheme = (key = 'theme', initialValue = ''): [ThemeState, ThemeAction] => {
 	const [value, setValue] = useLocalStorage(key, initialValue, {
 		raw: true,
 	})
@@ -29,9 +26,7 @@ const useTheme = (
 
 	useEffect(() => {
 		const root = window.document.documentElement
-		const initialColorValue = root.style.getPropertyValue(
-			'--initial-color-mode',
-		)
+		const initialColorValue = root.style.getPropertyValue('--initial-color-mode')
 		setTheme(initialColorValue === 'dark')
 
 		const mql = window?.matchMedia('(prefers-color-scheme: dark)')

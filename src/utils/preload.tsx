@@ -47,33 +47,15 @@ const preload = ({ links }: IPreload): JSX.Element[] => {
 
 			as === 'style' &&
 				stylesheet.add(
-					<link
-						key={`preloaded-stylesheet-${key}`}
-						rel="stylesheet"
-						href={href}
-						crossOrigin="anonymous"
-					/>,
+					<link key={`preloaded-stylesheet-${key}`} rel="stylesheet" href={href} crossOrigin="anonymous" />,
 				)
-			as === 'script' &&
-				scripts.add(
-					<script
-						key={`preloaded-script-${key}`}
-						src={href}
-						crossOrigin="anonymous"
-						async
-					/>,
-				)
+			as === 'script' && scripts.add(<script key={`preloaded-script-${key}`} src={href} crossOrigin="anonymous" async />)
 		}
 	})
 
 	return [
 		...[...preconnect].map((href: string, key: number) => (
-			<link
-				rel="preconnect"
-				href={href}
-				key={`preconnect-${key}`}
-				crossOrigin="anonymous"
-			/>
+			<link rel="preconnect" href={href} key={`preconnect-${key}`} crossOrigin="anonymous" />
 		)),
 		...preloads,
 		...stylesheet,
