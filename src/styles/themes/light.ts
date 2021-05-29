@@ -1,4 +1,4 @@
-export default {
+const light = {
 	colors: {
 		background: '#fbfbfb',
 		font: '#555',
@@ -16,3 +16,5 @@ export default {
 		lineHeight: '2rem',
 	},
 }
+
+export default light
