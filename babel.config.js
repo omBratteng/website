@@ -16,17 +16,5 @@ module.exports = (api) => {
 				},
 			],
 		],
-		env: {
-			production: {
-				plugins: [
-					[
-						'babel-plugin-react-remove-properties',
-						{
-							properties: ['data-testid'],
-						},
-					],
-				],
-			},
-		},
 	}
 }

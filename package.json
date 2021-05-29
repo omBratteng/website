@@ -36,8 +36,7 @@
     "staging": "APP_ENV=staging next build && next start",
     "lint": "yarn lint:eslint && yarn lint:stylelint",
     "lint:eslint": "eslint '{src,pages}/**/*.{ts,tsx}' --cache --report-unused-disable-directives",
-    "lint:stylelint": "stylelint '{src,pages}/**/*.{ts,tsx}' --cache",
-    "test": "jest --collectCoverage"
+    "lint:stylelint": "stylelint '{src,pages}/**/*.{ts,tsx}' --cache"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
@@ -62,9 +61,6 @@
     "@babel/preset-env": "^7.14.4",
     "@babel/preset-react": "^7.13.13",
     "@next/eslint-plugin-next": "^10.2.3",
-    "@testing-library/jest-dom": "^5.12.0",
-    "@testing-library/react": "^11.2.7",
-    "@types/jest": "^26.0.23",
     "@types/node": "^15.6.1",
     "@types/react": "^17.0.8",
     "@types/react-dom": "^17.0.5",
@@ -73,8 +69,6 @@
     "@typescript-eslint/eslint-plugin": "^4.25.0",
     "@typescript-eslint/parser": "^4.25.0",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^27.0.2",
-    "babel-plugin-react-remove-properties": "^0.3.0",
     "babel-plugin-styled-components": "^1.12.0",
     "eslint": "^7.27.0",
     "eslint-config-next": "^10.2.3",
@@ -83,15 +77,11 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^27.0.3",
-    "jest-styled-components": "^7.0.4",
-    "jest-watch-typeahead": "^0.6.4",
     "prettier": "^2.3.0",
     "stylelint": "^13.13.1",
     "stylelint-config-recommended": "^5.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-order": "^4.1.0",
-    "ts-jest": "^27.0.1",
     "typescript": "^4.3.2"
   },
   "resolutions": {
