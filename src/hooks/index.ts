@@ -1,5 +1,3 @@
-import useApp from './useApp'
-import useTitle from './useTitle'
-import useTheme from './useTheme'
-
-export { useApp, useTitle, useTheme }
+export { default as useApp } from './useApp'
+export { default as useTitle } from './useTitle'
+export { default as useTheme } from './useTheme'

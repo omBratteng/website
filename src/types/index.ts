@@ -1,4 +1,2 @@
-import RuntimeConfig from './runtimeConfig'
-import ServerRuntimeConfig from './serverRuntimeConfig'
-
-export type { ServerRuntimeConfig, RuntimeConfig }
+export type { default as RuntimeConfig } from './runtimeConfig'
+export type { default as ServerRuntimeConfig } from './serverRuntimeConfig'
