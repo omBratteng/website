@@ -1,10 +1,8 @@
 import type { DocumentContext, DocumentInitialProps } from 'next/document'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import getConfig from 'next/config'
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 
-const { publicRuntimeConfig } = getConfig()
-const { assetPrefix } = publicRuntimeConfig
+const displayStrategy = process.env.NODE_ENV === 'development' ? 'swap' : 'optional'
 
 export default class Doc extends Document {
 	static async getInitialProps(context: DocumentContext): Promise<DocumentInitialProps> {
@@ -41,19 +39,10 @@ export default class Doc extends Document {
 		return (
 			<Html lang="en" className="_fonts">
 				<Head>
-					{process.env.NODE_ENV !== 'development' ? (
-						<>
-							<link rel="preload" href={`${assetPrefix}/css/fonts.551bfafc.css`} as="style" />
-							<link rel="stylesheet" href={`${assetPrefix}/css/fonts.551bfafc.css`} />
-						</>
-					) : (
-						<>
-							<link
-								rel="stylesheet"
-								href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
-							/>
-						</>
-					)}
+					<link
+						rel="stylesheet"
+						href={`https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=${displayStrategy}`}
+					/>
 				</Head>
 				<body>
 					<script

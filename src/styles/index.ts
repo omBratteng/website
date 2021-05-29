@@ -34,13 +34,13 @@ const GlobalStyle = createGlobalStyle`
 
 html {
 	box-sizing: border-box;
-	font-family: monospace;
+	font-family: 'Space Mono', monospace;
 	font-size: 16px;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	font-style: normal;
 	font-weight: 400;
-	letter-spacing: 1.25px;
+	letter-spacing: 1px;
 	-ms-overflow-style: -ms-autohiding-scrollbar;
 	text-rendering: optimizeLegibility;
 	text-size-adjust: 100%;
