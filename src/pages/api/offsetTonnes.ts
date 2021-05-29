@@ -4,9 +4,12 @@ import getConfig from 'next/config'
 const { serverRuntimeConfig } = getConfig()
 const { wrenToken } = serverRuntimeConfig
 
-const OffsetTonnes: NextApiHandler = async (req, res) => {
+export type OffsetTonnes = {
+	offsetTonnes: string
+}
+
+const ApiEndpoint: NextApiHandler<OffsetTonnes> = async (_, res) => {
 	if (!wrenToken) return res.status(500).end()
-	if (req.method !== 'HEAD') return res.status(405).end()
 
 	const offsetTonnes = await fetch(
 		'https://wren-staging.herokuapp.com/api/offset-orders',
@@ -21,11 +24,12 @@ const OffsetTonnes: NextApiHandler = async (req, res) => {
 		.then(({ stats }) => {
 			return stats.totalTons
 		})
-		.then((offset: number) => parseFloat(offset.toFixed(2)))
+		.then((offset: number) => offset.toFixed(2))
 
 	res.setHeader('Cache-Control', 'public, max-age=2592000')
-	res.setHeader('X-Offset-Tonnes', offsetTonnes)
-	return res.status(200).json({})
+	return res.status(200).json({
+		offsetTonnes,
+	})
 }
 
-export default OffsetTonnes
+export default ApiEndpoint
