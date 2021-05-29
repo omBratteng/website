@@ -100,11 +100,6 @@ jobs:
           yarn lint
 
       -
-        name: Test
-        run: |
-          yarn test
-
-      -
         name: Submit coverage
         uses: codecov/codecov-action@v1
         with:
