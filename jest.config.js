@@ -1,6 +1,8 @@
+/** @type {import('@jest/types').Config.InitialOptions} */
 module.exports = {
 	roots: ['<rootDir>/'],
 	preset: 'ts-jest',
+	testEnvironment: 'jsdom',
 	resetMocks: true,
 	moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'jsx'],
 	testPathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|.next)[/\\\\]', '<rootDir>/src/__tests__/.eslintrc.js'],
