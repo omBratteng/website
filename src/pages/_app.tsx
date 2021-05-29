@@ -28,9 +28,9 @@ library.add(faGithubAlt, faHashtag, faLightbulb, faLightbulbOn, faLightbulbSlash
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 	const ogTitle = 'Ole-Martin Bratteng'
-	const ogDescription = `${ogTitle} &mdash; Software developer`
+	const ogDescription = `${ogTitle} \u2014 Software developer`
 	const ogImage = `${assetPrefix}/ogimage.png`
-	const siteTitle = 'bratteng &middot; sh'
+	const siteTitle = 'bratteng \u00B7 sh'
 
 	return (
 		<>
