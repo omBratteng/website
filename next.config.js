@@ -10,7 +10,12 @@ const assetPrefix = isProd ? 'https://cdn.bratteng.sh' : ''
 
 const fonts = require('./src/fonts.json')
 
-const links = ['<https://cdn.bratteng.sh/>; rel=preconnect', '<https://fonts.gstatic.com/>; rel=preconnect']
+const links = [
+	'<https://cdn.bratteng.sh/>; rel=preconnect',
+	'<https://cdn.bratteng.sh/>; rel=dns-prefetch',
+	'<https://fonts.gstatic.com/>; rel=preconnect',
+	'<https://fonts.gstatic.com/>; rel=dns-prefetch',
+]
 
 fonts.forEach(({ url }) => {
 	links.push(`<${url}>; rel=preload; as=font; crossorigin=anonymous`)
