@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components'
-import { rgba } from 'polished'
 
 // FontAwesome
 // Add the css on the server side
@@ -16,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
 	--global-background-color: ${light.colors.background};
 	--global-font-color: ${light.colors.font};
 	--global-link-color: ${light.colors.linkColor};
+	--global-link-hover-color: rgba(170, 147, 116, 0.15);
 
 	--github-hover-color: ${light.some.github};
 	--twitter-hover-color: ${light.some.twitter};
@@ -26,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
 	--global-background-color: ${dark.colors.background};
 	--global-font-color: ${dark.colors.font};
 	--global-link-color: ${dark.colors.linkColor};
+	--global-link-hover-color: rgba(170, 147, 116, 0.15);
 
 	--github-hover-color: ${dark.some.github};
 	--twitter-hover-color: ${dark.some.twitter};
@@ -53,7 +54,7 @@ body,
 * { box-sizing: border-box; }
 
 ::selection {
-	background: ${({ theme }) => rgba(theme.colors.linkColor, 0.15)};
+	background: var(--global-link-hover-color);
 }
 
 body {
@@ -78,7 +79,7 @@ a {
 	text-decoration: none;
 
 	&:hover:not(.no-bg) {
-		background: ${({ theme }) => rgba(theme.colors.linkColor, 0.15)};
+		background: var(--global-link-hover-color);
 	}
 }
 
