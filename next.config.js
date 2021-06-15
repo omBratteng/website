@@ -29,9 +29,6 @@ const nextConfig = {
 			},
 		]
 	},
-	future: {
-		webpack5: true,
-	},
 	serverRuntimeConfig: {
 		wrenToken: process.env.WREN_TOKEN,
 	},
