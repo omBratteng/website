@@ -12,19 +12,6 @@ const nextConfig = {
 	reactStrictMode: false,
 	poweredByHeader: false,
 	assetPrefix,
-	async headers() {
-		return [
-			{
-				source: '/css/fonts.551bfafc.css',
-				headers: [
-					{
-						key: 'Cache-Control',
-						value: 'public, max-age=15552000',
-					},
-				],
-			},
-		]
-	},
 	serverRuntimeConfig: {
 		wrenToken: process.env.WREN_TOKEN,
 	},

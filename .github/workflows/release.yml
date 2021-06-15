@@ -2,6 +2,11 @@ name: release
 
 on:
   workflow_dispatch:
+    inputs:
+      app_env:
+        description: Application enviornment to build next.js for
+        required: true
+        default: 'production'
   push:
     tags:
       - "*"
@@ -22,7 +27,7 @@ jobs:
         with:
           images: ghcr.io/ombratteng/bratteng.sh
           flavor: |
-            latest=true
+            latest=${{ github.event.inputs.app_env == 'production' }}
           tags: |
             type=sha
             type=semver,pattern={{version}}
@@ -65,6 +70,7 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           build-args: |
+            APP_ENV=${{ github.event.inputs.app_env }}
             NPM_TOKEN=${{ secrets.NPM_TOKEN }}
             FONTAWESOME_TOKEN=${{ secrets.FONTAWESOME_TOKEN }}
 
