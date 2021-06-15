@@ -8,10 +8,31 @@ const isProd = process.env.NODE_ENV === 'production' && process.env.APP_ENV !== 
 
 const assetPrefix = isProd ? 'https://cdn.bratteng.sh' : ''
 
+const fonts = require('./src/fonts.json')
+
+const links = ['<https://cdn.bratteng.sh/>; rel=preconnect', '<https://fonts.gstatic.com/>; rel=preconnect']
+
+fonts.forEach(({ url }) => {
+	links.push(`<${url}>; rel=preload; as=font; crossorigin=anonymous`)
+})
+
 const nextConfig = {
 	reactStrictMode: false,
 	poweredByHeader: false,
 	assetPrefix,
+	async headers() {
+		return [
+			{
+				source: '/(.*)',
+				headers: [
+					{
+						key: 'Link',
+						value: links.join(),
+					},
+				],
+			},
+		]
+	},
 	serverRuntimeConfig: {
 		wrenToken: process.env.WREN_TOKEN,
 	},

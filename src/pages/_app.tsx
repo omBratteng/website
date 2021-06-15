@@ -1,6 +1,6 @@
-// Types
 import type { AppProps } from 'next/app'
 
+import { useEffect } from 'react'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHashtag } from '@fortawesome/pro-regular-svg-icons'
 
@@ -17,6 +17,7 @@ import { AppProvider } from 'contexts'
 
 // Components
 import { Layout } from 'components'
+import fonts from 'fonts.json'
 
 const { publicRuntimeConfig } = getConfig()
 const { assetPrefix } = publicRuntimeConfig
@@ -28,6 +29,17 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 	const ogDescription = `${ogTitle} \u2014 Software developer`
 	const ogImage = `${assetPrefix}/ogimage.png`
 	const siteTitle = 'bratteng \u00B7 sh'
+
+	useEffect(() => {
+		fonts.forEach((font) => {
+			document.fonts.add(new FontFace(font.family, `url(${font.url})`, font.descriptors))
+		})
+
+		for (const fontFace of document.fonts.values()) {
+			fontFace.load()
+			document.documentElement.classList.add('_fonts')
+		}
+	}, [])
 
 	return (
 		<>

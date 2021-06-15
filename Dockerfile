@@ -16,9 +16,10 @@ RUN yarn install --frozen-lockfile
 # Build the project and then dispose files not necessary to run the project
 # This will make the runtime image as small as possible
 COPY next-env.d.ts ./
-COPY next.config.js ./
 COPY tsconfig.json ./
+COPY .eslintrc.json ./
 COPY babel.config.js ./
+COPY next.config.js ./
 COPY src ./src/
 COPY public ./public/
 
@@ -43,6 +44,7 @@ COPY --chown=nonroot --from=build /src/package.json /app/package.json
 COPY --chown=nonroot --from=build /src/node_modules /app/node_modules
 COPY --chown=nonroot --from=build /src/.next /app/.next
 COPY --chown=nonroot --from=build /src/public /app/public
+COPY --chown=nonroot --from=build /src/src/fonts.json /app/src/fonts.json
 COPY --chown=nonroot --from=build /src/next.config.js /app/next.config.js
 
 # run as an unprivileged user

@@ -2,8 +2,6 @@ import type { DocumentContext, DocumentInitialProps } from 'next/document'
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 
-const displayStrategy = process.env.NODE_ENV === 'development' ? 'swap' : 'optional'
-
 export default class Document extends NextDocument {
 	static async getInitialProps(context: DocumentContext): Promise<DocumentInitialProps> {
 		const sheet = new ServerStyleSheet()
@@ -37,13 +35,8 @@ export default class Document extends NextDocument {
 
 	render(): JSX.Element {
 		return (
-			<Html lang="en" className="_fonts">
-				<Head>
-					<link
-						rel="stylesheet"
-						href={`https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=${displayStrategy}`}
-					/>
-				</Head>
+			<Html lang="en">
+				<Head />
 				<body>
 					<script
 						dangerouslySetInnerHTML={{
