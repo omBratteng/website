@@ -13,7 +13,7 @@ const SectionContent = styled.div`
 	}
 `
 
-const Page404 = (): JSX.Element => (
+const Page = (): JSX.Element => (
 	<>
 		{useTitle('404')}
 		<Section title="404">
@@ -27,4 +27,4 @@ const Page404 = (): JSX.Element => (
 	</>
 )
 
-export default Page404
+export default Page
