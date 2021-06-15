@@ -49,7 +49,8 @@ const ToggleTheme = (): JSX.Element => {
 	const { theme, setTheme } = useApp()
 
 	useEffect(() => {
-		isHovered || isFocused ? setIcon(theme ? 'lightbulb-on' : 'lightbulb-slash') : setIcon('lightbulb')
+		const lightBulbstate = theme ? 'lightbulb-on' : 'lightbulb-slash'
+		isHovered || isFocused ? setIcon(lightBulbstate) : setIcon('lightbulb')
 	}, [isFocused, isHovered, setIcon, theme])
 
 	return (
