@@ -12,20 +12,6 @@ COPY yarn.lock ./
 COPY .npmrc ./
 RUN yarn install --frozen-lockfile
 
-# # -- CHECK STAGE --------------------------------
-
-FROM base AS check
-
-ARG CI
-ENV CI $CI
-
-ARG NPM_TOKEN
-ARG FONTAWESOME_TOKEN
-
-COPY . .
-RUN yarn lint
-# RUN npm test
-
 # -- BUILD STAGE --------------------------------
 
 FROM base AS build
