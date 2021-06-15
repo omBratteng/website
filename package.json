@@ -35,7 +35,7 @@
     "start": "next start",
     "staging": "APP_ENV=staging next build && next start",
     "lint": "yarn lint:eslint && yarn lint:stylelint",
-    "lint:eslint": "eslint '{src,pages}/**/*.{ts,tsx}' --cache --report-unused-disable-directives",
+    "lint:eslint": "next lint",
     "lint:stylelint": "stylelint '{src,pages}/**/*.{ts,tsx}' --cache"
   },
   "dependencies": {
