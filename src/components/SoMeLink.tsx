@@ -3,11 +3,11 @@ import styled, { css } from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { hideVisually, size } from 'polished'
 
-interface Link {
+type LinkProps = {
 	hoverColor: string
 	small?: boolean
 }
-const Link = styled.a<Link>`
+const Link = styled.a<LinkProps>`
 	${size('2rem')}
 	align-items: center;
 	background: var(--global-link-color);
