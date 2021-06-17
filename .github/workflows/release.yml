@@ -71,6 +71,7 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           build-args: |
             APP_ENV=${{ github.event.inputs.app_env }}
+            WREN_TOKEN=${{ secrets.WREN_TOKEN }}
             NPM_TOKEN=${{ secrets.NPM_TOKEN }}
             FONTAWESOME_TOKEN=${{ secrets.FONTAWESOME_TOKEN }}
 
