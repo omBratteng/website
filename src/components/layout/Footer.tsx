@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import useSWR from 'swr'
 
-import type { OffsetTonnes } from 'pages/api/offsetTonnes'
+import { OffsetTonnes } from 'types/dto'
 
 const StyledFooter = styled.footer`
 	align-self: center;
@@ -17,8 +17,12 @@ const StyledFooter = styled.footer`
 	}
 `
 
-const Footer = (): JSX.Element => {
-	const { data } = useSWR<OffsetTonnes>('/api/offsetTonnes')
+type Props = {
+	offset: OffsetTonnes
+}
+
+const Footer = ({ offset }: Props): JSX.Element => {
+	const { data } = useSWR<OffsetTonnes>('/api/offsetTonnes', { initialData: offset })
 
 	return (
 		<>

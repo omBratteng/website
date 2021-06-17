@@ -1,6 +1,8 @@
-import type { AppProps } from 'next/app'
-
 import { useEffect } from 'react'
+import styled from 'styled-components'
+
+import { AppProps } from 'next/app'
+
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHashtag } from '@fortawesome/pro-regular-svg-icons'
 
@@ -16,13 +18,19 @@ import getConfig from 'next/config'
 import { AppProvider } from 'contexts'
 
 // Components
-import { Layout } from 'components'
+import { Footer, Header, Main } from 'components'
 import fonts from 'fonts.json'
 
 const { publicRuntimeConfig } = getConfig()
 const { assetPrefix } = publicRuntimeConfig
 
 library.add(faGithubAlt, faHashtag, faLightbulb, faLightbulbOn, faLightbulbSlash, faLinkedinIn, faTwitter)
+
+const Wrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	min-height: fill-available;
+`
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 	const ogTitle = 'Ole-Martin Bratteng'
@@ -70,9 +78,13 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 				<meta name="twitter:image:alt" content={ogDescription} />
 			</Head>
 			<AppProvider siteTitle={siteTitle}>
-				<Layout>
-					<Component {...pageProps} />
-				</Layout>
+				<Wrapper>
+					<Main>
+						<Header />
+						<Component {...pageProps} />
+					</Main>
+					<Footer offset={pageProps.offset} />
+				</Wrapper>
 			</AppProvider>
 		</>
 	)
