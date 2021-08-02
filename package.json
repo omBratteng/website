@@ -59,7 +59,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.8",
-    "@babel/preset-env": "^7.14.8",
+    "@babel/preset-env": "^7.14.9",
     "@babel/preset-react": "^7.14.5",
     "@next/eslint-plugin-next": "^11.0.1",
     "@types/css-font-loading-module": "^0.0.6",
