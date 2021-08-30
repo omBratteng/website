@@ -69,7 +69,7 @@
     "@types/styled-components": "^5.1.12",
     "@types/webpack-env": "^1.16.2",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
-    "@typescript-eslint/parser": "^4.29.2",
+    "@typescript-eslint/parser": "^4.29.3",
     "babel-plugin-styled-components": "^1.13.2",
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.0",
