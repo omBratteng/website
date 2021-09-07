@@ -22,7 +22,7 @@ type Props = {
 }
 
 const Footer = ({ offset }: Props): JSX.Element => {
-	const { data } = useSWR<OffsetTonnes>('/api/offsetTonnes', { initialData: offset })
+	const { data } = useSWR<OffsetTonnes>('/api/offsetTonnes', { fallbackData: offset })
 
 	return (
 		<>

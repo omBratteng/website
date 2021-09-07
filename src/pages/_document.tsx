@@ -10,6 +10,8 @@ export default class Doc extends Document {
 		try {
 			context.renderPage = () =>
 				originalRenderPage({
+					// TODO: Remove this when https://github.com/vercel/next.js/issues/28786 is fixed
+					// eslint-disable-next-line react/display-name
 					enhanceApp: (App) => (props) =>
 						sheet.collectStyles(
 							<StyleSheetManager>
