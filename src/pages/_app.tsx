@@ -43,10 +43,9 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 			document.fonts.add(new FontFace(font.family, `url(${font.url})`, font.descriptors))
 		})
 
-		for (const fontFace of document.fonts.values()) {
-			fontFace.load()
+		document.fonts.ready.then(() => {
 			document.documentElement.classList.add('_fonts')
-		}
+		})
 	}, [])
 
 	return (
