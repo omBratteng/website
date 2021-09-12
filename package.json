@@ -59,7 +59,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
-    "@babel/preset-env": "^7.15.4",
+    "@babel/preset-env": "^7.15.6",
     "@babel/preset-react": "^7.14.5",
     "@next/eslint-plugin-next": "^11.1.2",
     "@types/css-font-loading-module": "^0.0.6",
@@ -78,11 +78,11 @@
     "eslint-plugin-react": "^7.25.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "identity-obj-proxy": "^3.0.0",
-    "prettier": "^2.3.2",
+    "prettier": "^2.4.0",
     "stylelint": "^13.13.1",
     "stylelint-config-recommended": "^5.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-order": "^4.1.0",
-    "typescript": "^4.4.2"
+    "typescript": "^4.4.3"
   }
 }
