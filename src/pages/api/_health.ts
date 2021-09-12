@@ -1,11 +1,9 @@
 import type { NextApiHandler } from 'next'
 
-const Health: NextApiHandler = (req, res) =>
-	req.headers.host === 'localhost:3000'
-		? res.status(200).json({
-				status: 'OK',
-				time: new Date().toISOString(),
-		  })
-		: res.status(403).end('403 Forbidden')
+const Health: NextApiHandler = (_, res) =>
+	res.status(200).json({
+		status: 'OK',
+		time: new Date().toISOString(),
+	})
 
 export default Health
