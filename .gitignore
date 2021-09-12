@@ -1,16 +1,8 @@
 # Optional stylelint cache
 .stylelintcache
 
-# Created by https://www.toptal.com/developers/gitignore/api/node,macos,sublimetext,composer,git,vim,windows,visualstudiocode,terraform
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,macos,sublimetext,composer,git,vim,windows,visualstudiocode,terraform
-
-### Composer ###
-composer.phar
-/vendor/
-
-# Commit your application's lock file https://getcomposer.org/doc/01-basic-usage.md#commit-your-composer-lock-file-to-version-control
-# You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
-# composer.lock
+# Created by https://www.toptal.com/developers/gitignore/api/vim,git,node,macos,windows,sublimetext,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=vim,git,node,macos,windows,sublimetext,visualstudiocode
 
 ### Git ###
 # Created by git for backups. To disable backups in Git:
@@ -63,6 +55,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+.pnpm-debug.log*
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -99,8 +92,8 @@ build/Release
 node_modules/
 jspm_packages/
 
-# TypeScript v1 declaration files
-typings/
+# Snowpack dependency directory (https://snowpack.dev/)
+web_modules/
 
 # TypeScript cache
 *.tsbuildinfo
@@ -129,7 +122,7 @@ typings/
 # dotenv environment variables file
 .env
 .env.test
-.env*.local
+.env.production
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -137,6 +130,7 @@ typings/
 
 # Next.js build output
 .next
+out
 
 # Nuxt.js build / generate output
 .nuxt
@@ -166,6 +160,13 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
 ### SublimeText ###
 # Cache files for Sublime Text
 *.tmlanguage.cache
@@ -181,6 +182,7 @@ dist
 
 # SFTP configuration file
 sftp-config.json
+sftp-config-alt*.json
 
 # Package control specific files
 Package Control.last-run
@@ -197,36 +199,6 @@ bh_unicode_properties.cache
 # Sublime-github package stores a github token in this file
 # https://packagecontrol.io/packages/sublime-github
 GitHub.sublime-settings
-
-### Terraform ###
-# Local .terraform directories
-**/.terraform/*
-
-# .tfstate files
-*.tfstate
-*.tfstate.*
-
-# Crash log files
-crash.log
-
-# Ignore any .tfvars files that are generated automatically for each Terraform run. Most
-# .tfvars files are managed as part of configuration and so should be included in
-# version control.
-#
-# example.tfvars
-
-# Ignore override files as they are usually used to override resources locally and so
-# are not checked in
-override.tf
-override.tf.json
-*_override.tf
-*_override.tf.json
-
-# Include override files you do wish to add to version control using negated pattern
-# !example_override.tf
-
-# Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
-# example: *tfplan*
 
 ### Vim ###
 # Swap
@@ -251,9 +223,14 @@ tags
 
 ### VisualStudioCode ###
 .vscode/*
+!.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
+!.vscode/extensions.json
 *.code-workspace
+
+# Local History for Visual Studio Code
+.history/
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
@@ -286,4 +263,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/node,macos,sublimetext,composer,git,vim,windows,visualstudiocode,terraform
+# End of https://www.toptal.com/developers/gitignore/api/vim,git,node,macos,windows,sublimetext,visualstudiocode
