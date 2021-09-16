@@ -6,19 +6,21 @@ updates:
     schedule:
       interval: "daily"
 
-  # Maintain dependencies for npm
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    registries:
-      - fontawesome
-
   # Maintain dependencies for docker
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
       interval: "daily"
+
+  # Maintain dependencies for npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    ignore:
+      - dependency-name: '@types/node'
+    registries:
+      - fontawesome
 
 registries:
   fontawesome:
