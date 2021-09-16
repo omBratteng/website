@@ -18,16 +18,7 @@ updates:
     schedule:
       interval: "daily"
     ignore:
-      - dependency-name: '@types/*'
-    registries:
-      - fontawesome
-      
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    allow:
-      - dependency-name: '@types/*'
+      - dependency-name: '@types/node'
     registries:
       - fontawesome
 
