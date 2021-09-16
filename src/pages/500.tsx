@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { useTitle } from 'hooks'
-import Link from 'next/link'
 
 import type { GetStaticProps } from 'next'
 import type { OffsetTonnes } from 'types/dto'
@@ -19,13 +18,10 @@ const SectionContent = styled.div`
 
 const Page = (): JSX.Element => (
 	<>
-		{useTitle('404')}
-		<Section title="404">
+		{useTitle('500')}
+		<Section title="500">
 			<SectionContent>
-				<p>
-					This page is missing, or you assembled the link incorrectly. Don&apos;t worry, you can return to browsing
-					just by <Link href="/">going home</Link>
-				</p>
+				<p>Internal Server Error</p>
 			</SectionContent>
 		</Section>
 	</>
