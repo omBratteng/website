@@ -13,7 +13,7 @@ const ApiEndpoint: NextApiHandler<OffsetTonnes> = async ({ method }, res) => {
 
 	!cache && (await redis.set('offsetTonnes', JSON.stringify(offsetTonnes), 'EX', '604800'))
 
-	return res.status(200).json(await fetchWrenOffset())
+	return res.status(200).json(offsetTonnes)
 }
 
 export default ApiEndpoint
