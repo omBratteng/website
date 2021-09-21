@@ -33,7 +33,7 @@ RUN rm -rf .next/cache
 
 # -- RUNTIME STAGE --------------------------------
 
-FROM gcr.io/distroless/nodejs:14
+FROM gcr.io/distroless/nodejs:16
 ENV NEXT_TELEMETRY_DISABLED=1
 
 WORKDIR /app
