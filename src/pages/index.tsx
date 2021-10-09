@@ -5,6 +5,7 @@ import type { OffsetTonnes } from 'types/dto'
 
 import { Section } from 'components'
 import fetchWrenOffset from 'utils/fetchWrenOffset'
+import Tool from 'components/Tool'
 
 const SectionContent = styled.div`
 	font-size: 1rem;
@@ -35,6 +36,24 @@ const Index = (): JSX.Element => {
 					</span>
 					.
 				</SectionContent>
+			</Section>
+
+			<Section title="Tools">
+				<Tool name="Docker config secret generator" href="/dockerconfigjson">
+					<p>
+						A tool that takes generates base64 encoded string that can be used in a{' '}
+						<a href="https://kubernetes.io/docs/concepts/configuration/secret/#docker-config-secrets">
+							docker-registry
+						</a>{' '}
+						kubernetes secret.{' '}
+						<em>Nothing is stored or sent to the server, everything is generated on the fly on the client</em>
+						side. View the source code on{' '}
+						<a href="https://github.com/omBratteng/bratteng.sh/blob/develop/src/pages/dockerconfigjson.tsx">
+							GitHub
+						</a>
+						.
+					</p>
+				</Tool>
 			</Section>
 		</>
 	)

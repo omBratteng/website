@@ -104,7 +104,8 @@ data:
 					</a>{' '}
 					kubernetes secret.{' '}
 					<em>Nothing is stored or sent to the server, everything is generated on the fly on the client</em>
-					side.
+					side. View the source code on{' '}
+					<a href="https://github.com/omBratteng/bratteng.sh/blob/develop/src/pages/dockerconfigjson.tsx">GitHub</a>.
 				</p>
 			</Section>
 			<Section title="Docker auth">
