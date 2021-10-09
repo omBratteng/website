@@ -60,7 +60,7 @@ type DockerConfig = {
 	}
 }
 
-type GenerateDockerConfig = (host: string, username: string, password: string, email: string) => DockerConfig
+type GenerateDockerConfig = (server: string, username: string, password: string, email: string) => DockerConfig
 
 const Page = (): JSX.Element => {
 	const [base64, setBase64] = useState('')
@@ -70,16 +70,16 @@ const Page = (): JSX.Element => {
 	})
 	const [viewJSON, setViewJSON] = useState(false)
 
-	const [host, setHost] = useState('https://index.docker.io/v1/')
+	const [server, setServer] = useState('https://index.docker.io/v1/')
 	const [username, setUsername] = useState('')
 	const [password, setPassword] = useState('')
 	const [email, setEmail] = useState('')
 
-	const dockerconfig: GenerateDockerConfig = (host, username, password, email) => {
+	const dockerconfig: GenerateDockerConfig = (server, username, password, email) => {
 		const auth = Buffer.from(`${username}:${password}`).toString('base64')
 		return {
 			auths: {
-				[host]: {
+				[server]: {
 					username,
 					password,
 					email,
@@ -99,8 +99,8 @@ const Page = (): JSX.Element => {
 	}
 
 	useEffect(() => {
-		setGeneratedConfig(dockerconfig(host, username, password, email))
-	}, [email, host, password, username])
+		setGeneratedConfig(dockerconfig(server, username, password, email))
+	}, [email, server, password, username])
 
 	useEffect(() => {
 		setBase64(btoa(JSON.stringify(generatedConfig)))
@@ -131,7 +131,11 @@ data:
 			<Section title="Docker auth">
 				<SectionContent>
 					<p>Host</p>
-					<Input placeholder="docker-server" onChange={(value) => setHost(value.target.value)} defaultValue={host} />
+					<Input
+						placeholder="docker-server"
+						onChange={(value) => setServer(value.target.value)}
+						defaultValue={server}
+					/>
 
 					<p>Username</p>
 					<Input placeholder="docker-username" onChange={(value) => setUsername(value.target.value)} />
