@@ -7,8 +7,28 @@ import fetchWrenOffset from 'utils/fetchWrenOffset'
 
 import { Section } from 'components'
 
-const Input = styled.input`
+const SectionContent = styled.div`
+	display: grid;
+	grid-row-gap: 0.5rem;
+	grid-template-columns: 100px auto;
 	width: 100%;
+
+	p {
+		margin: 0;
+	}
+`
+
+const Input = styled.input`
+	background-color: rgba(255, 255, 255, 0.05);
+	border: none;
+	color: ${({ theme }) => theme.colors.font};
+	padding: 0.5rem;
+	width: 100%;
+
+	&:focus {
+		box-shadow: inset 0 0 0 2px ${({ theme }) => theme.colors.red};
+		outline: none;
+	}
 `
 
 const Button = styled.button`
@@ -109,35 +129,28 @@ data:
 				</p>
 			</Section>
 			<Section title="Docker auth">
-				<p>
-					Host
-					<Input
-						placeholder="host"
-						name="host"
-						onChange={(value) => setHost(value.target.value)}
-						defaultValue={host}
-					/>
-				</p>
+				<SectionContent>
+					<p>Host</p>
+					<Input placeholder="docker-server" onChange={(value) => setHost(value.target.value)} defaultValue={host} />
 
-				<p>
-					Username
-					<Input placeholder="username" name="username" onChange={(value) => setUsername(value.target.value)} />
-				</p>
+					<p>Username</p>
+					<Input placeholder="docker-username" onChange={(value) => setUsername(value.target.value)} />
 
-				<p>
-					Password
+					<p>Password</p>
 					<Input
-						placeholder="password"
+						placeholder="docker-password"
 						type="password"
-						name="password"
 						onChange={(value) => setPassword(value.target.value)}
 					/>
-				</p>
 
-				<p>
-					Email
-					<Input placeholder="email" type="email" name="email" onChange={(value) => setEmail(value.target.value)} />
-				</p>
+					<p>Email</p>
+					<Input
+						placeholder="docker-email"
+						type="email"
+						name="email"
+						onChange={(value) => setEmail(value.target.value)}
+					/>
+				</SectionContent>
 			</Section>
 			<Section title="Generated Base64">
 				<Code>{base64}</Code>
