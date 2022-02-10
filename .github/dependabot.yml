@@ -21,6 +21,7 @@ updates:
       - dependency-name: '@types/node'
       - dependency-name: '@types/react'
       - dependency-name: '@types/react-dom'
+      - dependency-name: '@types/*'
     registries:
       - fontawesome
 
