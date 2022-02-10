@@ -34,9 +34,8 @@
     "build": "next build",
     "start": "next start",
     "staging": "APP_ENV=staging next build && next start",
-    "lint": "yarn lint:eslint && yarn lint:stylelint",
-    "lint:eslint": "next lint",
-    "lint:stylelint": "stylelint '{src,pages}/**/*.{ts,tsx}' --cache"
+    "lint": "yarn lint:eslint",
+    "lint:eslint": "next lint --dir src --cache"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.3.0",
@@ -78,10 +77,6 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "identity-obj-proxy": "^3.0.0",
     "prettier": "^2.5.1",
-    "stylelint": "^14.5.0",
-    "stylelint-config-recommended": "^7.0.0",
-    "stylelint-config-styled-components": "^0.1.1",
-    "stylelint-order": "^5.0.0",
     "typescript": "^4.5.5"
   }
 }
