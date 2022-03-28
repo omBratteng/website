@@ -46,7 +46,7 @@
     "@next/bundle-analyzer": "^12.0.10",
     "@react-aria/focus": "^3.5.0",
     "@react-aria/interactions": "^3.7.0",
-    "next": "^12.0.10",
+    "next": "^12.1.1",
     "next-compose-plugins": "^2.2.1",
     "polished": "^4.1.4",
     "react": "^17.0.2",
