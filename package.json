@@ -1,21 +1,21 @@
 {
-  "name": "@bratteng/bratteng.sh",
+  "name": "@bratteng/website",
   "version": "3.4.1",
   "description": "My personal websites",
   "private": true,
-  "homepage": "https://bratteng.sh",
+  "homepage": "https://bratteng.com",
   "repository": {
     "type": "git",
-    "url": "git@github.com:omBratteng/bratteng.sh.git"
+    "url": "git@github.com:omBratteng/website.git"
   },
   "author": {
     "name": "Ole-Martin Bratteng",
-    "email": "ole-martin@bratteng.solutions",
-    "url": "https://bratteng.solutions"
+    "email": "ole-martin@bratteng.com",
+    "url": "https://bratteng.com"
   },
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/omBratteng/bratteng.sh/issues"
+    "url": "https://github.com/omBratteng/website/issues"
   },
   "browserslist": [
     "defaults",

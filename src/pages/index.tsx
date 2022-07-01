@@ -48,10 +48,7 @@ const Index = (): JSX.Element => {
 						kubernetes secret.{' '}
 						<em>Nothing is stored or sent to the server, everything is generated on the fly on the client</em>
 						side. View the source code on{' '}
-						<a href="https://github.com/omBratteng/bratteng.sh/blob/develop/src/pages/dockerconfigjson.tsx">
-							GitHub
-						</a>
-						.
+						<a href="https://github.com/omBratteng/website/blob/develop/src/pages/dockerconfigjson.tsx">GitHub</a>.
 					</p>
 				</Tool>
 			</Section>

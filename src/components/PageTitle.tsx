@@ -55,10 +55,10 @@ const PageTitle = (): JSX.Element => {
 	const pageTitle =
 		route !== '/' ? (
 			<Link href="/" passHref>
-				<A className="no-bg">bratteng.sh</A>
+				<A className="no-bg">bratteng.com</A>
 			</Link>
 		) : (
-			<Slug>bratteng.sh</Slug>
+			<Slug>bratteng.com</Slug>
 		)
 	return (
 		<H1>

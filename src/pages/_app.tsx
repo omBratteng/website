@@ -57,7 +57,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 				<meta name="apple-mobile-web-app-capable" content="yes" />
 				<link rel="shortcut icon" href="/favicon.ico" />
 
-				<meta property="og:url" content="https://bratteng.sh" />
+				<meta property="og:url" content="https://bratteng.com" />
 				<meta property="og:image" content={ogImage} />
 				<meta property="og:image:type" content="image/png" />
 				<meta property="og:image:alt" content={ogDescription} />
@@ -70,7 +70,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 				<meta name="twitter:card" content="summary" />
 				<meta name="twitter:site" content="@omBratteng" />
 				<meta name="twitter:creator" content="@omBratteng" />
-				<meta name="twitter:url" content="https://bratteng.sh" />
+				<meta name="twitter:url" content="https://bratteng.com" />
 				<meta name="twitter:title" content={ogTitle} />
 				<meta name="twitter:description" content={ogDescription} />
 				<meta name="twitter:image" content={ogImage} />
