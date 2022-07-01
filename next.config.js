@@ -6,7 +6,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const isProd = process.env.NODE_ENV === 'production' && process.env.APP_ENV !== 'staging'
 
-const assetPrefix = isProd ? 'https://cdn.bratteng.sh' : ''
+const assetPrefix = isProd ? 'https://cdn.bratteng.com' : ''
 
 const nextConfig = {
 	reactStrictMode: false,
