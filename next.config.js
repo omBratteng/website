@@ -10,7 +10,7 @@ const assetPrefix = isProd ? 'https://cdn.bratteng.com' : ''
 const nextConfig = {
 	reactStrictMode: false,
 	poweredByHeader: false,
-	assetPrefix,
+	...(isProd && { assetPrefix }),
 	serverRuntimeConfig: {
 		wrenToken: process.env.WREN_TOKEN,
 	},
