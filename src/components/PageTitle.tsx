@@ -48,9 +48,9 @@ const Slug = styled.span<Partial<{ isNotHome: boolean }>>`
 `
 
 const PageTitle = (): JSX.Element => {
-	const { route, query } = useRouter()
+	const { route } = useRouter()
 
-	const subTitle = route === '/404' ? route.substring(1) : query.slug
+	const subTitle = route.substring(1)
 
 	const pageTitle =
 		route !== '/' ? (
