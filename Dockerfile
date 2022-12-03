@@ -26,7 +26,6 @@ COPY public ./public/
 RUN npx next telemetry disable > /dev/null
 
 ARG APP_ENV=production
-ARG WREN_TOKEN
 RUN yarn build
 RUN yarn install --production
 RUN rm -rf .next/cache
