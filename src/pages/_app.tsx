@@ -57,6 +57,8 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 				<meta name="apple-mobile-web-app-capable" content="yes" />
 				<link rel="shortcut icon" href="/favicon.ico" />
 
+				<link rel="me" href="https://cloud-native.social/@omBratteng" />
+
 				<meta property="og:url" content="https://bratteng.com" />
 				<meta property="og:image" content={ogImage} />
 				<meta property="og:image:type" content="image/png" />
