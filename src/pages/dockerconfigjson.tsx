@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 import { Section } from 'components'
+import { useTitle } from 'hooks'
 
 const SectionContent = styled.div`
 	display: grid;
@@ -112,6 +113,7 @@ data:
 
 	return (
 		<>
+			{useTitle('Docker config secret generator')}
 			<Section title="What is this?">
 				<p>
 					A tool that takes generates base64 encoded string that can be used in a{' '}
