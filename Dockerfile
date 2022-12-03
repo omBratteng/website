@@ -32,7 +32,7 @@ RUN yarn install --production
 RUN rm -rf .next/cache
 
 # -- RUNTIME STAGE --------------------------------
-FROM gcr.io/distroless/nodejs:18
+FROM gcr.io/distroless/nodejs18-debian11:nonroot
 ENV NEXT_TELEMETRY_DISABLED=1
 
 WORKDIR /app
