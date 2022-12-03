@@ -36,7 +36,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 	const ogTitle = 'Ole-Martin Bratteng'
 	const ogDescription = `${ogTitle} \u2014 Software developer`
 	const ogImage = `${assetPrefix}/ogimage.png`
-	const siteTitle = 'bratteng \u00B7 sh'
+	const siteTitle = 'bratteng \u00B7 com'
 
 	useEffect(() => {
 		fonts.forEach((font) => {
