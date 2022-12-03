@@ -33,9 +33,6 @@ ENV NEXT_TELEMETRY_DISABLED=1
 
 WORKDIR /app
 
-# copy in our healthcheck binary
-COPY --from=ghcr.io/bratteng/healthcheck:latest --chown=nonroot /healthcheck /healthcheck
-
 COPY --from=build /src/.next/standalone /app/
 COPY --from=build /src/.next/static /app/.next/static
 COPY --chown=nonroot --from=build /src/public /app/public
@@ -45,8 +42,5 @@ USER nonroot
 
 # default next.js port
 EXPOSE 3000
-
-# healthcheck to report the container status
-HEALTHCHECK --interval=5s --timeout=10s --retries=3 CMD [ "/healthcheck", "-port", "3000" ]
 
 CMD ["/app/server.js"]
