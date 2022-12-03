@@ -26,8 +26,6 @@ RUN npx next telemetry disable > /dev/null
 
 ARG APP_ENV=production
 RUN yarn build
-RUN yarn install --production
-RUN rm -rf .next/cache
 
 # -- RUNTIME STAGE --------------------------------
 FROM gcr.io/distroless/nodejs18-debian11:nonroot
@@ -38,11 +36,9 @@ WORKDIR /app
 # copy in our healthcheck binary
 COPY --from=ghcr.io/bratteng/healthcheck:latest --chown=nonroot /healthcheck /healthcheck
 
-COPY --chown=nonroot --from=build /src/package.json /app/package.json
-COPY --chown=nonroot --from=build /src/node_modules /app/node_modules
-COPY --chown=nonroot --from=build /src/.next /app/.next
+COPY --from=build /src/.next/standalone /app/
+COPY --from=build /src/.next/static /app/.next/static
 COPY --chown=nonroot --from=build /src/public /app/public
-COPY --chown=nonroot --from=build /src/next.config.js /app/next.config.js
 
 # run as an unprivileged user
 USER nonroot
@@ -53,4 +49,4 @@ EXPOSE 3000
 # healthcheck to report the container status
 HEALTHCHECK --interval=5s --timeout=10s --retries=3 CMD [ "/healthcheck", "-port", "3000" ]
 
-CMD ["/app/node_modules/.bin/next", "start", "-p", "3000"]
+CMD ["/app/server.js"]

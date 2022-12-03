@@ -7,7 +7,9 @@ const isProd = process.env.NODE_ENV === 'production' && process.env.APP_ENV !== 
 
 const assetPrefix = isProd ? 'https://cdn.bratteng.com' : ''
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
+	output: 'standalone',
 	reactStrictMode: false,
 	poweredByHeader: false,
 	...(isProd && { assetPrefix }),
