@@ -3,7 +3,9 @@ import styled from 'styled-components'
 
 import { AppProps } from 'next/app'
 
-import { library } from '@fortawesome/fontawesome-svg-core'
+// import { library } from '@fortawesome/fontawesome-svg-core'
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { library } = require('@fortawesome/fontawesome-svg-core')
 import { faHashtag } from '@fortawesome/pro-regular-svg-icons'
 
 import { faGithubAlt, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
