@@ -154,5 +154,7 @@ jobs:
         name: Run & check status code
         run: |
           node .next/standalone/server.js &
+          PID=$!
           sleep 5
           curl --silent --fail http://localhost:3000/api/_health
+          kill -s SIGINT $PID
