@@ -11,9 +11,7 @@ const nextConfig = {
 	reactStrictMode: false,
 	poweredByHeader: false,
 	...(isProd && { assetPrefix }),
-	serverRuntimeConfig: {
-		wrenToken: process.env.WREN_TOKEN,
-	},
+	serverRuntimeConfig: {},
 	publicRuntimeConfig: {
 		assetPrefix,
 	},
