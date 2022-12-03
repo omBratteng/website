@@ -18,7 +18,6 @@ RUN yarn install --frozen-lockfile
 COPY next-env.d.ts ./
 COPY tsconfig.json ./
 COPY .eslintrc.json ./
-COPY babel.config.js ./
 COPY next.config.js ./
 COPY src ./src/
 COPY public ./public/

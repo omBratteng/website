@@ -1,37 +1,38 @@
 import type { DocumentContext, DocumentInitialProps } from 'next/document'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
+import createEmotionServer from '@emotion/server/create-instance'
+
+import createEmotionCache from 'createEmotionCache'
 
 export default class Doc extends Document {
 	static async getInitialProps(context: DocumentContext): Promise<DocumentInitialProps> {
-		const sheet = new ServerStyleSheet()
 		const originalRenderPage = context.renderPage
 
-		try {
-			context.renderPage = () =>
-				originalRenderPage({
-					// TODO: Remove this when https://github.com/vercel/next.js/issues/28786 is fixed
-					// eslint-disable-next-line react/display-name
-					enhanceApp: (App) => (props) =>
-						sheet.collectStyles(
-							<StyleSheetManager>
-								<App {...props} />
-							</StyleSheetManager>,
-						),
-				})
+		const emotionCache = createEmotionCache()
+		const { extractCriticalToChunks } = createEmotionServer(emotionCache)
 
-			const initialProps = await Document.getInitialProps(context)
-			return {
-				...initialProps,
-				styles: [
-					<>
-						{initialProps.styles}
-						{sheet.getStyleElement()}
-					</>,
-				],
-			}
-		} finally {
-			sheet.seal()
+		context.renderPage = () =>
+			originalRenderPage({
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
+				enhanceApp: (App: any) =>
+					function EnhanceApp(props) {
+						return <App emotionCache={emotionCache} {...props} />
+					},
+			})
+
+		const initialProps = await Document.getInitialProps(context)
+		const emotionStyles = extractCriticalToChunks(initialProps.html)
+		const emotionStyleTags = emotionStyles.styles.map((style) => (
+			<style
+				data-emotion={`${style.key} ${style.ids.join(' ')}`}
+				key={style.key}
+				dangerouslySetInnerHTML={{ __html: style.css }}
+			/>
+		))
+
+		return {
+			...initialProps,
+			...emotionStyleTags,
 		}
 	}
 

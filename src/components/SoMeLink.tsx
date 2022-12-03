@@ -1,5 +1,6 @@
 import type { IconName, IconPrefix } from '@fortawesome/fontawesome-common-types'
-import styled, { css } from 'styled-components'
+import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { hideVisually, size } from 'polished'
 
