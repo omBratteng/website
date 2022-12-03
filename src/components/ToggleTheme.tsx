@@ -62,7 +62,7 @@ const ToggleTheme = (): JSX.Element => {
 			onClick={() => setTheme((prevState) => !prevState)}
 			aria-label={`Toggle colour scheme`}
 		>
-			<FontAwesomeIcon icon={['fad', icon]} fixedWidth />
+			<FontAwesomeIcon icon={['fas', icon]} fixedWidth />
 		</Button>
 	)
 }

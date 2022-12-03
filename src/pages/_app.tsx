@@ -10,7 +10,7 @@ import { faHashtag } from '@fortawesome/pro-regular-svg-icons'
 
 import { faGithubAlt, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
-import { faLightbulb, faLightbulbOn, faLightbulbSlash } from '@fortawesome/pro-duotone-svg-icons'
+import { faLightbulb, faLightbulbOn, faLightbulbSlash } from '@fortawesome/pro-solid-svg-icons'
 
 // Next.js
 import Head from 'next/head'
