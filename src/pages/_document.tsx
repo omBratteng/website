@@ -23,12 +23,12 @@ export default class Doc extends Document {
 			const initialProps = await Document.getInitialProps(context)
 			return {
 				...initialProps,
-				styles: (
+				styles: [
 					<>
 						{initialProps.styles}
 						{sheet.getStyleElement()}
-					</>
-				),
+					</>,
+				],
 			}
 		} finally {
 			sheet.seal()
