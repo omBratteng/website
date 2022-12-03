@@ -1,10 +1,8 @@
 import styled from 'styled-components'
 
 import type { GetStaticProps } from 'next'
-import type { OffsetTonnes } from 'types/dto'
 
 import { Section } from 'components'
-import fetchWrenOffset from 'utils/fetchWrenOffset'
 import Tool from 'components/Tool'
 
 const SectionContent = styled.div`
@@ -56,10 +54,10 @@ const Index = (): JSX.Element => {
 	)
 }
 
-export const getStaticProps: GetStaticProps<{ offset: OffsetTonnes }> = async () => {
+export const getStaticProps: GetStaticProps<{ hello: string }> = async () => {
 	return {
 		props: {
-			offset: await fetchWrenOffset(),
+			hello: 'world',
 		},
 	}
 }

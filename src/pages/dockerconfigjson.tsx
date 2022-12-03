@@ -1,10 +1,6 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
-import type { GetStaticProps } from 'next'
-import type { OffsetTonnes } from 'types/dto'
-import fetchWrenOffset from 'utils/fetchWrenOffset'
-
 import { Section } from 'components'
 
 const SectionContent = styled.div`
@@ -177,14 +173,6 @@ data:
 			</Section>
 		</>
 	)
-}
-
-export const getStaticProps: GetStaticProps<{ offset: OffsetTonnes }> = async () => {
-	return {
-		props: {
-			offset: await fetchWrenOffset(),
-		},
-	}
 }
 
 export default Page

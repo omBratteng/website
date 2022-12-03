@@ -18,7 +18,7 @@ import getConfig from 'next/config'
 import { AppProvider } from 'contexts'
 
 // Components
-import { Footer, Header, Main } from 'components'
+import { Header, Main } from 'components'
 import fonts from 'fonts.json'
 
 const { publicRuntimeConfig } = getConfig()
@@ -82,7 +82,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 						<Header />
 						<Component {...pageProps} />
 					</Main>
-					<Footer offset={pageProps.offset} />
+					{/* <Footer /> */}
 				</Wrapper>
 			</AppProvider>
 		</>
