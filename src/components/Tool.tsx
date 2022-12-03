@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 	}
 `
 
-const Title = styled.a`
+const Title = styled(Link)`
 	font-size: 1.5em;
 	margin: 0 0 0.5rem;
 `
@@ -33,9 +33,9 @@ type Props = {
 const Tool = ({ name, href, children }: PropsWithChildren<Props>): JSX.Element => {
 	return (
 		<Wrapper>
-			<Link href={href} passHref>
-				<Title>{name}</Title>
-			</Link>
+			<Title href={href} passHref>
+				{name}
+			</Title>
 			{children}
 		</Wrapper>
 	)

@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-const A = styled.a`
+const HomeLink = styled(Link)`
 	cursor: pointer;
 	padding: 0 0.5rem;
 	transition: color 0.3s ease;
@@ -54,9 +54,9 @@ const PageTitle = (): JSX.Element => {
 
 	const pageTitle =
 		route !== '/' ? (
-			<Link href="/" passHref>
-				<A className="no-bg">bratteng.com</A>
-			</Link>
+			<HomeLink className="no-bg" href="/" passHref>
+				bratteng.com
+			</HomeLink>
 		) : (
 			<Slug>bratteng.com</Slug>
 		)
