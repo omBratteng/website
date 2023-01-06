@@ -18,12 +18,12 @@ jobs:
     steps:
       -
         name: Checkout code
-        uses: actions/checkout@v3.1.0
+        uses: actions/checkout@v3.3.0
 
       -
         name: Docker meta
         id: docker_meta
-        uses: docker/metadata-action@v4.0.1
+        uses: docker/metadata-action@v4.1.1
         with:
           images: ghcr.io/ombratteng/website
           flavor: |
@@ -43,7 +43,7 @@ jobs:
 
       -
         name: Cache Docker layers
-        uses: actions/cache@v3.0.11
+        uses: actions/cache@v3.2.2
         with:
           path: /tmp/.buildx-cache
           key: ${{ runner.os }}-buildx-${{ github.sha }}
