@@ -1,6 +1,6 @@
 # -- BUILD STAGE --------------------------------
 
-FROM node:18.12.1-bullseye-slim AS build
+FROM node:18.14.2-bullseye-slim AS build
 WORKDIR /src
 
 # Define build arguments & map them to environment variables
