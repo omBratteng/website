@@ -28,7 +28,7 @@ const Index = (): JSX.Element => {
 					</a>
 					. <span itemProp="jobTitle">Software Engineer</span> at{' '}
 					<span itemProp="worksFor" itemScope itemType="https://schema.org/Organization">
-						<a href="https://daily.dev/" itemProp="url">
+						<a href="https://daily.dev/?ref=bratteng.com" itemProp="url">
 							<span itemProp="name">Daily Dev</span>
 						</a>
 					</span>
