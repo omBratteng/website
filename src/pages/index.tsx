@@ -21,15 +21,15 @@ const Index = (): JSX.Element => {
 		<>
 			<Section title="About">
 				<SectionContent itemScope itemType="https://schema.org/Person">
-					<span itemProp="name">Ole-Martin Bratteng</span> &mdash; Software Developer. Located in the beautiful city
-					of{' '}
-					<a href="https://en.wikipedia.org/wiki/Trondheim">
-						<span itemProp="address">Trondheim</span>, <span itemProp="nationality">Norway</span>
+					<span itemProp="name">Ole-Martin Bratteng</span> &mdash; Software Engineer. Located in the beautiful
+					municipality of{' '}
+					<a href="https://en.wikipedia.org/wiki/Stjørdal">
+						<span itemProp="address">Stjørdal</span>, <span itemProp="nationality">Norway</span>
 					</a>
-					. <span itemProp="jobTitle">Software Developer</span> at{' '}
+					. <span itemProp="jobTitle">Software Engineer</span> at{' '}
 					<span itemProp="worksFor" itemScope itemType="https://schema.org/Organization">
-						<a href="https://www.arkivverket.no/en" itemProp="url">
-							<span itemProp="name">the National Archives of Norway</span>
+						<a href="https://daily.dev/" itemProp="url">
+							<span itemProp="name">Daily Dev</span>
 						</a>
 					</span>
 					.
