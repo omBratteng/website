@@ -35,7 +35,7 @@ function verifyWebhookSignature<T>(req: NextApiRequest, body: string): T[] | Err
 	const mac = createHmac('sha256', secret)
 	mac.update(timestamp.toString())
 	mac.update('.')
-	mac.update(body)
+	mac.update(Buffer.from(body))
 	const want = mac.digest('hex')
 
 	// Verify that the signatures match.
