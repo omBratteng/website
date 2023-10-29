@@ -62,6 +62,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/server": "^11.10.0",
     "@emotion/styled": "^11.10.5",
+    "@fortawesome/fontawesome-common-types": "^6.4.2",
     "@types/css-font-loading-module": "^0.0.x",
     "@types/node": "^18.x",
     "@types/react": "^18.x",

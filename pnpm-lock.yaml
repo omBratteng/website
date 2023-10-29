@@ -76,6 +76,9 @@ devDependencies:
   '@emotion/styled':
     specifier: ^11.10.5
     version: 11.11.0(@emotion/react@11.11.1)(@types/react@18.2.33)(react@18.2.0)
+  '@fortawesome/fontawesome-common-types':
+    specifier: ^6.4.2
+    version: 6.4.2
   '@types/css-font-loading-module':
     specifier: ^0.0.x
     version: 0.0.10
@@ -1520,7 +1523,6 @@ packages:
     resolution: {integrity: sha512-1DgP7f+XQIJbLFCTX1V2QnxVmpLdKdzzo2k8EmvDOePfchaIGQ9eCHj2up3/jNEbZuBqel5OxiaOJf37TWauRA==, tarball: https://npm.fontawesome.com/@fortawesome/fontawesome-common-types/-/6.4.2/fontawesome-common-types-6.4.2.tgz}
     engines: {node: '>=6'}
     requiresBuild: true
-    dev: false
 
   /@fortawesome/fontawesome-svg-core@6.4.2:
     resolution: {integrity: sha512-gjYDSKv3TrM2sLTOKBc5rH9ckje8Wrwgx1CxAPbN5N3Fm4prfi7NsJVWd1jklp7i5uSCVwhZS5qlhMXqLrpAIg==, tarball: https://npm.fontawesome.com/@fortawesome/fontawesome-svg-core/-/6.4.2/fontawesome-svg-core-6.4.2.tgz}
