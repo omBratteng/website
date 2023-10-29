@@ -139,6 +139,18 @@ const endpoint: NextApiHandler = async (req, res) => {
 							},
 						}
 
+						const payload = {
+							rrset_values: [ipAddress],
+							rrset_ttl: 300,
+						}
+
+						const logOptions = {
+							payload,
+							options,
+						}
+
+						console.log(logOptions)
+
 						const req = https.request(options, function (res) {
 							// eslint-disable-next-line @typescript-eslint/no-explicit-any
 							const chunks: any[] = []
@@ -154,12 +166,7 @@ const endpoint: NextApiHandler = async (req, res) => {
 						})
 
 						if (item.type === 'nodeCreated') {
-							req.write(
-								JSON.stringify({
-									rrset_values: [ipAddress],
-									rrset_ttl: 300,
-								}),
-							)
+							req.write(JSON.stringify(payload))
 						}
 						req.end()
 					}
