@@ -69,7 +69,10 @@ const appGlobalStyles = () => css`
 	body {
 		background: var(--global-background-color);
 		color: var(--global-font-color);
-		font-feature-settings: 'liga' 1, 'lnum' 1, 'tnum' 1;
+		font-feature-settings:
+			'liga' 1,
+			'lnum' 1,
+			'tnum' 1;
 		font-variant-ligatures: common-ligatures;
 		line-height: var(--line-height);
 		margin: 0;
@@ -79,7 +82,9 @@ const appGlobalStyles = () => css`
 		}
 
 		&[initialised] {
-			transition: background 0.5s ease, color 0.5s ease;
+			transition:
+				background 0.5s ease,
+				color 0.5s ease;
 		}
 	}
 
