@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "target": "es2016",
+    "target": "ES2022",
     "lib": [
       "dom",
       "dom.iterable",
@@ -23,25 +23,19 @@
     "incremental": true,
     "jsx": "preserve",
     "baseUrl": ".",
-    "paths": {
-      "*": [
-        "src/*",
-        "test/*"
-      ],
-      "assets/*": [
-        "public/assets/*"
-      ],
-      "pages/*": [
-        "src/pages/*"
-      ]
-    }
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "**/*.js",
-    "**/*.jsx"
+    "**/*.jsx",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
