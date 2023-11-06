@@ -23,7 +23,7 @@ jobs:
       -
         name: Docker meta
         id: docker_meta
-        uses: docker/metadata-action@v4.1.1
+        uses: docker/metadata-action@v5.0.0
         with:
           images: ghcr.io/ombratteng/website
           flavor: |
