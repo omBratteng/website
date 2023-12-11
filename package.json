@@ -54,7 +54,7 @@
     "react-use": "^17.4.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.2",
+    "@babel/core": "^7.23.6",
     "@babel/preset-env": "^7.23.2",
     "@babel/preset-react": "^7.22.15",
     "@emotion/cache": "^11.11.0",
