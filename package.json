@@ -45,7 +45,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@next/bundle-analyzer": "^14.0.1",
     "@react-aria/focus": "^3.14.3",
-    "@react-aria/interactions": "^3.19.1",
+    "@react-aria/interactions": "^3.21.1",
     "next": "^14.0.1",
     "polished": "^4.2.2",
     "react": "^18.2.0",
