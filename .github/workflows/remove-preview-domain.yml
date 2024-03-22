@@ -1,10 +1,7 @@
-name: Assign preview-domain
+name: Unassign preview-domain
 on:
   pull_request: # Trigger on pull request
-    types: [opened, reopened]
-  push: # Trigger on push to any branch
-    branches:
-      - '*'
+    types: [closed]
 
 jobs:
   assign-preview-domain:

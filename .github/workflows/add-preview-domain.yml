@@ -1,0 +1,12 @@
+name: Assign preview-domain
+on:
+  pull_request: # Trigger on pull request
+    types: [opened, reopened]
+
+jobs:
+  assign-preview-domain:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "PR number ${{ github.event.number }}"
+          echo "Ref ${{ github.ref_name }}"
