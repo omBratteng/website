@@ -10,3 +10,4 @@ jobs:
       - run: |
           echo "PR number ${{ github.event.number }}"
           echo "Ref ${{ github.ref_name }}"
+          echo "Head ref ${{ github.head_ref }}"
