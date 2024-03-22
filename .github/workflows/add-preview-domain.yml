@@ -22,24 +22,26 @@ jobs:
         uses: actions/github-script@v7.0.1
         with:
           script: |
-            const hasAlreadyCommented = await github.rest.issues
-              .listComments({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-              })
-              .then(({ data }) =>
-                data.some((comment) => comment.body.includes('mount-secret'))
-              )
+            const knownString = '## Preview domain'
+            const pullRequest = await github.rest.pulls.get({
+              pull_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            })
+            const hasAlreadyCommented = pullRequest.data.body.includes(knownString)
 
             if (hasAlreadyCommented) {
               console.log('Already commented once')
             } else {
               console.log('Creating comment for the first time')
-              await github.rest.issues.createComment({
-                issue_number: context.issue.number,
+              const body = pullRequest.data.body
+                ? `${pullRequest.data.body}\n\n${knownString}\nhttps://${{ github.head_ref }}.${{ vars.PREVIEW_DOMAIN }}`
+                : `${knownString}\nhttps://${{ github.head_ref }}.${{ vars.PREVIEW_DOMAIN }}`
+
+              await github.rest.pulls.update({
+                pull_number: context.issue.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                body: `Preview domain: https://${{ github.head_ref }}.${{ vars.PREVIEW_DOMAIN }}`,
+                body: body,
               })
             }
