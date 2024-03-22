@@ -3,9 +3,14 @@ on:
   pull_request: # Trigger on pull request
     types: [opened, reopened]
 
+permissions:
+  contents: read
+
 jobs:
   assign-preview-domain:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
       - name: Assign preview-domain
         run: |
@@ -13,3 +18,28 @@ jobs:
             -H "Authorization: Bearer ${{secrets.VERCEL_BEARER_TOKEN}}" \
             -H "Content-Type: application/json" \
             -d '{"name": "${{ github.head_ref }}.${{ vars.PREVIEW_DOMAIN }}","gitBranch":"${{ github.head_ref }}"}'
+      - name: Comment with the assigned preview-domain
+        uses: actions/github-script@v7.0.1
+        with:
+          script: |
+            const hasAlreadyCommented = await github.rest.issues
+              .listComments({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+              })
+              .then(({ data }) =>
+                data.some((comment) => comment.body.includes('mount-secret'))
+              )
+
+            if (hasAlreadyCommented) {
+              console.log('Already commented once')
+            } else {
+              console.log('Creating comment for the first time')
+              await github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `Preview domain: https://${{ github.head_ref }}.${{ vars.PREVIEW_DOMAIN }}`,
+              })
+            }
