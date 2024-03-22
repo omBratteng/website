@@ -23,7 +23,7 @@ jobs:
         uses: actions/github-script@v7.0.1
         with:
           script: |
-            const knownString = '## Preview domain'
+            const knownString = '### Preview domain'
             const pullRequest = await github.rest.pulls.get({
               pull_number: context.issue.number,
               owner: context.repo.owner,
@@ -36,8 +36,8 @@ jobs:
             } else {
               console.log('Creating comment for the first time')
               const body = pullRequest.data.body
-                ? `${pullRequest.data.body}\n\n${knownString}\n${{ steps.prepare.outputs.domain }}`
-                : `${knownString}\n${{ steps.prepare.outputs.domain }}`
+                ? `${pullRequest.data.body}\n\n${knownString}\nhttps://${{ steps.prepare.outputs.domain }}`
+                : `${knownString}\nhttps://${{ steps.prepare.outputs.domain }}`
 
               await github.rest.pulls.update({
                 pull_number: context.issue.number,
