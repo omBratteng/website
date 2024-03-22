@@ -1,0 +1,14 @@
+name: Assign preview-domain
+on:
+  pull_request: # Trigger on pull request
+    types: [opened, reopened]
+  push: # Trigger on push to any branch
+    branches:
+      - '*'
+
+jobs:
+  assign-preview-domain:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo ${{ github.event.number }}
