@@ -7,7 +7,7 @@ jobs:
   unassign-preview-domain:
     runs-on: ubuntu-latest
     steps:
-      - name: Assign preview-domain
+      - name: Unssign preview-domain
         run: |
           curl -X DELETE "https://vercel.com/api/v10/projects/${{secrets.VERCEL_PROJECT_ID}}/domains/${{ github.head_ref }}.${{ vars.PREVIEW_DOMAIN }}" \
             -H "Authorization: Bearer ${{secrets.VERCEL_BEARER_TOKEN}}" \
