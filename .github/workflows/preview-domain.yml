@@ -12,3 +12,4 @@ jobs:
     steps:
       - run: |
           echo "PR number ${{ github.event.number }}"
+          echo "Ref ${{ github.ref_name }}"
