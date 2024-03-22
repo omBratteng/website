@@ -1,0 +1,15 @@
+name: Assign preview-domain
+on:
+  pull_request: # Trigger on pull request
+    types: [opened, reopened]
+
+jobs:
+  assign-preview-domain:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign preview-domain
+        run: |
+          curl -X POST "https://vercel.com/api/v10/projects/${{secrets.VERCEL_PROJECT_ID}}/domains" \
+            -H "Authorization: Bearer ${{secrets.VERCEL_BEARER_TOKEN}}" \
+            -H "Content-Type: application/json" \
+            -d '{"name": "${{ github.head_ref }}.${{ vars.PREVIEW_DOMAIN }}","gitBranch":"${{ github.head_ref }}"}'
