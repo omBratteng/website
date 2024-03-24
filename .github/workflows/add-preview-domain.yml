@@ -1,7 +1,10 @@
 name: Assign preview-domain
 on:
-  pull_request: # Trigger on pull request
-    types: [opened, reopened]
+  # Trigger when a pull request is opened or reopened
+  pull_request:
+    types:
+      - opened
+      - reopened
 
 permissions:
   contents: read
@@ -12,7 +15,8 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - id: prepare
+      - name: Prepare domain
+        id: prepare
         uses: actions/github-script@v7.0.1
         with:
           script: |
@@ -49,8 +53,7 @@ jobs:
 
       - name: Assign preview-domain
         run: |
-          BRANCH=
-          curl -X POST "https://vercel.com/api/v10/projects/${{secrets.VERCEL_PROJECT_ID}}/domains" \
-            -H "Authorization: Bearer ${{secrets.VERCEL_BEARER_TOKEN}}" \
+          curl -X POST "https://vercel.com/api/v10/projects/${{ secrets.VERCEL_PROJECT_ID }}/domains" \
+            -H "Authorization: Bearer ${{ secrets.VERCEL_BEARER_TOKEN }}" \
             -H "Content-Type: application/json" \
             -d '{"name": "${{ steps.prepare.outputs.domain }}","gitBranch":"${{ github.head_ref }}"}'
