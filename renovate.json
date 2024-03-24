@@ -1,6 +1,22 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    ":dependencyDashboard",
+    ":semanticPrefixChore",
+    ":ignoreModulesAndTests",
+    ":prHourlyLimitNone",
+    ":enablePreCommit",
+    ":semanticCommits"
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["npm"],
+      "groupName": "npm"
+    },
+    {
+      "matchDatasources": ["npm"],
+      "matchDepTypes": ["devDependencies"],
+      "groupName": "npm-dev"
+    }
   ]
 }
