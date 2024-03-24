@@ -34,13 +34,13 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
             })
-            const hasAlreadyCommented = pullRequest.data.body.includes(knownString)
+            const hasAlreadyCommented = pullRequest?.data?.body?.includes(knownString)
 
             if (hasAlreadyCommented) {
               console.log('Already commented once')
             } else {
               console.log('Creating comment for the first time')
-              const body = pullRequest.data.body
+              const body = pullRequest?.data?.body
                 ? `${pullRequest.data.body}\n\n${knownString}\nhttps://${{ steps.prepare.outputs.domain }}`
                 : `${knownString}\nhttps://${{ steps.prepare.outputs.domain }}`
 
