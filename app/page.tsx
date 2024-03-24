@@ -24,11 +24,6 @@ const Page = (): JSX.Element => {
 					.
 				</div>
 			</Section>
-			<Section title="Testing wildcard preview domain">
-				<div className="text-base md:text-xl hyphens-auto">
-					<p>Testing wildcard preview domain. This is a test to see if the preview domain works as expected.</p>
-				</div>
-			</Section>
 		</>
 	)
 }

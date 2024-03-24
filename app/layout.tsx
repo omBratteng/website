@@ -62,9 +62,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<meta name="twitter:image" content={ogImage} />
 				<meta name="twitter:image:alt" content={ogDescription} /> */}
 			</Head>
-			<body>
+			<body className="pt-20">
 				{/* <AppProvider> */}
-				<div className="flex flex-col min-h-[stretch] mt-20">
+				<div className="flex flex-col min-h-[stretch]">
 					<PageTitle />
 					<main className="mx-2 max-w-[43.75rem] w-full py-1 self-center">{children}</main>
 				</div>
