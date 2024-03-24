@@ -42,7 +42,6 @@
 				"printWidth": 127
 			}
 		],
-		"@typescript-eslint/type-annotation-spacing": "error",
 		"@typescript-eslint/no-empty-function": "off"
 	}
 }

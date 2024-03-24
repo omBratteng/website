@@ -5,9 +5,7 @@ import { usePathname } from 'next/navigation'
 
 const PageTitle = (): JSX.Element => {
 	const pathName = usePathname()
-
 	const subTitle = pathName.substring(1)
-	console.log(pathName, subTitle)
 
 	const pageTitle =
 		pathName !== '/' ? (
