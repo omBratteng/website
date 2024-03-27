@@ -8,6 +8,9 @@
     ":enablePreCommit",
     ":semanticCommits"
   ],
+  "schedule": [
+	"before 4am on Monday"
+  ],
   "packageRules": [
     {
       "matchDatasources": ["npm"],
