@@ -14,9 +14,9 @@ const nextConfig = {
 	poweredByHeader: false,
 	...(isProd && { assetPrefix }),
 	serverRuntimeConfig: {},
-	// publicRuntimeConfig: {
-	// 	assetPrefix,
-	// },
+	publicRuntimeConfig: {
+		assetPrefix,
+	},
 }
 
 module.exports = withBundleAnalyzer(nextConfig)
