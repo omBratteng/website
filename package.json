@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "@next/bundle-analyzer": "^14.1.x",
+    "@vercel/speed-insights": "^1.0.10",
     "next": "^14.1.x",
     "react": "^18.2.x",
     "react-dom": "^18.2.x"

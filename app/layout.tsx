@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 
 import { PageTitle } from 'components/PageTitle'
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					<PageTitle />
 					<main className="mx-2 max-w-[43.75rem] w-full py-1 self-center">{children}</main>
 				</div>
+				<SpeedInsights />
 			</body>
 		</html>
 	)
