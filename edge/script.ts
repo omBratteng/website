@@ -1,12 +1,6 @@
 import process from "node:process"
 import * as BunnySDK from "@bunny.net/edgescript-sdk";
 
-
-/**
- * Returns an HTTP response.
- * @param {Request} request - The Fetch API Request object.
- * @return {Response} The HTTP response or string.
- */
 BunnySDK.net.http.serve(async (request: Request): Promise<Response> => {
     if (!process.env.BUNNY_API_KEY || !process.env.BUNNY_STORAGE_ZONE_NAME) {
 		return new Response('ERR: Bunny API key or storage zone name not set.', { status: 500 })
