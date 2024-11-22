@@ -1,0 +1,30 @@
+name: deploy-bunny-edge-script
+
+on:
+  push:
+    branches:
+      - 'develop'
+    paths:
+      - 'edge/script.ts'
+      - '.github/workflows/deploy-bunny-edge-script.yml'
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    name: 'Upload script'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy Script to Bunny Edge Scripting
+        uses: BunnyWay/actions/deploy-script@deploy-script_0.3.0
+        with:
+          deploy_key: ${{ secrets.BUNNY_DEPLOY_KEY }}
+          script_id: ${{ secrets.BUNNY_SCRIPT_ID }}
+          file: "edge/script.ts"
