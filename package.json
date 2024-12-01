@@ -30,7 +30,7 @@
     "not op_mini all"
   ],
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "staging": "APP_ENV=staging next build && next start",
