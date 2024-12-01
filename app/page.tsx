@@ -1,6 +1,7 @@
-import { Section } from 'components'
+import type { ReactElement } from 'react'
+import { Section } from 'components/Section'
 
-const Page = (): JSX.Element => (
+const Page = (): ReactElement => (
 	<Section title="About">
 		<div className="text-base md:text-xl hyphens-auto" itemScope itemType="https://schema.org/Person">
 			<span itemProp="name">Ole-Martin Bratteng</span> &mdash; Software Engineer. Located in the beautiful municipality

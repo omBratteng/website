@@ -1,4 +1,5 @@
-import { Metadata } from 'next'
+import type { PropsWithChildren, ReactElement } from 'react'
+import type { Metadata } from 'next'
 import './globals.css'
 
 import { PageTitle } from 'components/PageTitle'
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
 	},
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: PropsWithChildren): ReactElement {
 	return (
 		<html lang="en" data-theme="dark">
 			<body className="pt-20">
