@@ -1,9 +1,7 @@
 import type { NextConfig } from 'next'
 
 /* eslint-disable @typescript-eslint/no-var-requires */
-// const withBundleAnalyzer = require('@next/bundle-analyzer')({
-// 	enabled: process.env.ANALYZE === 'true',
-// })
+import NextBundleAnalyzer from '@next/bundle-analyzer'
 
 const isProd = process.env.NODE_ENV === 'production' && process.env.APP_ENV !== 'staging'
 
@@ -53,4 +51,6 @@ const nextConfig = {
 	],
 } satisfies NextConfig
 
-export default nextConfig
+export default NextBundleAnalyzer({
+	enabled: process.env.ANALYZE === 'true',
+})(nextConfig)
