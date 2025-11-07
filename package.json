@@ -45,7 +45,7 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@types/node": "22.x",
+    "@types/node": "24.x",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.2",
     "@types/webpack-env": "^1.18.5",
