@@ -44,7 +44,7 @@ export default function RootLayout({ children }: PropsWithChildren): ReactElemen
 			<body className="pt-20">
 				<div className="flex flex-col min-h-[stretch]">
 					<PageTitle />
-					<main className="mx-2 max-w-[43.75rem] w-full py-1 self-center">{children}</main>
+					<main className="mx-2 max-w-175 w-full py-1 self-center">{children}</main>
 				</div>
 			</body>
 		</html>

@@ -10,7 +10,7 @@ const PageTitle = (): ReactElement => {
 
 	const pageTitle =
 		pathName !== '/' ? (
-			<Link className="no-bg cursor-pointer px-2 hover:text-[var(--red)] transition" href="/" passHref>
+			<Link className="no-bg cursor-pointer px-2 hover:text-(--red) transition" href="/" passHref>
 				bratteng.com
 			</Link>
 		) : (
@@ -18,10 +18,10 @@ const PageTitle = (): ReactElement => {
 		)
 
 	return (
-		<h1 className="text-4xl pb-4 font-normal text-center w-full before:content-['~/'] before:text-[var(--red)]">
+		<h1 className="text-4xl pb-4 font-normal text-center w-full before:content-['~/'] before:text-(--red)">
 			{pageTitle}
 			{subTitle && (
-				<span className="font-bold before:content-['/'] before:text-[var(--red)] before:mr-2">{subTitle}</span>
+				<span className="font-bold before:content-['/'] before:text-(--red) before:mr-2">{subTitle}</span>
 			)}
 		</h1>
 	)
