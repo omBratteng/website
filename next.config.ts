@@ -13,10 +13,6 @@ const nextConfig = {
 	reactStrictMode: false,
 	poweredByHeader: false,
 	...(isProd && { assetPrefix }),
-	serverRuntimeConfig: {},
-	publicRuntimeConfig: {
-		assetPrefix,
-	},
 	headers: async () => [
 		{
 			source: '/.well-known/atproto-did',
