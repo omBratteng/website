@@ -19,12 +19,12 @@ jobs:
 
     steps:
       - if: ${{ github.actor == 'dependabot[bot]' }}
-        uses: actions/checkout@v5.0.0
+        uses: actions/checkout@v5.0.1
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
       - if: ${{ github.actor != 'dependabot[bot]' }}
-        uses: actions/checkout@v5.0.0
+        uses: actions/checkout@v5.0.1
 
       - uses: pnpm/action-setup@v4.2.0
 
