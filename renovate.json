@@ -14,12 +14,14 @@
   "packageRules": [
     {
       "matchDatasources": ["npm"],
-      "groupName": "npm"
+      "groupName": "npm",
+      "automerge": true
     },
     {
       "matchDatasources": ["npm"],
       "matchDepTypes": ["devDependencies"],
-      "groupName": "npm-dev"
+      "groupName": "npm-dev",
+      "automerge": true
     }
   ]
 }
