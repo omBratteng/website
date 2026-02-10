@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.17",
-    "@types/node": "25.x",
+    "@types/node": "24.x",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
     "@types/webpack-env": "^1.18.8",
