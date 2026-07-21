@@ -4,8 +4,7 @@ import { Section } from 'components/Section'
 const Page = (): ReactElement => (
 	<Section title="About">
 		<div className="text-base md:text-xl hyphens-auto" itemScope itemType="https://schema.org/Person">
-			<span itemProp="name">Ole-Martin Bratteng</span>{' '}&mdash;{' '}
-			<span itemProp="jobTitle">Senior Advisor</span> and{' '}
+			<span itemProp="name">Ole-Martin Bratteng</span> &mdash; <span itemProp="jobTitle">Senior Advisor</span> and{' '}
 			<span itemProp="jobTitle">Team Architect</span> at{' '}
 			<span itemProp="worksFor" itemScope itemType="https://schema.org/Organization">
 				<a href="https://www.skatteetaten.no/" itemProp="url">

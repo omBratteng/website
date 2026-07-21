@@ -1,16 +1,16 @@
-import process from "node:process"
-import * as BunnySDK from "@bunny.net/edgescript-sdk";
+import process from 'node:process'
+import * as BunnySDK from '@bunny.net/edgescript-sdk'
 
 BunnySDK.net.http.serve(async (request: Request): Promise<Response> => {
-    if (!process.env.BUNNY_API_KEY || !process.env.BUNNY_STORAGE_ZONE_NAME) {
+	if (!process.env.BUNNY_API_KEY || !process.env.BUNNY_STORAGE_ZONE_NAME) {
 		return new Response('ERR: Bunny API key or storage zone name not set.', { status: 500 })
 	}
 
-    if (request.method !== 'POST') {
-        return new Response('ERR: Method not allowed.', {status: 405})
-    }
+	if (request.method !== 'POST') {
+		return new Response('ERR: Method not allowed.', { status: 405 })
+	}
 
-    if (request.method !== 'POST') {
+	if (request.method !== 'POST') {
 		return new Response('ERR: Method not allowed.', { status: 405 })
 	}
 
@@ -55,4 +55,4 @@ BunnySDK.net.http.serve(async (request: Request): Promise<Response> => {
 		console.error('Server error:', error)
 		return new Response('ERR: Server error.', { status: 500 })
 	}
-});
+})

@@ -17,9 +17,7 @@ const PageTitleLink = ({ hostname }: { hostname: string }): ReactElement => {
 			) : (
 				<span className="px-2">{hostname}</span>
 			)}
-			{subTitle && (
-				<span className="font-bold before:content-['/'] before:text-(--red) before:mr-2">{subTitle}</span>
-			)}
+			{subTitle && <span className="font-bold before:content-['/'] before:text-(--red) before:mr-2">{subTitle}</span>}
 		</>
 	)
 }

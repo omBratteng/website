@@ -1,6 +1,5 @@
 import type { NextConfig } from 'next'
 
-/* eslint-disable @typescript-eslint/no-var-requires */
 import NextBundleAnalyzer from '@next/bundle-analyzer'
 
 const isProd = process.env.NODE_ENV === 'production' && process.env.APP_ENV !== 'staging'
