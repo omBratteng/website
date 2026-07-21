@@ -4,17 +4,24 @@ import { Section } from 'components/Section'
 const Page = (): ReactElement => (
 	<Section title="About">
 		<div className="text-base md:text-xl hyphens-auto" itemScope itemType="https://schema.org/Person">
-			<span itemProp="name">Ole-Martin Bratteng</span> &mdash; Software Engineer. Located in the beautiful municipality
-			of{' '}
-			<a href="https://en.wikipedia.org/wiki/Stjørdal">
-				<span itemProp="address">Stjørdal</span>, <span itemProp="nationality">Norway</span>
-			</a>
-			. <span itemProp="jobTitle">Software Engineer</span> at{' '}
+			<span itemProp="name">Ole-Martin Bratteng</span>{' '}&mdash;{' '}
+			<span itemProp="jobTitle">Senior Advisor</span> and{' '}
+			<span itemProp="jobTitle">Team Architect</span> at{' '}
 			<span itemProp="worksFor" itemScope itemType="https://schema.org/Organization">
-				<a href="https://daily.dev/?ref=bratteng.com" itemProp="url">
-					<span itemProp="name">Daily Dev</span>
+				<a href="https://www.skatteetaten.no/" itemProp="url">
+					<span itemProp="name">The Norwegian Tax Administration</span>
 				</a>
 			</span>
+			. Located in the beautiful municipality of{' '}
+			<a href="https://en.wikipedia.org/wiki/Stjørdal">
+				<span itemProp="homeLocation" itemScope itemType="https://schema.org/Place">
+					<span itemProp="name">Stjørdal</span>
+				</span>
+			</a>
+			,{' '}
+			<a href="https://en.wikipedia.org/wiki/Norway">
+				<span itemProp="nationality">Norway</span>
+			</a>
 			.
 		</div>
 	</Section>
