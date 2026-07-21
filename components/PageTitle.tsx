@@ -1,28 +1,15 @@
-'use client'
-
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { headers } from 'next/headers'
 import type { ReactElement } from 'react'
 
-const PageTitle = (): ReactElement => {
-	const pathName = usePathname()
-	const subTitle = pathName.substring(1)
+import { PageTitleLink } from 'components/PageTitleLink'
 
-	const pageTitle =
-		pathName !== '/' ? (
-			<Link className="no-bg cursor-pointer px-2 hover:text-(--red) transition" href="/" passHref>
-				bratteng.com
-			</Link>
-		) : (
-			<span className="px-2">bratteng.com</span>
-		)
+const PageTitle = async (): Promise<ReactElement> => {
+	const host = (await headers()).get('host') ?? 'bratteng.com'
+	const hostname = host.split(':')[0]
 
 	return (
 		<h1 className="text-4xl pb-4 font-normal text-center w-full before:content-['~/'] before:text-(--red)">
-			{pageTitle}
-			{subTitle && (
-				<span className="font-bold before:content-['/'] before:text-(--red) before:mr-2">{subTitle}</span>
-			)}
+			<PageTitleLink hostname={hostname} />
 		</h1>
 	)
 }
