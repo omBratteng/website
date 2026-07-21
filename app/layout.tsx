@@ -37,10 +37,6 @@ export async function generateMetadata(): Promise<Metadata> {
 
 		icons: {
 			shortcut: '/favicon.ico',
-			other: {
-				rel: 'me',
-				url: 'https://cloud-native.social/@omBratteng',
-			},
 		},
 	}
 }
