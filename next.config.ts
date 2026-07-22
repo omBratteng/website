@@ -41,6 +41,28 @@ const nextConfig = {
 					key: 'X-XSS-Protection',
 					value: '1; mode=block',
 				},
+				{
+					key: 'Cache-Control',
+					value: 'public, max-age=0, s-maxage=31536000, stale-while-revalidate=86400',
+				},
+			],
+		},
+		{
+			source: '/(favicon.ico|ogimage.png)',
+			headers: [
+				{
+					key: 'Cache-Control',
+					value: 'public, max-age=86400, stale-while-revalidate=604800',
+				},
+			],
+		},
+		{
+			source: '/(robots.txt|sitemap.xml)',
+			headers: [
+				{
+					key: 'Cache-Control',
+					value: 'public, max-age=3600',
+				},
 			],
 		},
 	],
