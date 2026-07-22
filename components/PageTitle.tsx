@@ -2,7 +2,7 @@ import { headers } from 'next/headers'
 import { domainToUnicode } from 'node:url'
 import type { ReactElement } from 'react'
 
-import { PageTitleLink } from 'components/PageTitleLink'
+import { PageTitleLink } from '@components/PageTitleLink'
 
 const PageTitle = async (): Promise<ReactElement> => {
 	const host = (await headers()).get('host') ?? 'bratteng.com'

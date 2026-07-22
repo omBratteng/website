@@ -4,7 +4,7 @@ import { headers } from 'next/headers'
 import { domainToUnicode } from 'node:url'
 import './globals.css'
 
-import { PageTitle } from 'components/PageTitle'
+import { PageTitle } from '@components/PageTitle'
 
 const ogTitle = 'Ole-Martin Bratteng'
 const ogDescription = `${ogTitle} \u2014 Software developer`

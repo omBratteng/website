@@ -6,12 +6,14 @@ const isProd = process.env.NODE_ENV === 'production' && process.env.APP_ENV !== 
 
 const assetPrefix = isProd ? 'https://cdn.bratteng.com' : ''
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
 	// output: 'standalone',
 	reactStrictMode: false,
 	poweredByHeader: false,
 	...(isProd && { assetPrefix }),
+	experimental: {
+		useTypeScriptCli: true,
+	},
 	headers: async () => [
 		{
 			source: '/.well-known/atproto-did',

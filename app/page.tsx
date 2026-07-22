@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react'
-import { Section } from 'components/Section'
+import { Section } from '@components/Section'
 
 const Page = (): ReactElement => (
 	<Section title="About">
