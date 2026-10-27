@@ -8,6 +8,7 @@
     ":enablePreCommit",
     ":semanticCommits"
   ],
+  "minimumReleaseAge": "1 day",
   "schedule": [
 	"before 4am on Monday"
   ],
